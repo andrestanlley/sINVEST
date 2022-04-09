@@ -20,5 +20,6 @@ const request = async(method, ticker)=>{
 exports.getTicker = async(req,res)=>{
     const {ticker} = req.params
     const result = await request("getCotacoesBalancos", ticker)
+    console.log(`VISUALIZADO: ${ticker.toUpperCase()}.`)
     res.status(200).send(result.data)
 }
