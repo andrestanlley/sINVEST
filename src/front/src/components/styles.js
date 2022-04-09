@@ -4,8 +4,8 @@ export const TopMenu = styled.div`
     position: fixed;
     top: 0;
     left: 0;
-    width: 100vw;
-    padding: 0 2rem;
+    width: 100%;
+    padding: 0 8rem;
     height: 4rem;
     display: flex;
     align-items: center;
@@ -26,6 +26,10 @@ export const TopMenu = styled.div`
 
     li:hover{
         color: grey;
+    }
+
+    @media (max-width: 1080px){
+        padding: 0;
     }
 `
 

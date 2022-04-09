@@ -1,14 +1,24 @@
 import '../style/searchTickers.css'
 import TickerListing from './TickerListing'
+import { useEffect, useState } from 'react'
+import axios from 'axios'
 
 export default function SearchTickers() {
+    const [search, setSearch] = useState('')
+    const [data, setData] = useState([]);
+
+    useEffect(async() => {
+        const response = await axios.get("./data.json");
+        setData(response.data.data)
+      }, [search])
+
     return (
         <div className='search-container'>
             <div id='searchTickers'>
-                <input type="text" placeholder='Buscar ticker'></input>
+                <input type="text" placeholder='Buscar ticker' onChange={e => setSearch(e.target.value)}></input>
                 <img src="./assets/imgs/lupa.png" alt="Lupa" />
             </div>
-            <TickerListing />
+            <TickerListing data={data} />
         </div>
     )
 }
