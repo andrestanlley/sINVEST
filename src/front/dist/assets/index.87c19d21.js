@@ -77,7 +77,7 @@ Add a <Suspense fallback=...> component higher in the tree to provide a loading 
         color: grey;
     }
 
-    @media (max-width: 1080px){
+    @media (max-width: 1300px){
         padding: 0;
     }
 `,Cm=rs.div`
@@ -119,6 +119,7 @@ Add a <Suspense fallback=...> component higher in the tree to provide a loading 
         border-style: none;
         color: var(--branco);
         margin-top: 1.5rem;
+        outline: none;
     }
 
     button:hover{
