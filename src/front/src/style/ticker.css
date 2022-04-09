@@ -1,0 +1,35 @@
+.card{
+    display: grid;
+    background: var(--cinza);
+    padding: 2rem;
+    margin: 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.card:hover{
+    opacity: 0.6;
+}
+
+.card > div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.card h2{
+    margin: 0;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+.card span{
+    color: var(--gray);
+    font-size: 1rem;
+}
+
+.card p {
+    display: block;
+    font-size: 1rem;
+    color: var(--gray);
+}
