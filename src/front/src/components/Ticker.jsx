@@ -1,7 +1,7 @@
 import '../style/ticker.css'
 
-export function Ticker({data}){
-    const { name, ticker, primary_exchange, active} = data;
+export function Ticker({info}){
+    const { name, ticker, primary_exchange, active} = info;
 
     return(
        <div className='card' >
