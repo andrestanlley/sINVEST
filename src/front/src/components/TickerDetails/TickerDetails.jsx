@@ -6,7 +6,7 @@ export default function TickerDetail() {
 
   useEffect(() => {
     const getTicker = async () => {
-      const res = await axios.get("./info.json");
+      const res = await axios.get("/api/ticker/petr4");
       SetTicker(res.data)
     }
     getTicker()
