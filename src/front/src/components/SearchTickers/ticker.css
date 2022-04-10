@@ -5,6 +5,8 @@
     margin: 1rem;
     border-radius: 4px;
     cursor: pointer;
+    color: var(--preto);
+    text-decoration: none;
 }
 
 .card:hover{

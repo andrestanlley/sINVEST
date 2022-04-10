@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { TickerDetails } from './styles'
 import axios from 'axios'
 
 export default function TickerDetail() {
@@ -6,14 +7,14 @@ export default function TickerDetail() {
 
   useEffect(() => {
     const getTicker = async () => {
-      const res = await axios.get("/api/ticker/petr4");
+      const res = await axios.get("../info.json");
       SetTicker(res.data)
     }
     getTicker()
   }, [])
 
   return (
-    <>
+    <TickerDetails>
       {ticker &&
         <div>
           <p>Ticker: {ticker.DescricaoDoAtivo[0].Codigo}</p>
@@ -55,6 +56,6 @@ export default function TickerDetail() {
           <p>Site: {ticker.InfoEmpresaDadosGerais[0].Site}</p>
         </div>
       }
-    </>
+    </TickerDetails>
   )
 }
