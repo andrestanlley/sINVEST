@@ -5,7 +5,7 @@ export default function Header() {
     return (
         <TopMenu>
             <Logo>
-                <Link><img src="../assets/imgs/Logo_001.png" alt="Logo Visão Macro" /></Link>
+                <Link to="../" ><img src="../assets/imgs/Logo_001.png" alt="Logo Visão Macro" /></Link>
             </Logo>
             <div>
                 <ol>
