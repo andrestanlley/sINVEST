@@ -19,6 +19,7 @@ export const TopMenu = styled.div`
     }
 
     li{
+        color: var(--preto);
         margin-right: 1rem;
         cursor: pointer;
         font-weight: 700;

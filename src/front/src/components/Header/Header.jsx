@@ -1,4 +1,5 @@
 import {TopMenu, Logo} from './styles'
+import {Link} from 'react-router-dom'
 
 export default function Header() {
     return (
@@ -8,7 +9,7 @@ export default function Header() {
             </Logo>
             <div>
                 <ol>
-                    <li>início</li>
+                    <Link to="../" ><li>início</li></Link>
                     <li>índices</li>
                     <li>contato</li>
                 </ol>

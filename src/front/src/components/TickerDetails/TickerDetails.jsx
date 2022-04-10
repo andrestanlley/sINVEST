@@ -2,12 +2,12 @@ import { useEffect, useState } from 'react'
 import { TickerDetails } from './styles'
 import axios from 'axios'
 
-export default function TickerDetail() {
+export default function TickerDetail(props) {
   const [ticker, SetTicker] = useState()
 
   useEffect(() => {
     const getTicker = async () => {
-      const res = await axios.get("../info.json");
+      const res = await axios.get(`/api/ticker/${props.ticker}`);
       SetTicker(res.data)
     }
     getTicker()
