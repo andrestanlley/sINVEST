@@ -8,7 +8,6 @@ export default function About() {
     return (
         <div>
             <Header />
-            <h1>About page {ticker}</h1>
             <TickerDetail acao={ticker} />
         </div>
     )
