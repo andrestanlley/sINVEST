@@ -8,7 +8,7 @@ export default function SearchTickers() {
     const [data, setData] = useState([]);
 
     useEffect(async() => {
-        const response = await axios.get("./data.json");
+        const response = await axios.get("https://api-cotacao-b3.labdo.it/api/empresa");
         setData(response.data.data)
         console.log(search)
       }, [search])
