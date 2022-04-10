@@ -1,7 +1,7 @@
 {
   "data": [{
-      "name": "Microsoft Corporation",
-      "symbol": "MSFT",
+      "name": "PETROBRAS",
+      "symbol": "PETR4",
       "has_intraday": false,
       "has_eod": true,
       "country": null,
@@ -16,8 +16,8 @@
       }
     },
     {
-      "name": "Apple Inc",
-      "symbol": "AAPL",
+      "name": "VALE",
+      "symbol": "VALE3",
       "has_intraday": false,
       "has_eod": true,
       "country": null,

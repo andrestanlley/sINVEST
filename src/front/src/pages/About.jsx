@@ -9,7 +9,7 @@ export default function About() {
         <div>
             <Header />
             <h1>About page {ticker}</h1>
-            <TickerDetail ticker={ticker} />
+            <TickerDetail acao={ticker} />
         </div>
     )
 }
