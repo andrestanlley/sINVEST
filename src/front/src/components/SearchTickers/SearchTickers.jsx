@@ -1,4 +1,4 @@
-import '../style/searchTickers.css'
+import './searchTickers.css'
 import TickerListing from './TickerListing'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
@@ -10,6 +10,7 @@ export default function SearchTickers() {
     useEffect(async() => {
         const response = await axios.get("./data.json");
         setData(response.data.data)
+        console.log(search)
       }, [search])
 
     return (

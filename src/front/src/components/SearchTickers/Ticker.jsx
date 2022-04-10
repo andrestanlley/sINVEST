@@ -1,4 +1,4 @@
-import '../style/ticker.css'
+import './ticker.css'
 
 export function Ticker({info}){
     const { name, ticker, primary_exchange, active} = info;

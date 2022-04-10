@@ -1,5 +1,5 @@
-import { Ticker } from '../components/Ticker';
-import '../style/tickerListing.css';
+import { Ticker } from './Ticker';
+import './tickerListing.css';
 
 export default function TickerListing(props) {
   return (
