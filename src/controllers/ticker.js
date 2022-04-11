@@ -4,27 +4,27 @@ const qs = require('qs')
 
 let lastView = [
     {
-        "nm_empresa": "PETROBRAS   ON      N2",
+        "nm_empresa": "PETROBRAS",
         "setor_economico": "Petróleo, Gás e Biocombustíveis",
-        "segmento_b3": "PETROBRAS   ON      N2",
+        "segmento_b3": "N2",
         "cd_acao": "PETR3"
       },
       {
-        "nm_empresa": "VALE        ON      NM",
+        "nm_empresa": "VALE",
         "setor_economico": "Materiais Básicos ",
-        "segmento_b3": "VALE        ON      NM",
+        "segmento_b3": "NM",
         "cd_acao": "VALE3"
       },
       {
-        "nm_empresa": "IRANI       ON      NM",
+        "nm_empresa": "IRANI",
         "setor_economico": "Materiais Básicos ",
-        "segmento_b3": "IRANI       ON      NM",
+        "segmento_b3": "NM",
         "cd_acao": "RANI3"
       },
       {
-        "nm_empresa": "AZUL        PN      N2",
+        "nm_empresa": "AZUL",
         "setor_economico": "Bens Industriais",
-        "segmento_b3": "AZUL        PN      N2",
+        "segmento_b3": "N2",
         "cd_acao": "AZUL4"
       }
 ]
@@ -35,7 +35,7 @@ const addLastView = (ticker)=>{
             let newViewed = {
                 "nm_empresa": ticker.DescricaoDoAtivo[0].NomeMercado,
                 "setor_economico": ticker.ClassificacaoSetorial[0].Setor,
-                "segmento_b3": ticker.DescricaoDoAtivo[0].NomeMercado,
+                "segmento_b3": ticker.DescricaoDoAtivo[0].NomeMercado.substr(-2),
                 "cd_acao": ticker.DescricaoDoAtivo[0].Codigo,
             }
             lastView.push(newViewed)

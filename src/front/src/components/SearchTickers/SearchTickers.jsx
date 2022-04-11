@@ -4,22 +4,27 @@ import { useEffect, useState } from 'react'
 import axios from 'axios'
 
 export default function SearchTickers() {
-    const [search, setSearch] = useState('')
+    const limiter = 28
+
+    const [search, setSearch] = useState()
     const [data, setData] = useState([]);
 
     useEffect(async() => {
         const response = await axios.get("./data.json"); // https://api-cotacao-b3.labdo.it/api/empresa
         setData(response.data)
-        console.log(search)
-      }, [search])
+    }, [])
+
+    function handleSearchTicker(busca){
+        setSearch( data.filter( ( value ) => value.cd_acao.includes(busca.toUpperCase())).slice(0,limiter))
+    }
 
     return (
         <div className='search-container'>
             <div id='searchTickers'>
-                <input type="text" placeholder='Buscar ticker' onChange={e => setSearch(e.target.value)}></input>
+                <input type="text" placeholder='Buscar ticker' onChange={e => handleSearchTicker(e.target.value)}></input>
                 <img src="./assets/imgs/lupa.png" alt="Lupa" />
             </div>
-            <TickerListing data={data} />
+            <TickerListing data={ search ? search : data.slice(0,limiter) } />
         </div>
     )
 }
