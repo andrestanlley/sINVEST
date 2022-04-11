@@ -10,7 +10,7 @@
     "dev": "nodemon src/server.js",
     "start": "node src/server.js",
     "preview": "cd src/front && npm run dev",
-    "buildar": "cd src/front && npm run build && cd../../ && npm run dev"
+    "buildar": "cd src/front && npm run build"
   },
   "keywords": [],
   "author": "",
