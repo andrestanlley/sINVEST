@@ -9,7 +9,6 @@
   "scripts": {
     "dev": "nodemon src/server.js",
     "start": "node src/server.js",
-    "build" : "cd src/front && npm run build && cd ../../ && npm start",
     "preview": "cd src/front && npm run dev"
   },
   "keywords": [],
