@@ -26,8 +26,9 @@
 }
 
 .card span{
-    color: var(--gray);
-    font-size: 1rem;
+    margin-top: .3rem;
+    color: var(--grey);
+    font-size: .7rem;
 }
 
 .card p {

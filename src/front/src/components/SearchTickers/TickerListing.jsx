@@ -6,12 +6,23 @@ export default function TickerListing(props) {
     <>
       <div className='container-tickers'>
         {props.data.map(ticker => {
-          return <Ticker key={ticker.name} info={{
-            name: ticker.name,
-            ticker: ticker.symbol,
-            primary_exchange: ticker.stock_exchange.acronym,
-            active: ticker.has_eod
-          }} />
+          if (ticker.cd_acao.split(",").length > 1) {
+            return ticker.cd_acao.split(",").map(tick => {
+              return <Ticker key={ticker.id+Math.random()} info={{
+                name: ticker.nm_empresa,
+                ticker: tick,
+                segmento: ticker.segmento_b3,
+                setor: ticker.setor_economico
+              }} />
+            })
+          } else {
+            return <Ticker key={ticker.id} info={{
+              name: ticker.nm_empresa,
+              ticker: ticker.cd_acao ? ticker.cd_acao : ticker.cd_acao_rdz,
+              segmento: ticker.segmento_b3,
+              setor: ticker.setor_economico
+            }} />
+          }
         })}
       </div>
     </>

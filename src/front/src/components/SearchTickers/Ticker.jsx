@@ -2,19 +2,19 @@ import './ticker.css'
 import { Link } from 'react-router-dom';
 
 export function Ticker({ info }) {
-    const { name, ticker, primary_exchange, active } = info;
+    const { name, ticker, segmento, setor } = info;
 
     return (
         <Link to={`./sobre/${ticker}`}>
             <div className='card' >
                 <div>
                     <h2> {ticker} </h2>
-                    <span> {primary_exchange} </span>
+                    <span> {segmento} </span>
                 </div>
                 <p> {name} </p>
-                <span
-                    className={active ? "active" : "inative"}
-                >{active ? "Ativo" : "Inativo"}</span>
+                <span>
+                    {setor}
+                    </span>
             </div>
         </Link>
     )

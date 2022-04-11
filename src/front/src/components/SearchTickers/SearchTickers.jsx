@@ -9,7 +9,7 @@ export default function SearchTickers() {
 
     useEffect(async() => {
         const response = await axios.get("https://api-cotacao-b3.labdo.it/api/empresa");
-        setData(response.data.data)
+        setData(response.data)
         console.log(search)
       }, [search])
 
