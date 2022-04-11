@@ -23,7 +23,7 @@ const addLastView = (ticker)=>{
 }
 
 exports.lastView = (req,res)=>{
-    return res.status(200).send(lastView)
+    return res.status(200).send(lastView.list)
 }
 
 exports.request = async (method, ticker) => {
