@@ -25,9 +25,9 @@ export default function TickerDetail(props) {
           {ticker.Oscilacoes.map(osc => {
             return <p key={osc.Var}>Periodo: {osc.Oscilacao} Var: {osc.Var}</p>
           })}
-          {ticker.Cotações[0] && (
+          {ticker.Cotacoes[0] && (
             <>
-              <h1>Cotacoes</h1>
+              <h1>Cotações</h1>
               <p>Data: {ticker.Cotacoes[0].Data}</p>
               <p>Abe: {ticker.Cotacoes[0].Abe}</p>
               <p>Max: {ticker.Cotacoes[0].Max}</p>
