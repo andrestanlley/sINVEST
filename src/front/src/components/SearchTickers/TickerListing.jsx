@@ -6,6 +6,7 @@ export default function TickerListing(props) {
     <>
       <div className='container-tickers'>
         {props.data.map(ticker => {
+          console.log(ticker)
           return <Ticker key={ticker.id} info={{
             name: ticker.DescricaoDoAtivo[0].NomeMercado,
             ticker: ticker.DescricaoDoAtivo[0].Codigo,
