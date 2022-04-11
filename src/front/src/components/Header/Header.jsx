@@ -10,7 +10,7 @@ export default function Header() {
             <div>
                 <ol>
                     <Link to="../" ><li>início</li></Link>
-                    <Link to="../" ><li>índices</li></Link>
+                    <Link to="../indices" ><li>índices</li></Link>
                     <Link to="../" ><li>contato</li></Link>
                 </ol>
             </div>

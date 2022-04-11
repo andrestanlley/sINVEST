@@ -5,7 +5,7 @@ export function Ticker({ info }) {
     const { name, ticker, segmento, setor } = info;
 
     return (
-        <Link to={`./sobre/${ticker}`}>
+        <Link to={`/sobre/${ticker}`}>
             <div className='card' >
                 <div>
                     <h2> {ticker} </h2>

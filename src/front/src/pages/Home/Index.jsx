@@ -1,6 +1,7 @@
 import Header from "../../components/Header/Header";
+import LastView from "../../components/LastView/LastView";
 import Panel from "../../components/Panel/Panel";
-import SearchTickers from '../../components/SearchTickers/SearchTickers'
+
 
 
 export default function Home() {
@@ -8,7 +9,7 @@ export default function Home() {
       <div>
         <Header />
         <Panel/>
-        <SearchTickers/>
+        <LastView/>
       </div>
   )
 }

@@ -10,7 +10,7 @@ export default function TickerListing(props) {
             return ticker.cd_acao.split(",").map(tick => {
               return <Ticker key={ticker.id+Math.random()} info={{
                 name: ticker.nm_empresa,
-                ticker: tick,
+                ticker: tick.trim(),
                 segmento: ticker.segmento_b3,
                 setor: ticker.setor_economico
               }} />
