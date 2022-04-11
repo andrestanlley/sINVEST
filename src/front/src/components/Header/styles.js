@@ -1,15 +1,14 @@
 import styled from 'styled-components'
 
-export const TopMenu = styled.div`
+export const TopMenu = styled.div `
     position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     top: 0;
     left: 0;
     width: 100%;
-    padding: 0 8rem;
     height: 4rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
     background: var(--branco);
     box-shadow: 0 2px 10px var(--cinza);
 
@@ -29,12 +28,20 @@ export const TopMenu = styled.div`
         color: grey;
     }
 
+    .content{
+        max-width: 1080px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
     @media (max-width: 1300px){
         padding: 0;
     }
 `
 
-export const Logo = styled.div`
+export const Logo = styled.div `
     img {
         width: 10rem;
         padding: 1rem;

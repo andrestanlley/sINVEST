@@ -85,14 +85,13 @@ Add a <Suspense fallback=...> component higher in the tree to provide a loading 
  * LICENSE file in the root directory of this source tree.
  */var Zm=z.exports,Ed=60103;Hr.Fragment=60107;if(typeof Symbol=="function"&&Symbol.for){var nc=Symbol.for;Ed=nc("react.element"),Hr.Fragment=nc("react.fragment")}var bm=Zm.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED.ReactCurrentOwner,ev=Object.prototype.hasOwnProperty,tv={key:!0,ref:!0,__self:!0,__source:!0};function xd(e,t,n){var r,i={},o=null,l=null;n!==void 0&&(o=""+n),t.key!==void 0&&(o=""+t.key),t.ref!==void 0&&(l=t.ref);for(r in t)ev.call(t,r)&&!tv.hasOwnProperty(r)&&(i[r]=t[r]);if(e&&e.defaultProps)for(r in t=e.defaultProps,t)i[r]===void 0&&(i[r]=t[r]);return{$$typeof:Ed,type:e,key:o,ref:l,props:i,_owner:bm.current}}Hr.jsx=xd;Hr.jsxs=xd;$o.exports=Hr;const j=$o.exports.jsx,M=$o.exports.jsxs,lr=$o.exports.Fragment;function nv(){return M(qm,{children:[j("hr",{}),M(Jm,{children:[j("div",{children:j("h1",{children:"Footer area 1"})}),j("div",{children:j("h1",{children:"Footer area 2"})})]})]})}const rv=tn.div`
     position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     top: 0;
     left: 0;
     width: 100%;
-    padding: 0 8rem;
     height: 4rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
     background: var(--branco);
     box-shadow: 0 2px 10px var(--cinza);
 
@@ -110,6 +109,14 @@ Add a <Suspense fallback=...> component higher in the tree to provide a loading 
 
     li:hover{
         color: grey;
+    }
+
+    .content{
+        max-width: 1080px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
     }
 
     @media (max-width: 1300px){
@@ -138,8 +145,9 @@ Add a <Suspense fallback=...> component higher in the tree to provide a loading 
  * LICENSE.md file in the root directory of this source tree.
  *
  * @license MIT
- */function su(){return su=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var r in n)Object.prototype.hasOwnProperty.call(n,r)&&(e[r]=n[r])}return e},su.apply(this,arguments)}function Dv(e,t){if(e==null)return{};var n={},r=Object.keys(e),i,o;for(o=0;o<r.length;o++)i=r[o],!(t.indexOf(i)>=0)&&(n[i]=e[i]);return n}const jv=["onClick","reloadDocument","replace","state","target","to"];function Mv(e){let{basename:t,children:n,window:r}=e,i=z.exports.useRef();i.current==null&&(i.current=lv({window:r}));let o=i.current,[l,u]=z.exports.useState({action:o.action,location:o.location});return z.exports.useLayoutEffect(()=>o.listen(u),[o]),z.exports.createElement($v,{basename:t,children:n,location:l.location,navigationType:l.action,navigator:o})}function Iv(e){return!!(e.metaKey||e.altKey||e.ctrlKey||e.shiftKey)}const vn=z.exports.forwardRef(function(t,n){let{onClick:r,reloadDocument:i,replace:o=!1,state:l,target:u,to:a}=t,c=Dv(t,jv),p=Nv(a),g=zv(a,{replace:o,state:l,target:u});function h(w){r&&r(w),!w.defaultPrevented&&!i&&g(w)}return z.exports.createElement("a",su({},c,{href:p,onClick:h,ref:n,target:u}))});function zv(e,t){let{target:n,replace:r,state:i}=t===void 0?{}:t,o=Ov(),l=Ao(),u=Od(e);return z.exports.useCallback(a=>{if(a.button===0&&(!n||n==="_self")&&!Iv(a)){a.preventDefault();let c=!!r||uu(l)===uu(u);o(e,{replace:c,state:i})}},[l,o,u,r,i,n,e])}function Sa(){return M(rv,{children:[j(iv,{children:j(vn,{to:"../",children:j("img",{src:"../assets/imgs/Logo_001.png",alt:"Logo Vis\xE3o Macro"})})}),j("div",{children:M("ol",{children:[j(vn,{to:"../",children:j("li",{children:"in\xEDcio"})}),j(vn,{to:"../indices",children:j("li",{children:"\xEDndices"})}),j(vn,{to:"../",children:j("li",{children:"contato"})})]})})]})}function Td({info:e}){const{name:t,ticker:n,segmento:r,setor:i}=e;return j(vn,{to:`/sobre/${n}`,children:M("div",{className:"card",children:[M("div",{children:[M("h2",{children:[" ",n," "]}),M("span",{children:[" ",r," "]})]}),M("p",{children:[" ",t," "]}),j("span",{children:i})]})})}const Fv=tn.div`
+ */function su(){return su=Object.assign||function(e){for(var t=1;t<arguments.length;t++){var n=arguments[t];for(var r in n)Object.prototype.hasOwnProperty.call(n,r)&&(e[r]=n[r])}return e},su.apply(this,arguments)}function Dv(e,t){if(e==null)return{};var n={},r=Object.keys(e),i,o;for(o=0;o<r.length;o++)i=r[o],!(t.indexOf(i)>=0)&&(n[i]=e[i]);return n}const jv=["onClick","reloadDocument","replace","state","target","to"];function Mv(e){let{basename:t,children:n,window:r}=e,i=z.exports.useRef();i.current==null&&(i.current=lv({window:r}));let o=i.current,[l,u]=z.exports.useState({action:o.action,location:o.location});return z.exports.useLayoutEffect(()=>o.listen(u),[o]),z.exports.createElement($v,{basename:t,children:n,location:l.location,navigationType:l.action,navigator:o})}function Iv(e){return!!(e.metaKey||e.altKey||e.ctrlKey||e.shiftKey)}const vn=z.exports.forwardRef(function(t,n){let{onClick:r,reloadDocument:i,replace:o=!1,state:l,target:u,to:a}=t,c=Dv(t,jv),p=Nv(a),g=zv(a,{replace:o,state:l,target:u});function h(w){r&&r(w),!w.defaultPrevented&&!i&&g(w)}return z.exports.createElement("a",su({},c,{href:p,onClick:h,ref:n,target:u}))});function zv(e,t){let{target:n,replace:r,state:i}=t===void 0?{}:t,o=Ov(),l=Ao(),u=Od(e);return z.exports.useCallback(a=>{if(a.button===0&&(!n||n==="_self")&&!Iv(a)){a.preventDefault();let c=!!r||uu(l)===uu(u);o(e,{replace:c,state:i})}},[l,o,u,r,i,n,e])}function Sa(){return j(rv,{children:M("div",{className:"content",children:[j(iv,{children:j(vn,{to:"../",children:j("img",{src:"../assets/imgs/Logo_001.png",alt:"Logo Vis\xE3o Macro"})})}),j("div",{children:M("ol",{children:[j(vn,{to:"../",children:j("li",{children:"in\xEDcio"})}),j(vn,{to:"../indices",children:j("li",{children:"\xEDndices"})}),j(vn,{to:"../",children:j("li",{children:"contato"})})]})})]})})}function Td({info:e}){const{name:t,ticker:n,segmento:r,setor:i}=e;return j(vn,{to:`/sobre/${n}`,children:M("div",{className:"card",children:[M("div",{children:[M("h2",{children:[" ",n," "]}),M("span",{children:[" ",r," "]})]}),M("p",{children:[" ",t," "]}),j("span",{children:i})]})})}const Fv=tn.div`
     position: relative;
+    z-index: -1;
 
     h1{
         top: -1.5rem;
@@ -178,7 +186,7 @@ Add a <Suspense fallback=...> component higher in the tree to provide a loading 
     }
 
     button{
-        padding: 1rem;
+        padding: 1rem 1.5rem;
         border-radius: 30px;
         font-weight: 700;
         background: linear-gradient(to right, var(--azul), var(--azul-marinho));

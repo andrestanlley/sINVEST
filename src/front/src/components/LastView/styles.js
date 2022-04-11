@@ -2,6 +2,7 @@ import styled from 'styled-components'
 
 export const LastViewContainer = styled.div`
     position: relative;
+    z-index: -1;
 
     h1{
         top: -1.5rem;

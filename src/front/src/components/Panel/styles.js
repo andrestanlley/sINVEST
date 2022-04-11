@@ -26,7 +26,7 @@ export const PanelConteiner = styled.div`
     }
 
     button{
-        padding: 1rem;
+        padding: 1rem 1.5rem;
         border-radius: 30px;
         font-weight: 700;
         background: linear-gradient(to right, var(--azul), var(--azul-marinho));
