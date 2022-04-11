@@ -11,7 +11,7 @@ export default function TickerListing(props) {
             name: ticker.DescricaoDoAtivo[0].NomeMercado,
             ticker: ticker.DescricaoDoAtivo[0].Codigo,
             segmento: ticker.DescricaoDoAtivo[0].NomeMercado.substr(-2),
-            setor: ticker.ClassificacaoSetorial[0].Setor ? ticker.ClassificacaoSetorial[0].Setor : "Indisponivel"
+            setor: ticker.ClassificacaoSetorial[0] ? ticker.ClassificacaoSetorial[0].Setor : "Indisponivel"
           }} />
         })}
       </div>
