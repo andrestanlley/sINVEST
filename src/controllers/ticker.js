@@ -26,6 +26,30 @@ let lastView = [
         "setor_economico": "Bens Industriais",
         "segmento_b3": "N2",
         "cd_acao": "AZUL4"
+      },
+      {
+        "nm_empresa": "COSAN",
+        "setor_economico": "Petróleo, Gás e Biocombustíveis",
+        "segmento_b3": "NM",
+        "cd_acao": "CSAN3"
+      },
+      {
+        "nm_empresa": "DOMMO",
+        "setor_economico": "Petróleo, Gás e Biocombustíveis",
+        "segmento_b3": "RD",
+        "cd_acao": "DMMO11"
+      },
+      {
+        "nm_empresa": "BRADESPAR",
+        "setor_economico": "Financeiro",
+        "segmento_b3": "N1",
+        "cd_acao": "BRAP3"
+      },
+      {
+        "nm_empresa": "GERDAU",
+        "setor_economico": "Materiais Básicos ",
+        "segmento_b3": "N1",
+        "cd_acao": "GGBR3"
       }
 ]
 
@@ -33,13 +57,13 @@ const addLastView = (ticker)=>{
     try {
         if(!lastView.find(tick => tick.cd_acao == ticker.DescricaoDoAtivo[0].Codigo)){
             let newViewed = {
-                "nm_empresa": ticker.DescricaoDoAtivo[0].NomeMercado,
-                "setor_economico": ticker.ClassificacaoSetorial[0].Setor,
-                "segmento_b3": ticker.DescricaoDoAtivo[0].NomeMercado.substr(-2),
-                "cd_acao": ticker.DescricaoDoAtivo[0].Codigo,
+                "nm_empresa": ticker.DescricaoDoAtivo[0].NomeMercado || "Indisponivel",
+                "setor_economico": ticker.ClassificacaoSetorial[0].Setor || "Indisponivel",
+                "segmento_b3": ticker.DescricaoDoAtivo[0].NomeMercado.substr(-2) || "Indisponivel",
+                "cd_acao": ticker.DescricaoDoAtivo[0].Codigo || "Indisponivel",
             }
             lastView.push(newViewed)
-            if (lastView.length > 4) {
+            if (lastView.length > 8) {
                 lastView.shift()
             }
         }
@@ -52,7 +76,7 @@ exports.lastView = (req,res)=>{
     return res.status(200).send(lastView)
 }
 
-const request = async (method, ticker) => {
+exports.request = async (method, ticker) => {
     const {
         BASEURL,
         ELOGIN,
@@ -73,15 +97,19 @@ const request = async (method, ticker) => {
     return await axios(options)
 }
 
+
 exports.getTicker = async (req, res) => {
     const {
         ticker
     } = req.params
     try {
-        const result = await request("getCotacoesBalancos", ticker)
-        console.log(`VISUALIZADO: ${result.data.DescricaoDoAtivo[0].Codigo}.`)
-        addLastView(result.data)
-        res.status(200).send(result.data)
+        const result = await this.request("getCotacoesBalancos", ticker)
+        if(result.data.DescricaoDoAtivo[0].Codigo){
+            console.log(`VISUALIZADO: ${ticker.toUpperCase()}.`)
+            addLastView(result.data)
+            return res.status(200).send(result.data)
+        }
+        throw new {message: "Ticker não encontrado."}
     } catch (error) {
         res.status(500).send(error.message)
     }

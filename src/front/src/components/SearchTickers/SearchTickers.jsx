@@ -10,12 +10,12 @@ export default function SearchTickers() {
     const [data, setData] = useState([]);
 
     useEffect(async() => {
-        const response = await axios.get("./data.json"); // https://api-cotacao-b3.labdo.it/api/empresa
+        const response = await axios.get("./api/tickers"); // https://api-cotacao-b3.labdo.it/api/empresa
         setData(response.data)
     }, [])
 
     function handleSearchTicker(busca){
-        setSearch( data.filter( ( value ) => value.cd_acao.includes(busca.toUpperCase())).slice(0,limiter))
+        setSearch( data.filter( ( value ) => value.cd_acao.includes(busca.toUpperCase()) || value.nm_empresa.includes(busca.toUpperCase()))).slice(0,limiter)
     }
 
     return (

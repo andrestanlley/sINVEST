@@ -1,6 +1,7 @@
 const express = require('express')
 const routes = require('./routes/api')
 const app = express()
+const cacheTickers = require("../src/controllers/cacheTickers")
 require('dotenv').config()
 
 app.use(express.json())
@@ -9,4 +10,5 @@ app.use('/api', routes)
 
 app.listen(process.env.PORT || 3000, ()=>{
     console.log("Running")
+    cacheTickers.saveTickersInMemory()
 })
