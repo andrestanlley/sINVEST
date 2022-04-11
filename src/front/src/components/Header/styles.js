@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 export const TopMenu = styled.div `
+    z-index: 5;
     position: fixed;
     display: flex;
     align-items: center;
