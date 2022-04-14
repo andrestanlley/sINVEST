@@ -7,11 +7,11 @@ import Panel from "../../components/Panel/Panel";
 
 export default function Home() {
   return (
-      <div>
+      <>
         <Header />
         <Panel/>
         <LastView/>
         <Footer/>
-      </div>
+      </>
   )
 }

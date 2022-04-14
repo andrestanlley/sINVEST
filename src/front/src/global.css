@@ -9,23 +9,26 @@
 }
 
 :root{
+    width: 100%;
+    display: flex;
+    justify-content: center;
     --azul: #13b8ec;
     --azul-marinho: #17438c;
     --preto: #323232;
     --branco: #ffffff;
     --cinza: #f1f1f1;
     --cinza-dois: #f3f0eb;
-}
-
-body{
+  }
+  
+  body{
+    max-width: 1080px;
     background: var(--cinza-dois);
     color: var(--preto);
-    max-width: 1080px;
     min-height: 100vh;
     font-family: Roboto, sans-serif;
-    margin: auto;
     scrollbar-width: .7rem;
 }
+
 
 body::-webkit-scrollbar {
     width: .3rem;      

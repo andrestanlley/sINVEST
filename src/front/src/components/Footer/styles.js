@@ -3,9 +3,10 @@ import styled from 'styled-components'
 export const FooterBar = styled.div`
     margin-top: 2rem;
     height: 15rem;
-
+    
     hr{
-    width: 100%;
+    display: flex;
+    flex: 1;
     border-top: none;
     border-right: none;
     border-left: none;
@@ -16,8 +17,8 @@ export const FooterBar = styled.div`
 `
 
 export const FooterSubAreas = styled.div`
-    width: 100%;
     height: 100%;
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
