@@ -1,20 +1,20 @@
 const axios = require('axios')
 require('dotenv').config()
-const lastView = require("../constants/LastView")
+const Lists = require("../constants/Lists")
 const qs = require('qs')
 
 const addLastView = (ticker)=>{
     try {
-        if(!lastView.list.find(tick => tick.cd_acao == ticker.DescricaoDoAtivo[0].Codigo)){
+        if(!Lists.lastview.find(tick => tick.cd_acao == ticker.DescricaoDoAtivo[0].Codigo)){
             let newViewed = {
-                "nm_empresa": ticker.DescricaoDoAtivo[0].NomeMercado || "Indisponivel",
-                "setor_economico": ticker.ClassificacaoSetorial[0].Setor || "Indisponivel",
-                "segmento_b3": ticker.DescricaoDoAtivo[0].NomeMercado.substr(-2) || "Indisponivel",
-                "cd_acao": ticker.DescricaoDoAtivo[0].Codigo || "Indisponivel",
+                "nm_empresa": ticker.DescricaoDoAtivo[0] ? ticker.DescricaoDoAtivo[0].NomeMercado : "Indisponivel",
+                "setor_economico": ticker.ClassificacaoSetorial[0] ? ticker.ClassificacaoSetorial[0].Setor : "Indisponivel",
+                "segmento_b3": ticker.DescricaoDoAtivo[0] ? ticker.DescricaoDoAtivo[0].NomeMercado.substr(-2) : "Indisponivel",
+                "cd_acao": ticker.DescricaoDoAtivo[0] ? ticker.DescricaoDoAtivo[0].Codigo : "Indisponivel",
             }
-            lastView.list.push(newViewed)
-            if (lastView.list.length > 8) {
-                lastView.list.shift()
+            Lists.lastview.push(newViewed)
+            if (Lists.lastview.length > 8) {
+                Lists.lastview.shift()
             }
         }
     } catch (error) {
@@ -23,7 +23,7 @@ const addLastView = (ticker)=>{
 }
 
 exports.lastView = (req,res)=>{
-    return res.status(200).send(lastView.list)
+    return res.status(200).send(Lists.lastview)
 }
 
 exports.request = async (method, ticker) => {
