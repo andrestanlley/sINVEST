@@ -2,6 +2,7 @@
     margin-top: 6rem;
     background: var(--branco);
     padding: 1rem;
+    width: 100%;
 }
 
 #searchTickers{
