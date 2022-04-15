@@ -16,7 +16,7 @@ export default function SearchTickers() {
 
     function handleSearchTicker(busca){
         setSearch( data.filter( ( value ) => value.DescricaoDoAtivo[0].Codigo.includes(busca.toUpperCase()) 
-        || value.DescricaoDoAtivo[0].NomeMercado.includes(busca.toUpperCase()))).slice(0,limiter)
+        || value.DescricaoDoAtivo[0].NomeMercado.includes(busca.toUpperCase())))
     }
 
     return (

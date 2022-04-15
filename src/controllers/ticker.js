@@ -3,14 +3,14 @@ require('dotenv').config()
 const Lists = require("../constants/Lists")
 const qs = require('qs')
 
-const addLastView = (ticker)=>{
+const addLastView = (ticker) => {
     try {
-        if(!Lists.lastview.find(tick => tick.cd_acao == ticker.DescricaoDoAtivo[0].Codigo)){
+        if (!Lists.lastview.find(tick => tick.cd_acao == ticker.DescricaoDoAtivo[0].Codigo)) {
             let newViewed = {
-                "nm_empresa": ticker.DescricaoDoAtivo[0] ? ticker.DescricaoDoAtivo[0].NomeMercado : "Indisponivel",
-                "setor_economico": ticker.ClassificacaoSetorial[0] ? ticker.ClassificacaoSetorial[0].Setor : "Indisponivel",
-                "segmento_b3": ticker.DescricaoDoAtivo[0] ? ticker.DescricaoDoAtivo[0].NomeMercado.substr(-2) : "Indisponivel",
-                "cd_acao": ticker.DescricaoDoAtivo[0] ? ticker.DescricaoDoAtivo[0].Codigo : "Indisponivel",
+                name: ticker.InfoEmpresaDadosGerais[0].NomeEmpresarial,
+                ticker: ticker.DescricaoDoAtivo[0].Codigo,
+                variacao: ticker.Oscilacoes[0].Var,
+                setor: ticker.ClassificacaoSetorial[0] ? ticker.ClassificacaoSetorial[0].Setor : "Indisponivel"
             }
             Lists.lastview.push(newViewed)
             if (Lists.lastview.length > 8) {
@@ -22,7 +22,7 @@ const addLastView = (ticker)=>{
     }
 }
 
-exports.lastView = (req,res)=>{
+exports.lastView = (req, res) => {
     return res.status(200).send(Lists.lastview)
 }
 
@@ -54,12 +54,14 @@ exports.getTicker = async (req, res) => {
     } = req.params
     try {
         const result = await this.request("getCotacoesBalancos", ticker)
-        if(result.data.DescricaoDoAtivo[0].Codigo){
+        if (result.data.DescricaoDoAtivo[0].Codigo) {
             console.log(`VISUALIZADO: ${ticker.toUpperCase()}.`)
             addLastView(result.data)
             return res.status(200).send(result.data)
         }
-        throw new {message: "Ticker não encontrado."}
+        throw new {
+            message: "Ticker não encontrado."
+        }
     } catch (error) {
         res.status(500).send(error.message)
     }

@@ -16,17 +16,17 @@ export default function LastView() {
 
     return (
         <LastViewContainer>
-                    <h1>Vistos recentemente</h1>
-                    <div className='container-tickers'>
-                        {lastView.map(ticker => {
-                            return <Ticker key={ticker.id} info={{
-                                name: ticker.nm_empresa,
-                                ticker: ticker.cd_acao ? ticker.cd_acao : ticker.cd_acao_rdz,
-                                segmento: ticker.segmento_b3,
-                                setor: ticker.setor_economico
-                            }} />
-                        })}
-                    </div>
+            <h1>Vistos recentemente</h1>
+            <div className='container-tickers'>
+                {lastView.map((ticker, index) => {
+                    return <Ticker key={index} info={{
+                        name: ticker.name,
+                        ticker: ticker.ticker,
+                        variacao: ticker.variacao,
+                        setor: ticker.setor
+                    }} />
+                })}
+            </div>
         </LastViewContainer>
     )
 }

@@ -21,5 +21,5 @@ app.listen(process.env.PORT || 3000, ()=>{
     cacheTickers.saveTickersInMemory()
     setInterval(() => {
     cacheTickers.saveTickersInMemory()
-    }, 3600*12);
+    }, 43200000);
 })
