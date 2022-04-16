@@ -16,14 +16,12 @@ export default function SearchTickers() {
     }, [])
 
 
-    function handleSeletorFilter(e) {
+    function handleSearchTicker(busca) {
         // Função de busca por digitação
-        if (e.search) {
-            let busca = e.search
-            setSearch(data.filter((value) => value.DescricaoDoAtivo[0].Codigo.includes(busca.toUpperCase())
-                || value.DescricaoDoAtivo[0].NomeMercado.includes(busca.toUpperCase())))
-        }
+        setSearch(data.filter((value) => value.DescricaoDoAtivo[0].Codigo.includes(busca.toUpperCase()) || value.DescricaoDoAtivo[0].NomeMercado.includes(busca.toUpperCase())))
+    }
 
+    function handleSeletorFilter(e) {
         switch (e.target.name) {
             case "SEL1":
                 setFirstSeletor(e.target.value)
@@ -34,22 +32,25 @@ export default function SearchTickers() {
             case "SEL3":
                 setLastSeletor(e.target.value)
                 break;
+            default:
+                return
         }
-
+        
         setSearch(data.map((value) => {
-            if(value.ValorDeMercado[0]){
+            try {
                 if (value.ValorDeMercado[0].ValorDeMercado >= firstSeletor) {
                     return value
                 }
-            }
+            } catch { }
         }))
+
     }
 
 
     return (
         <div className='search-container'>
             <div id='searchTickers'>
-                <input type="text" placeholder='Buscar ticker' onChange={e => handleSeletorFilter({ search: e.target.value })}></input>
+                <input type="text" placeholder='Buscar ticker' onChange={e => handleSearchTicker(e.target.value)}></input>
                 <img src="./assets/imgs/lupa.png" alt="Lupa" />
             </div>
             <form onChange={e => handleSeletorFilter(e)}>

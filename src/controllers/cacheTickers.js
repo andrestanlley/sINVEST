@@ -7,7 +7,7 @@ exports.saveTickersInMemory = async (req, res) => {
     for await (let ticker of Lists.acoes){
         try {
             const result = await tick.request("getCotacoesBalancos", ticker)
-            if(result.data.getCotacoesBalancos){
+            if(result.data.getCotacoesBalancos || !result.data.DescricaoDoAtivo[0]){
                 //console.log(ticker, result.data.getCotacoesBalancos)
                 throw new Error()
             }
