@@ -1,20 +1,90 @@
 import './searchTickers.css'
 import TickerListing from './TickerListing'
 import { useEffect, useState } from 'react'
+import Select from 'react-select';
 import axios from 'axios'
 
 export default function SearchTickers() {
     const [search, setSearch] = useState()
     const [data, setData] = useState([]);
-    const [firstSeletor, setFirstSeletor] = useState(0)
-    const [secondSeletor, setSecondSeletor] = useState(0)
-    const [lastSeletor, setLastSeletor] = useState(0)
+    const [firstSeletor, setFirstSeletor] = useState()
+    const [secondSeletor, setSecondSeletor] = useState()
+    const [lastSeletor, setLastSeletor] = useState()
 
     useEffect(async () => {
-        const response = await axios.get("./api/tickers"); // https://api-cotacao-b3.labdo.it/api/empresa
+        const BASEURL = "./api/tickers"
+        const URL = `${BASEURL}?${firstSeletor}&${secondSeletor}&${lastSeletor}`
+        const response = await axios.get(URL); // https://api-cotacao-b3.labdo.it/api/empresa
         setData(response.data)
-    }, [])
+    }, [firstSeletor, secondSeletor, lastSeletor])
 
+    const VALORDEMERCADO = [
+        { value: '', label: 'VALOR DE MERCADO' }
+    ];
+
+    const VOLUMEDIARIOMEDIO = [
+        { value: '', label: 'VOLUME DIARIO MEDIO' }
+    ];
+
+    const SETOR = [
+        { value: '', label: 'SETOR' }
+    ];
+
+    const PRECODAACAO = [
+        { value: '', label: 'PREÇO DA AÇÃO' }
+    ];
+
+    const PL = [
+        { value: '', label: 'Patrimonio liquido' }
+    ];
+
+    const ROE = [
+        { value: '', label: 'ROE' }
+    ];
+
+    const MARGEMLIQUIDA = [
+        { value: '', label: 'Margem liquida' }
+    ];
+
+    const MargemEbit = [
+        { value: '', label: 'Margem EBIT' }
+    ];
+
+    const LiquidezCorrente = [
+        { value: '', label: 'Liquidez corrente' }
+    ];
+
+    const LiquidezImediata = [
+        { value: '', label: 'Liquidez imeadiata' }
+    ];
+
+    const AVALAVANCAGEM = [
+        { value: '', label: 'índice de alavancagem' }
+    ];
+
+    const LUCROLIQUIDO = [
+        { value: '', label: 'Lucro liquido anual' }
+    ];
+
+    const FATURAMENTO = [
+        { value: '', label: 'Faturamento anual' }
+    ];
+
+    const EBITANUAL = [
+        { value: '', label: 'EBIT Anual' }
+    ];
+
+    const VARSEMANAL = [
+        { value: '', label: 'Variacao semanal' }
+    ];
+
+    const VARMENSAL = [
+        { value: '', label: 'Variacao mensal' }
+    ];
+
+    const VAR52SEM = [
+        { value: '', label: 'Variação em 52 semanas' }
+    ];
 
     function handleSearchTicker(busca) {
         // Função de busca por digitação
@@ -24,26 +94,18 @@ export default function SearchTickers() {
     function handleSeletorFilter(e) {
         switch (e.target.name) {
             case "SEL1":
-                setFirstSeletor(e.target.value)
+                setFirstSeletor(`${e.target.name}=${e.target.value}`)
                 break;
             case "SEL2":
-                setSecondSeletor(e.target.value)
+                setSecondSeletor(`${e.target.name}=${e.target.value}`)
                 break;
             case "SEL3":
-                setLastSeletor(e.target.value)
+                setLastSeletor(`${e.target.name}=${e.target.value}`)
                 break;
-            default:
-                return
-        }
-        
-        setSearch(data.map((value) => {
-            try {
-                if (value.ValorDeMercado[0].ValorDeMercado >= firstSeletor) {
-                    return value
-                }
-            } catch { }
-        }))
 
+            default:
+                break;
+        }
     }
 
 
@@ -53,22 +115,92 @@ export default function SearchTickers() {
                 <input type="text" placeholder='Buscar ticker' onChange={e => handleSearchTicker(e.target.value)}></input>
                 <img src="./assets/imgs/lupa.png" alt="Lupa" />
             </div>
-            <form onChange={e => handleSeletorFilter(e)}>
-                <select name="SEL1" id="">
-                    <option value="10000">Valor 1</option>
-                    <option value="100000" selected>Valor 2</option>
-                    <option value="433000000000">Valor 3</option>
-                </select>
-                <select name="SEL2" id="">
-                    <option value="valor1">Valor 24</option>
-                    <option value="valor2" selected>Valor 2</option>
-                    <option value="valor3">Valor 3</option>
-                </select>
-                <select name="SEL3" id="">
-                    <option value="valor1">Valor 1</option>
-                    <option value="valor2" selected>Valor 2</option>
-                    <option value="valor3">Valor 3</option>
-                </select>
+            <form onChangeCapture={e => handleSeletorFilter(e)}>
+                <Select
+                    value={VARSEMANAL.value}
+                    options={VARSEMANAL}
+                    defaultValue={VARSEMANAL[0]}
+                />
+                <Select
+                    value={VARMENSAL.value}
+                    options={VARMENSAL}
+                    defaultValue={VARMENSAL[0]}
+                />
+                <Select
+                    value={VAR52SEM.value}
+                    options={VAR52SEM}
+                    defaultValue={VAR52SEM[0]}
+                />
+                <Select
+                    value={VALORDEMERCADO.value}
+                    options={VALORDEMERCADO}
+                    defaultValue={VALORDEMERCADO[0]}
+                />
+                <Select
+                    value={VOLUMEDIARIOMEDIO.value}
+                    options={VOLUMEDIARIOMEDIO}
+                    defaultValue={VOLUMEDIARIOMEDIO[0]}
+                />
+                <Select
+                    value={SETOR.value}
+                    options={SETOR}
+                    defaultValue={SETOR[0]}
+                />
+                <Select
+                    value={PRECODAACAO.value}
+                    options={PRECODAACAO}
+                    defaultValue={PRECODAACAO[0]}
+                />
+                <Select
+                    value={PL.value}
+                    options={PL}
+                    defaultValue={PL[0]}
+                />
+                <Select
+                    value={ROE.value}
+                    options={ROE}
+                    defaultValue={ROE[0]}
+                />
+                <Select
+                    value={MARGEMLIQUIDA.value}
+                    options={MARGEMLIQUIDA}
+                    defaultValue={MARGEMLIQUIDA[0]}
+                />
+                <Select
+                    value={MargemEbit.value}
+                    options={MargemEbit}
+                    defaultValue={MargemEbit[0]}
+                />
+                <Select
+                    value={LiquidezCorrente.value}
+                    options={LiquidezCorrente}
+                    defaultValue={LiquidezCorrente[0]}
+                />
+                <Select
+                    value={LiquidezImediata.value}
+                    options={LiquidezImediata}
+                    defaultValue={LiquidezImediata[0]}
+                />
+                <Select
+                    value={AVALAVANCAGEM.value}
+                    options={AVALAVANCAGEM}
+                    defaultValue={AVALAVANCAGEM[0]}
+                />
+                <Select
+                    value={LUCROLIQUIDO.value}
+                    options={LUCROLIQUIDO}
+                    defaultValue={LUCROLIQUIDO[0]}
+                />
+                <Select
+                    value={FATURAMENTO.value}
+                    options={FATURAMENTO}
+                    defaultValue={FATURAMENTO[0]}
+                />
+                <Select
+                    value={EBITANUAL.value}
+                    options={EBITANUAL}
+                    defaultValue={EBITANUAL[0]}
+                />
             </form>
             <TickerListing data={search ? search : data} />
         </div>

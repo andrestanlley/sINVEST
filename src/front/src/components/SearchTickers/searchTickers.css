@@ -28,6 +28,20 @@
     border-radius: 6px;
 }
 
+.search-container > form{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: .7rem 1rem;
+    font-size: .8rem;
+}
+
+.search-container > form > div{
+    width: 15rem;
+    margin: .3rem;
+}
+
 input:focus{
     outline: none;
 }

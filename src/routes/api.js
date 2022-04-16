@@ -1,10 +1,10 @@
 const express = require('express')
-const ticker = require('../controllers/ticker')
-const cacheTickers = require('../controllers/cacheTickers')
+const aboutTicker = require('../controllers/aboutTicker')
+const tickers = require('../controllers/tickers')
 const router = express.Router()
 
-router.get("/ticker/:ticker", ticker.getTicker)
-router.get("/lastview", ticker.lastView)
-router.get("/tickers", cacheTickers.all)
+router.get("/ticker/:ticker", aboutTicker.get)
+router.get("/lastview", aboutTicker.lastView)
+router.get("/tickers", tickers.all)
 
 module.exports = router

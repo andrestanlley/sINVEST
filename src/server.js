@@ -1,14 +1,14 @@
 const express = require('express')
 const routes = require('./routes/api')
 const app = express()
-const cacheTickers = require("../src/controllers/cacheTickers")
+const saveTickersInMemory = require("../src/functions/saveTickersInMemory")
 const Lists = require("./constants/Lists")
 require('dotenv').config()
 
 app.use(express.json())
 
 app.use('/', (req, res, next)=>{
-    if(Lists.tickerInMemory.length < 1){
+    if(Lists.tickerInMemory.length < 50){
         return res.send("<h1>Servidor sendo iniciado</h1>")
     }
     next()
@@ -18,8 +18,8 @@ app.use('/api', routes)
 
 app.listen(process.env.PORT || 3000, ()=>{
     console.log("Running")
-    cacheTickers.saveTickersInMemory()
+    saveTickersInMemory.start()
     setInterval(() => {
-    cacheTickers.saveTickersInMemory()
+    saveTickersInMemory.start()
     }, 43200000);
 })
