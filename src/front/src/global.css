@@ -20,6 +20,7 @@
     --branco: #ffffff;
     --cinza: #f1f1f1;
     --cinza-dois: #f3f0eb;
+    --cinza-tres: #c1bdbd;
     --limiter-width: 1080px;
     --gradient-azul: linear-gradient(to right, var(--azul), var(--azul-marinho));
   }
