@@ -1,4 +1,6 @@
-.card{
+import styled from 'styled-components'
+
+export const TickerContainer = styled.div `
     margin: 0;
     display: grid;
     background: var(--cinza);
@@ -8,20 +10,18 @@
     cursor: pointer;
     color: var(--preto);
     text-decoration: none;
-}
 
-.card:hover{
+    :hover{
     opacity: 0.6;
 }
 
-.card > div {
+    div {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     width: 90%;
 }
-
-.card p{
+    p{
     font-size: 1.8rem;
     font-weight: 700;
     margin: .5rem 0;
@@ -30,14 +30,13 @@
     overflow: hidden;
     width: 12.5rem;
 }
-
-.card span{
+    span{
     color: var(--grey);
     font-size: .7rem;
 }
-
-.card h2 {
+    h2 {
     display: block;
     font-size: 1rem;
     color: var(--gray);
 }
+`

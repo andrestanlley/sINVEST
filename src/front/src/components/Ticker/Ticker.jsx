@@ -1,13 +1,13 @@
-import './ticker.css'
+import { TickerContainer } from './style'
 import { Link } from 'react-router-dom';
 
 export function Ticker({ info }) {
     const { name, ticker, variacao, setor } = info;
 
-    let color = variacao > 0 ? "green":"red"
+    let color = variacao > 0 ? "green" : "red"
     return (
         <Link to={`/sobre/${ticker}`}>
-            <div className='card' >
+            <TickerContainer>
                 <div>
                     <h2> {ticker} </h2>
                     <span style={{
@@ -17,8 +17,8 @@ export function Ticker({ info }) {
                 <p> {name} </p>
                 <span>
                     {setor}
-                    </span>
-            </div>
+                </span>
+            </TickerContainer>
         </Link>
     )
 }

@@ -1,33 +1,64 @@
 import styled from 'styled-components'
 
 export const FooterBar = styled.div`
-    margin-top: 2rem;
-    height: 15rem;
-    
-    hr{
     display: flex;
-    flex: 1;
-    border-top: none;
-    border-right: none;
-    border-left: none;
-    border-image: initial;
-    border-bottom: 2px solid rgb(219, 226, 235);
-    }
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2rem;
+    min-height: 15.1rem;
+    width: 100%;
+    background: var(--preto);
+    color: var(--branco);
+    border-radius: 0;
+    padding: 2rem;
+
     
+    p{
+    max-width: var(--limiter-width);
+    padding: 1rem;
+    text-align: center;
+    font-size: .8rem;
+    }
 `
 
 export const FooterSubAreas = styled.div`
-    height: 100%;
     width: 100%;
+    max-width: var(--limiter-width);
     display: flex;
-    align-items: center;
-    justify-content: center;
 
     div{
+        width: 100%;
         display: flex;
         align-items: center;
+        flex-direction: column;
+    }
+
+    img{
+        width: 17rem;
+    }
+
+    a{
+        text-decoration: none;
+        color: var(--branco);
+        padding: .3rem 0;
+    }
+
+    div#links{
+        display: flex;
+        flex-direction: row;
         justify-content: center;
-        width: 100%;
-        height: 100%;
+        font-size: 3rem;
+    }
+
+    div#links > a {
+        padding: .5rem;
+    }
+
+    div#links > a:hover{
+        color: var(--azul);
+    }
+
+    @media (max-width: 700px){
+        flex-direction: column-reverse;
     }
 `

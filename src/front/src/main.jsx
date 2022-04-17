@@ -9,6 +9,8 @@ import {
 } from "react-router-dom";
 import About from "./pages/About";
 import Indexes from './pages/Indexes/Index';
+import Contact from './pages/Contact/Index';
+
 
 ReactDOM.render(
   <React.StrictMode>
@@ -16,6 +18,7 @@ ReactDOM.render(
         <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/indices" element={<Indexes/>} />
+        <Route path="/contato" element={<Contact/>} />
         <Route path="/sobre/:ticker" element={<About/>} />
         </Routes>
     </Router>

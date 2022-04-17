@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react"
-import { Ticker } from "../../components/SearchTickers/Ticker"
+import { Ticker } from "../../components/Ticker/Ticker"
 import { LastViewContainer } from "./styles"
+import {TickerListingContainer} from '../TickerListing/style'
+
 import axios from 'axios'
 
 export default function LastView() {
@@ -15,18 +17,23 @@ export default function LastView() {
     }, [setLastView])
 
     return (
-        <LastViewContainer>
-            <h1>Vistos recentemente</h1>
-            <div className='container-tickers'>
-                {lastView.map((ticker, index) => {
-                    return <Ticker key={index} info={{
-                        name: ticker.name,
-                        ticker: ticker.ticker,
-                        variacao: ticker.variacao,
-                        setor: ticker.setor
-                    }} />
-                })}
-            </div>
-        </LastViewContainer>
+        <div className="bodylimiter">
+            <LastViewContainer>
+                <h1>Vistos recentemente</h1>
+                <TickerListingContainer>
+                    {lastView.map((ticker, index) => {
+                        return <Ticker key={index} info={{
+                            name: ticker.name,
+                            ticker: ticker.ticker,
+                            variacao: ticker.variacao,
+                            setor: ticker.setor
+                        }} />
+                    })}
+                    {lastView.length < 1 &&(
+                        <h5>Atualizando informações.</h5>
+                    )}
+                </TickerListingContainer>
+            </LastViewContainer>
+        </div>
     )
 }

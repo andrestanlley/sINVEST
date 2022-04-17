@@ -4,9 +4,9 @@ exports.add = (ticker) => {
     try {
         if (!Lists.lastview.find(tick => tick.cd_acao == ticker.DescricaoDoAtivo[0].Codigo)) {
             Lists.lastview.push({
-                name: ticker.InfoEmpresaDadosGerais[0].NomeEmpresarial,
+                name: ticker.InfoEmpresaDadosGerais[0] ? ticker.InfoEmpresaDadosGerais[0].NomeEmpresarial : ticker.DescricaoDoAtivo[0].NomeMercado,
                 ticker: ticker.DescricaoDoAtivo[0].Codigo,
-                variacao: ticker.Oscilacoes[0].Var,
+                variacao: ticker.Oscilacoes[0] ? ticker.Oscilacoes[0].Var : "",
                 setor: ticker.ClassificacaoSetorial[0] ? ticker.ClassificacaoSetorial[0].Setor : "Indisponivel"
             })
             if (Lists.lastview.length > 8) {

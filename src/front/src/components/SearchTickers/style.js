@@ -1,9 +1,10 @@
-.search-container{
+import styled from 'styled-components'
+
+export const SearchTickersContainer = styled.div`
     margin-top: 6rem;
     background: var(--branco);
     padding: 1rem;
-    width: 100%;
-}
+    max-width: var(--limiter-width);
 
 #searchTickers{
     display: flex;
@@ -28,7 +29,7 @@
     border-radius: 6px;
 }
 
-.search-container > form{
+form{
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -37,11 +38,22 @@
     font-size: .8rem;
 }
 
-.search-container > form > div{
-    width: 15rem;
+form > div{
+    width: 13rem;
     margin: .3rem;
 }
 
 input:focus{
     outline: none;
 }
+
+@media (max-width: 700px) {
+    form{
+        justify-content: center;
+    }
+    form > div{
+        width: 100%;
+    }
+}
+
+`

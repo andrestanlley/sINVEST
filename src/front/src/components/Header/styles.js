@@ -30,8 +30,8 @@ export const TopMenu = styled.div `
     }
 
     .content{
-        max-width: 1080px;
         width: 100%;
+        max-width: var(--limiter-width);
         display: flex;
         align-items: center;
         justify-content: space-between;

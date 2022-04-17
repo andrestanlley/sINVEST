@@ -1,6 +1,6 @@
-import './searchTickers.css'
-import TickerListing from './TickerListing'
+import TickerListing from '../TickerListing/TickerListing'
 import { useEffect, useState } from 'react'
+import {SearchTickersContainer} from './style'
 import Select from 'react-select';
 import axios from 'axios'
 
@@ -10,16 +10,17 @@ export default function SearchTickers() {
     const [url, setUrl] = useState("./api/tickers?")
 
     useEffect(async () => {
+        console.log(url)
         const response = await axios.get(url); // https://api-cotacao-b3.labdo.it/api/empresa
         setData(response.data)
     }, [url])
 
     const VALORDEMERCADO = [
-        { value: 0, label: 'VALOR DE MERCADO' },
+        { value: undefined, label: 'VALOR DE MERCADO' },
         { value: 5000000000, label: 'Acima de 5B' },
         { value: 10000000000, label: 'Acima de 10B' },
-        { value: 5000000000, label: 'Acima de 50B' },
-        { value: 10000000000, label: 'Acima de 100B' }
+        { value: 50000000000, label: 'Acima de 50B' },
+        { value: 100000000000, label: 'Acima de 100B' }
     ];
 
     const VOLUMEDIARIOMEDIO = [
@@ -55,7 +56,10 @@ export default function SearchTickers() {
     ];
 
     const LiquidezImediata = [
-        { value: '', label: 'Liquidez imeadiata' }
+        { value: undefined, label: 'Liquidez imeadiata' },
+        { value: "M1", label: 'Abaixo de 1' },
+        { value: "I1", label: 'Igual a 1' },
+        { value: "A1", label: 'Acima de 1' }
     ];
 
     const AVALAVANCAGEM = [
@@ -88,24 +92,25 @@ export default function SearchTickers() {
 
     function handleSearchTicker(busca) {
         // Função de busca por digitação
-        setSearch(data.filter((value) => value.DescricaoDoAtivo[0].Codigo.includes(busca.toUpperCase()) || value.DescricaoDoAtivo[0].NomeMercado.includes(busca.toUpperCase())))
+        setSearch(data.filter((value) => 
+        value.DescricaoDoAtivo[0].Codigo.includes(busca.toUpperCase()) 
+        || value.DescricaoDoAtivo[0].NomeMercado.includes(busca.toUpperCase())))
     }
 
     function handleSeletorFilter(seletor) {
-        console.log(seletor.name)
-        console.log(seletor.data.value)
-        console.log(seletor.data.label)
         if(url.indexOf(seletor.name) < 0){
             setUrl(`${url}${seletor.name}=${seletor.data.value}&`)
         }else{
-            let urlSpliter = url.indexOf(seletor.name)
-            console.log(urlSpliter)
+            let baseUrl = url.split(seletor.name)[0]
+            let finalUrl = url.split(seletor.name)[1]
+            setUrl(`${baseUrl}${finalUrl}&${seletor.name}=${seletor.data.value}`)
         }
     }
 
 
     return (
-        <div className='search-container'>
+        <div className='bodylimiter'>
+            <SearchTickersContainer>
             <div id='searchTickers'>
                 <input type="text" placeholder='Buscar ticker' onChange={e => handleSearchTicker(e.target.value)}></input>
                 <img src="./assets/imgs/lupa.png" alt="Lupa" />
@@ -177,6 +182,7 @@ export default function SearchTickers() {
                     value={LiquidezImediata.value}
                     options={LiquidezImediata}
                     defaultValue={LiquidezImediata[0]}
+                    onChange={data => handleSeletorFilter({name: "LIQUIDEZIMEDIATA", data})}
                 />
                 <Select
                     value={AVALAVANCAGEM.value}
@@ -200,6 +206,7 @@ export default function SearchTickers() {
                 />
             </form>
             <TickerListing data={search ? search : data} />
+        </SearchTickersContainer>
         </div>
     )
 }

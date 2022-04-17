@@ -1,11 +1,11 @@
-import { Ticker } from './Ticker';
-import './tickerListing.css';
+import { Ticker } from '../Ticker/Ticker';
+import {TickerListingContainer} from './style'
 
 export default function TickerListing(props) {
-  const limiter = 25
+  const limiter = 28
   return (
     <>
-      <div className='container-tickers'>
+      <TickerListingContainer>
         {props.data.slice(0, limiter).map((ticker, index) => {
           try{
             return <Ticker key={index} info={{
@@ -14,9 +14,11 @@ export default function TickerListing(props) {
               variacao: ticker.Oscilacoes[0] ? ticker.Oscilacoes[0].Var : "",
               setor: ticker.ClassificacaoSetorial[0] ? ticker.ClassificacaoSetorial[0].Setor : "Indisponivel"
             }} />
-          }catch{}
+          }catch (error){
+            console.log(error)
+          }
         })}
-      </div>
+      </TickerListingContainer>
     </>
   )
 }

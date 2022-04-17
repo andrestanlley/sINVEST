@@ -10,19 +10,22 @@
 
 :root{
     width: 100%;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     --azul: #13b8ec;
+    --azul-dois: #1492cd;
     --azul-marinho: #17438c;
     --preto: #323232;
     --branco: #ffffff;
     --cinza: #f1f1f1;
     --cinza-dois: #f3f0eb;
+    --limiter-width: 1080px;
+    --gradient-azul: linear-gradient(to right, var(--azul), var(--azul-marinho));
   }
   
   body{
     width: 100%;
-    max-width: 1080px;
     background: var(--cinza-dois);
     color: var(--preto);
     min-height: 100vh;
@@ -30,6 +33,12 @@
     scrollbar-width: .7rem;
 }
 
+.bodylimiter{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 body::-webkit-scrollbar {
     width: .3rem;      

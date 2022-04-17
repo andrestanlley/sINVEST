@@ -1,6 +1,8 @@
 import styled from 'styled-components'
 
 export const PanelConteiner = styled.div`
+    width: 100%;
+    max-width: var(--limiter-width);
     margin: 6rem 0 2rem;
     display: flex;
     padding: 2rem;
@@ -28,7 +30,7 @@ export const PanelConteiner = styled.div`
         padding: 1rem 1.5rem;
         border-radius: 30px;
         font-weight: 700;
-        background: linear-gradient(to right, var(--azul), var(--azul-marinho));
+        background: var(--gradient-azul);
         cursor: pointer;
         border-style: none;
         color: var(--branco);
