@@ -26,7 +26,7 @@ export default function TickerDetail(props) {
             {ticker.ClassificacaoSetorial[0] && (
               <section>
                 <p id='TICKER'>{ticker.DescricaoDoAtivo[0].Codigo}</p>
-                <p id='NOMEEMPRESA'>{ticker.InfoEmpresaDadosGerais[0].NomeEmpresarial}</p>
+                <p id='NOMEEMPRESA'>{ticker.InfoEmpresaDadosGerais[0] ? ticker.InfoEmpresaDadosGerais[0].NomeEmpresarial : ticker.DescricaoDoAtivo[0].NomeMercado}</p>
                 <p id='SETOR'>{ticker.ClassificacaoSetorial[0].Setor} • {ticker.InfoEmpresaDadosGerais[0].EspeciControle}</p>
                 <p id='DESCRICAO'>{ticker.InfoEmpresaDadosGerais[0].DescricaoAtividade}</p>
                 <div id='CVM-CNPJ'>
