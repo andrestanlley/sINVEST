@@ -7,19 +7,19 @@ import axios from 'axios'
 export default function SearchTickers() {
     const [search, setSearch] = useState()
     const [data, setData] = useState([]);
-    const [firstSeletor, setFirstSeletor] = useState()
-    const [secondSeletor, setSecondSeletor] = useState()
-    const [lastSeletor, setLastSeletor] = useState()
+    const [url, setUrl] = useState("./api/tickers?")
 
     useEffect(async () => {
-        const BASEURL = "./api/tickers"
-        const URL = `${BASEURL}?${firstSeletor}&${secondSeletor}&${lastSeletor}`
-        const response = await axios.get(URL); // https://api-cotacao-b3.labdo.it/api/empresa
+        const response = await axios.get(url); // https://api-cotacao-b3.labdo.it/api/empresa
         setData(response.data)
-    }, [firstSeletor, secondSeletor, lastSeletor])
+    }, [url])
 
     const VALORDEMERCADO = [
-        { value: '', label: 'VALOR DE MERCADO' }
+        { value: 0, label: 'VALOR DE MERCADO' },
+        { value: 5000000000, label: 'Acima de 5B' },
+        { value: 10000000000, label: 'Acima de 10B' },
+        { value: 5000000000, label: 'Acima de 50B' },
+        { value: 10000000000, label: 'Acima de 100B' }
     ];
 
     const VOLUMEDIARIOMEDIO = [
@@ -91,20 +91,15 @@ export default function SearchTickers() {
         setSearch(data.filter((value) => value.DescricaoDoAtivo[0].Codigo.includes(busca.toUpperCase()) || value.DescricaoDoAtivo[0].NomeMercado.includes(busca.toUpperCase())))
     }
 
-    function handleSeletorFilter(e) {
-        switch (e.target.name) {
-            case "SEL1":
-                setFirstSeletor(`${e.target.name}=${e.target.value}`)
-                break;
-            case "SEL2":
-                setSecondSeletor(`${e.target.name}=${e.target.value}`)
-                break;
-            case "SEL3":
-                setLastSeletor(`${e.target.name}=${e.target.value}`)
-                break;
-
-            default:
-                break;
+    function handleSeletorFilter(seletor) {
+        console.log(seletor.name)
+        console.log(seletor.data.value)
+        console.log(seletor.data.label)
+        if(url.indexOf(seletor.name) < 0){
+            setUrl(`${url}${seletor.name}=${seletor.data.value}&`)
+        }else{
+            let urlSpliter = url.indexOf(seletor.name)
+            console.log(urlSpliter)
         }
     }
 
@@ -115,11 +110,12 @@ export default function SearchTickers() {
                 <input type="text" placeholder='Buscar ticker' onChange={e => handleSearchTicker(e.target.value)}></input>
                 <img src="./assets/imgs/lupa.png" alt="Lupa" />
             </div>
-            <form onChangeCapture={e => handleSeletorFilter(e)}>
+            <form>
                 <Select
                     value={VARSEMANAL.value}
                     options={VARSEMANAL}
                     defaultValue={VARSEMANAL[0]}
+                    onChange={e => handleSeletorFilter(e)}
                 />
                 <Select
                     value={VARMENSAL.value}
@@ -135,6 +131,7 @@ export default function SearchTickers() {
                     value={VALORDEMERCADO.value}
                     options={VALORDEMERCADO}
                     defaultValue={VALORDEMERCADO[0]}
+                    onChange={data => handleSeletorFilter({name: "VALORDEMERCADO", data})}
                 />
                 <Select
                     value={VOLUMEDIARIOMEDIO.value}

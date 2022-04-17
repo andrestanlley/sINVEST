@@ -8,7 +8,7 @@ require('dotenv').config()
 app.use(express.json())
 
 app.use('/', (req, res, next)=>{
-    if(Lists.tickerInMemory.length < 50){
+    if(Lists.tickerInMemory.length < 10){
         return res.send("<h1>Servidor sendo iniciado</h1>")
     }
     next()
