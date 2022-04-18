@@ -10,7 +10,7 @@ export default function LastView() {
 
     useEffect(() => {
         const getLastView = async () => {
-            const result = await axios.get("/api/lastview")
+            const result = await axios.get("/api/lastview", { headers: { "reactAuth": (Math.random() * 1000)}})
             setLastView(result.data)
         }
         getLastView()

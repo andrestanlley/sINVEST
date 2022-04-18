@@ -10,8 +10,7 @@ export default function SearchTickers() {
     const [url, setUrl] = useState("./api/tickers?")
 
     useEffect(async () => {
-        console.log(url)
-        const response = await axios.get(url); // https://api-cotacao-b3.labdo.it/api/empresa
+        const response = await axios.get(url, { headers: { "reactAuth": (Math.random() * 1000)}}); 
         setData(response.data)
     }, [url])
 

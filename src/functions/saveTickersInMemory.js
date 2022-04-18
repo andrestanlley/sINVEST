@@ -9,7 +9,6 @@ exports.start = async () => {
         try {
             let result = await tick.request("getCotacoesBalancos", ticker)
             if (result.data.getCotacoesBalancos || !result.data.DescricaoDoAtivo[0]) {
-                //console.log(ticker, result.data.getCotacoesBalancos)
                 throw new Error()
             }
             result.data.indices = indicators.add(result.data)
@@ -19,4 +18,7 @@ exports.start = async () => {
         } catch {}
     }
     console.log(`Requisições finalizadas. ${Lists.tickerInMemory.length} ações adicionadas. ${Lists.acoes.length - Lists.tickerInMemory.length} ações com erro.`)
+    try {
+        Lists.tickerInMemory.sort((a, b) => b.ValorDeMercado[0]?.ValorDeMercado - a.ValorDeMercado[0]?.ValorDeMercado) 
+    } catch {}
 }
