@@ -10,7 +10,6 @@
 
 :root{
     width: 100%;
-    min-height: 100vh;
     display: flex;
     justify-content: center;
     --azul: #13b8ec;
@@ -30,7 +29,6 @@
     width: 100%;
     background: var(--cinza-dois);
     color: var(--preto);
-    min-height: 100vh;
     font-family: Roboto, sans-serif;
     scrollbar-width: .7rem;
 }

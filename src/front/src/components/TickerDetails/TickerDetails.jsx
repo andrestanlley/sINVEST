@@ -37,13 +37,15 @@ export default function TickerDetail(props) {
               <section>
                 <p id='TICKER'>{ticker.DescricaoDoAtivo[0].Codigo}</p>
                 <p id='NOMEEMPRESA'>{ticker.InfoEmpresaDadosGerais[0] ? ticker.InfoEmpresaDadosGerais[0].NomeEmpresarial : ticker.DescricaoDoAtivo[0].NomeMercado}</p>
-                <p id='SETOR'>{ticker.ClassificacaoSetorial[0].Setor} • {ticker.InfoEmpresaDadosGerais[0].EspeciControle}</p>
-                <p id='DESCRICAO'>{ticker.InfoEmpresaDadosGerais[0].DescricaoAtividade}</p>
+                <p id='SETOR'>{ticker.ClassificacaoSetorial[0].Setor} • {ticker.InfoEmpresaDadosGerais[0]?.EspeciControle}</p>
+                <p id='DESCRICAO'>{ticker.InfoEmpresaDadosGerais[0]?.DescricaoAtividade}</p>
+                {ticker.InfoEmpresaDadosGerais[0] &&(
                 <div id='CVM-CNPJ'>
-                  <p>Cod CVM <p>{ticker.InfoEmpresaDadosGerais[0].CodCvm}</p></p>
-                  <p>CNPJ <p>{ticker.InfoEmpresaDadosGerais[0].CNPJ}</p></p>
+                  <p>Cod CVM <p>{ticker.InfoEmpresaDadosGerais[0]?.CodCvm}</p></p>
+                  <p>CNPJ <p>{ticker.InfoEmpresaDadosGerais[0]?.CNPJ}</p></p>
                 </div>
-                <a href={ticker.InfoEmpresaDadosGerais[0].Site} id="SITE" target="_blank"><MdLabel className='icon' />{ticker.InfoEmpresaDadosGerais[0].Site.substr(7)}    </a>
+                )}
+                  <a href={ticker.InfoEmpresaDadosGerais[0]?.Site.indexOf("//") > 0 ? ticker.InfoEmpresaDadosGerais[0]?.Site : `http://${ticker.InfoEmpresaDadosGerais[0]?.Site}`} id="SITE" target="_blank"><MdLabel className='icon' />{ticker.InfoEmpresaDadosGerais[0]?.Site}    </a>
               </section>
             )}
             {ticker.ResumoBalancoDFP[0] && (
