@@ -25,7 +25,6 @@ export default function TickerDetail(props) {
     getTicker()
   }, [])
 
-
   return (
     <div className='bodylimiter'>
       <TickerDetails>
