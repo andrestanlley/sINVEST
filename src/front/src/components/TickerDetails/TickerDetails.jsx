@@ -1,6 +1,16 @@
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState, PureComponent } from 'react'
 import { TickerDetails } from './styles'
 import { MdLabel } from "react-icons/md";
+import {
+  ComposedChart,
+  Bar,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend,
+  ResponsiveContainer,
+} from 'recharts';
 import axios from 'axios'
 import Loading from '../Loading/Loading'
 
@@ -9,11 +19,12 @@ export default function TickerDetail(props) {
 
   useEffect(() => {
     const getTicker = async () => {
-      const res = await axios.get(`../api/ticker/${props.acao}`); //
+      const res = await axios.get(`../data.json`); //../api/ticker/${props.acao}
       SetTicker(res.data)
     }
     getTicker()
   }, [])
+
 
   return (
     <div className='bodylimiter'>
@@ -33,15 +44,34 @@ export default function TickerDetail(props) {
                   <p>Cod CVM <p>{ticker.InfoEmpresaDadosGerais[0].CodCvm}</p></p>
                   <p>CNPJ <p>{ticker.InfoEmpresaDadosGerais[0].CNPJ}</p></p>
                 </div>
-                <a href={ticker.InfoEmpresaDadosGerais[0].Site} id="SITE" target="_blank"><MdLabel className='icon'/>{ticker.InfoEmpresaDadosGerais[0].Site.substr(7)}    </a>
+                <a href={ticker.InfoEmpresaDadosGerais[0].Site} id="SITE" target="_blank"><MdLabel className='icon' />{ticker.InfoEmpresaDadosGerais[0].Site.substr(7)}    </a>
+              </section>
+            )}
+            {ticker.ResumoBalancoDFP[0] && (
+              <section>
+                <h1>Resumo Balanço DFP</h1>
+                <p>Data do ultimo balanco: {ticker.ResumoBalancoDFP[0].DataUltBalanco}</p>
+                <p>Nº Ações: {ticker.ResumoBalancoDFP[0].NumAcoes}</p>
+                <p>Ativo: {ticker.ResumoBalancoDFP[0].Ativo}</p>
+                <p>Disponibilidade: {ticker.ResumoBalancoDFP[0].Disponibilidades}</p>
+                <p>Ativo circulante: {ticker.ResumoBalancoDFP[0].AtivoCirculante}</p>
+                <p>DividaBruta: {ticker.ResumoBalancoDFP[0].DividaBruta}</p>
+                <p>DividaLiquida: {ticker.ResumoBalancoDFP[0].DividaLiquida}</p>
+                <p>Patrimonio Liquido: {ticker.ResumoBalancoDFP[0].PatrimonioLiquido}</p>
               </section>
             )}
             {ticker.Oscilacoes[0] && (
-              <section>
+              <section id='OSCILACOES'>
                 <h1>Oscilações</h1>
-                {ticker.Oscilacoes.map(osc => {
-                  return <p key={osc.Var}>Periodo: {osc.Oscilacao} Var: {osc.Var}</p>
-                })}
+                <ResponsiveContainer width="100%" height={300}>
+                  <ComposedChart data={ticker.Oscilacoes}>
+                    <CartesianGrid stroke="#f5f5f5" />
+                    <XAxis dataKey="Oscilacao" scale="band" /><YAxis />
+                    <Tooltip wrapperStyle={{ width: 100, backgroundColor: '#ccc' }} />
+                    <Legend />
+                    <Bar dataKey="Var" name='Oscilação' barSize={30} fill="var(--verde)" />
+                  </ComposedChart>
+                </ResponsiveContainer>
               </section>
             )}
             {ticker.Cotacoes[0] && (
@@ -57,19 +87,6 @@ export default function TickerDetail(props) {
                 <p>NNeg: {ticker.Cotacoes[0].NNeg}</p>
                 <p>QTot: {ticker.Cotacoes[0].QTot}</p>
                 <p>VTot: {ticker.Cotacoes[0].VTot}</p>
-              </section>
-            )}
-            {ticker.ResumoBalancoDFP[0] && (
-              <section>
-                <h1>Resumo Balanço DFP</h1>
-                <p>Data do ultimo balanco: {ticker.ResumoBalancoDFP[0].DataUltBalanco}</p>
-                <p>Nº Ações: {ticker.ResumoBalancoDFP[0].NumAcoes}</p>
-                <p>Ativo: {ticker.ResumoBalancoDFP[0].Ativo}</p>
-                <p>Disponibilidade: {ticker.ResumoBalancoDFP[0].Disponibilidades}</p>
-                <p>Ativo circulante: {ticker.ResumoBalancoDFP[0].AtivoCirculante}</p>
-                <p>DividaBruta: {ticker.ResumoBalancoDFP[0].DividaBruta}</p>
-                <p>DividaLiquida: {ticker.ResumoBalancoDFP[0].DividaLiquida}</p>
-                <p>Patrimonio Liquido: {ticker.ResumoBalancoDFP[0].PatrimonioLiquido}</p>
               </section>
             )}
             {ticker.ValorDeMercado[0] && (

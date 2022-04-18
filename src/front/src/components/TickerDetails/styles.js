@@ -9,10 +9,11 @@ export const TickerDetails = styled.div`
     div{
         display: flex;
         flex-wrap: wrap;
+        justify-content: space-between;
     }
 
     section{
-        width: 30rem;
+        width: 31.5rem;
         margin: 1rem;
         box-shadow: 0px 2px 5px var(--cinza-tres);
         padding: 1.5rem;
@@ -71,6 +72,10 @@ export const TickerDetails = styled.div`
     .icon{
         padding-right: .3rem;
         font-size: 1.3rem;
+    }
+
+    #OSCILACOES{
+        width: 100%;
     }
 
     @media (max-width: 1060px){
