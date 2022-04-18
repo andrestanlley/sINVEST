@@ -19,7 +19,7 @@ export default function TickerDetail(props) {
 
   useEffect(() => {
     const getTicker = async () => {
-      const res = await axios.get(`../data.json`); //../api/ticker/${props.acao}
+      const res = await axios.get(`../api/ticker/${props.acao}`); //
       SetTicker(res.data)
     }
     getTicker()
