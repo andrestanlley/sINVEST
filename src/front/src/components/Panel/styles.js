@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const PanelConteiner = styled.div`
     width: 100%;
     max-width: var(--limiter-width);
-    margin: 6rem 0 2rem;
+    //margin: 6rem 0 2rem;
     display: flex;
     padding: 2rem;
     background: var(--branco);

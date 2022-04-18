@@ -3,7 +3,6 @@ import styled from 'styled-components'
 export const TickerDetails = styled.div`
     width: 100%;
     max-width: var(--limiter-width);
-    margin-top: 6rem;
 
     div{
         display: flex;
@@ -12,8 +11,8 @@ export const TickerDetails = styled.div`
     }
 
     section{
-        width: 31.5rem;
-        margin: 1rem;
+        width: 32.5rem;
+        margin-bottom: 2rem;
         box-shadow: 0px 2px 5px var(--cinza-tres);
         padding: 1.5rem;
         border-radius: 0.25rem;

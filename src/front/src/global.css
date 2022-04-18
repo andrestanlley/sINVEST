@@ -27,6 +27,7 @@
   
   body{
     width: 100%;
+    min-height: 100vh;
     background: var(--cinza-dois);
     color: var(--preto);
     font-family: Roboto, sans-serif;
@@ -35,6 +36,7 @@
 
 .bodylimiter{
   width: 100%;
+  min-height: 6rem;
   display: flex;
   justify-content: center;
   align-items: center;

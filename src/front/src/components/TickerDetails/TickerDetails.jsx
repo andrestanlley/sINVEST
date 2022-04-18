@@ -70,7 +70,7 @@ export default function TickerDetail(props) {
                     <XAxis dataKey="Oscilacao" scale="band" /><YAxis />
                     <Tooltip wrapperStyle={{ width: 100, backgroundColor: '#ccc' }} />
                     <Legend />
-                    <Bar dataKey="Var" name='Oscilação' barSize={30} fill="var(--verde)" />
+                    <Bar dataKey="Var" name='Variação (%)' barSize={30} fill="var(--verde)" />
                   </ComposedChart>
                 </ResponsiveContainer>
               </section>

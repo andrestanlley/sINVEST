@@ -23,10 +23,6 @@ export default function SearchTickers() {
         { value: 100000000000, label: 'Acima de 100B' }
     ];
 
-    const VOLUMEDIARIOMEDIO = [
-        { value: '', label: 'VOLUME DIARIO MEDIO' }
-    ];
-
     const SETOR = [
         { value: '', label: 'SETOR' }
     ];
@@ -137,11 +133,6 @@ export default function SearchTickers() {
                     options={VALORDEMERCADO}
                     defaultValue={VALORDEMERCADO[0]}
                     onChange={data => handleSeletorFilter({name: "VALORDEMERCADO", data})}
-                />
-                <Select
-                    value={VOLUMEDIARIOMEDIO.value}
-                    options={VOLUMEDIARIOMEDIO}
-                    defaultValue={VOLUMEDIARIOMEDIO[0]}
                 />
                 <Select
                     value={SETOR.value}
