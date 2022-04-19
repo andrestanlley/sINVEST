@@ -13,7 +13,7 @@ export default function SearchTickers() {
     useEffect(async () => {
         const response = await axios.get(url, { headers: { "reactAuth": (Math.random() * 1000)}}); 
         setData(response.data)
-    }, [url])
+    }, [url, search])
 
 
     function handleSearchTicker(busca) {
