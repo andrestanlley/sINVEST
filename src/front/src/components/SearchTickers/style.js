@@ -4,6 +4,7 @@ export const SearchTickersContainer = styled.div`
     background: var(--branco);
     padding: 1rem;
     max-width: var(--limiter-width);
+    min-height: 60vh;
 
 #searchTickers{
     display: flex;

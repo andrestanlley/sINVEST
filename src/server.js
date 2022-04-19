@@ -1,14 +1,15 @@
-const express = require('express')
-const routes = require('./routes/api')
-const app = express()
 const saveTickersInMemory = require("../src/functions/saveTickersInMemory")
 const verifyHeader = require('./Middlewares/verifyHeader')
+const client = require('./routes/client')
+const api = require('./routes/api')
+const express = require('express')
 require('dotenv').config()
+const app = express()
 
 app.use(express.json())
 
-app.use('/', express.static(__dirname + '/front/dist'))
-app.use('/api', verifyHeader.auth, routes)
+app.use('/api', verifyHeader.auth, api)
+app.use('/', client)
 
 app.listen(process.env.PORT || 3000, ()=>{
     console.log("Running")

@@ -2,7 +2,7 @@ const Lists = require('../constants/Lists')
 
 exports.add = (ticker) => {
     try {
-        if (!Lists.lastview.find(tick => tick.cd_acao == ticker.DescricaoDoAtivo[0].Codigo)) {
+        if (!Lists.lastview.find(acao => acao.ticker == ticker.DescricaoDoAtivo[0].Codigo)) {
             Lists.lastview.push({
                 name: ticker.InfoEmpresaDadosGerais[0] ? ticker.InfoEmpresaDadosGerais[0].NomeEmpresarial : ticker.DescricaoDoAtivo[0].NomeMercado,
                 ticker: ticker.DescricaoDoAtivo[0].Codigo,

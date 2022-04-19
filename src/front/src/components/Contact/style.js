@@ -6,5 +6,5 @@ export const ContactDiv = styled.div `
     justify-content: center;
     width: var(--limiter-width);
     background: var(--branco);
-    //min-height: 21rem;
+    min-height: 60vh;
 `

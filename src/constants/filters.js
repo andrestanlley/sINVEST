@@ -10,10 +10,31 @@ exports.firstFilter = (ticker, SEL1) => {
     } catch{}
 }
 
-exports.secondFilter = (ticker, SEL2) => {
+exports.secondFilter = (ticker, LIQUIDEZIMEDIATA) => {
     // VERIFICA SE O TICKER É PETR4
-    if(!SEL2){
+    if(!LIQUIDEZIMEDIATA){
         return ticker
     }
-    return ticker.DescricaoDoAtivo[0].Codigo == "PETR4" ? ticker : null 
+    try {
+        switch (LIQUIDEZIMEDIATA) {
+            case "M1":
+                if(ticker.indices.LiquidezImediata < 1){
+                    return ticker
+                }
+            break;
+            case "I1":
+                if(Math.round(ticker.indices.LiquidezImediata) == 1){
+                    return ticker
+                }
+            break;
+            case "A1":
+                if(ticker.indices.LiquidezImediata > 1){
+                return ticker
+            }
+            break;
+            default:
+                throw new Error()
+                break;
+        } 
+    } catch  {}
 }

@@ -11,7 +11,7 @@ export default function Panel() {
                     <Link to="/indices"><button>Ver índices</button></Link>
                 </div>
                 <div id='logo'>
-                    <img src="../assets/imgs/Logo_001.png" alt="" />
+                    <img src="../../assets/imgs/Logo_001.png" alt="" />
                 </div>
             </PanelConteiner>
         </div>

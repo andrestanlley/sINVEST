@@ -7,7 +7,7 @@ export default function Header() {
             <TopMenu>
             <div className='content'>
                 <Logo>
-                    <Link to="../" ><img src="../assets/imgs/Logo_001.png" alt="Logo Visão Macro" /></Link>
+                    <Link to="../" ><img src="../../assets/imgs/Logo_001.png" alt="Logo Visão Macro" /></Link>
                 </Logo>
                 <div>
                     <ol>

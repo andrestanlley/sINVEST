@@ -14,7 +14,6 @@ exports.start = async () => {
             result.data.indices = indicators.add(result.data)
             Lists.tickerInMemory.push(result.data)
             console.log(`Requisição para ${ticker}, ${Lists.tickerInMemory.length} Ações na memoria.`)
-
         } catch {}
     }
     console.log(`Requisições finalizadas. ${Lists.tickerInMemory.length} ações adicionadas. ${Lists.acoes.length - Lists.tickerInMemory.length} ações com erro.`)

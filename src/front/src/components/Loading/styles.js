@@ -1,8 +1,6 @@
 import styled from 'styled-components'
 
-export const LoadingDiv = styled.div`
-  width: 100%;
-  
+export const LoadingDiv = styled.div`  
   .lds-ellipsis{
     display: inline-block;
     position: relative;

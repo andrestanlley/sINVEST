@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 
 export const TickerDetails = styled.div`
-    width: 100%;
     max-width: var(--limiter-width);
+    min-height: 60vh;
 
     div{
         display: flex;

@@ -18,7 +18,7 @@ export default function Footer() {
                         </div>
                     </div>
                     <div>
-                        <img src="../assets/imgs/logo_branco.png" alt="Logo Visão Macro"></img>
+                        <img src="../../assets/imgs/logo_branco.png" alt="Logo Visão Macro"></img>
                         <p>Feito com amor na <a href="https://sejaviews.com.br">Views Digital</a> </p>
                     </div>
                 </FooterSubAreas>

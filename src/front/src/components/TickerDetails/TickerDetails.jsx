@@ -19,7 +19,7 @@ export default function TickerDetail(props) {
 
   useEffect(() => {
     const getTicker = async () => {
-      const res = await axios.get(`../api/ticker/${props.acao}`, { headers: { "reactAuth": (Math.random() * 1000)}}); //
+      const res = await axios.get(`../../api/ticker/${props.acao}`, { headers: { "reactAuth": (Math.random() * 1000)}}); //
       SetTicker(res.data)
     }
     getTicker()
