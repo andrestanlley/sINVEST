@@ -16,7 +16,6 @@ export default function SearchTickers() {
     }, [url])
 
     function handleSearchTicker(busca) {
-        setTextBox(busca)
         // Função de busca por digitação
         setSearch(data.filter((value) => 
         value.DescricaoDoAtivo[0].Codigo.includes(busca.toUpperCase()) 
@@ -37,7 +36,7 @@ export default function SearchTickers() {
         <div className='bodylimiter'>
             <SearchTickersContainer>
             <div id='searchTickers'>
-                <input type="text" placeholder='Buscar ticker' value={textBox} onChange={e => handleSearchTicker(e.target.value)}></input>
+                <input type="text" placeholder='Buscar ticker' onChange={e => handleSearchTicker(e.target.value)}></input>
                 <img src="../../assets/imgs/lupa.png" alt="Lupa" />
             </div>
             <form>
