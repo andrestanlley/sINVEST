@@ -90,7 +90,7 @@ export const Filters = {
         label: 'Igual a 1'
     },
     {
-        value: "M1",
+        value: "A1",
         label: 'Maior que 1'
     }],
 
