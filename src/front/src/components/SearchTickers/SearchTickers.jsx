@@ -9,14 +9,16 @@ export default function SearchTickers() {
     const [search, setSearch] = useState()
     const [data, setData] = useState([]);
     const [url, setUrl] = useState("../../api/tickers?")
+    const [textBox, setTextBox] = useState("")
 
     useEffect(async () => {
         const response = await axios.get(url, { headers: { "reactAuth": (Math.random() * 1000)}}); 
         setData(response.data)
-    }, [url, search])
+    }, [url])
 
 
     function handleSearchTicker(busca) {
+        setTextBox(busca)
         // Função de busca por digitação
         setSearch(data.filter((value) => 
         value.DescricaoDoAtivo[0].Codigo.includes(busca.toUpperCase()) 
@@ -29,9 +31,9 @@ export default function SearchTickers() {
         }else{
             let baseUrl = url.split(seletor.name)[0]
             let finalUrl = url.split(seletor.name)[1].split("&")[1]
-            console.log(finalUrl)
             setUrl(`${baseUrl}${finalUrl}&${seletor.name}=${seletor.data.value}&`)
         }
+        setTextBox("")
     }
 
 
@@ -39,7 +41,7 @@ export default function SearchTickers() {
         <div className='bodylimiter'>
             <SearchTickersContainer>
             <div id='searchTickers'>
-                <input type="text" placeholder='Buscar ticker' onChange={e => handleSearchTicker(e.target.value)}></input>
+                <input type="text" placeholder='Buscar ticker' value={textBox} onChange={e => handleSearchTicker(e.target.value)}></input>
                 <img src="../../assets/imgs/lupa.png" alt="Lupa" />
             </div>
             <form>
