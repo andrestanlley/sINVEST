@@ -9,13 +9,11 @@ export default function SearchTickers() {
     const [search, setSearch] = useState()
     const [data, setData] = useState([]);
     const [url, setUrl] = useState("../../api/tickers?")
-    const [textBox, setTextBox] = useState("")
 
     useEffect(async () => {
         const response = await axios.get(url, { headers: { "reactAuth": (Math.random() * 1000)}}); 
         setData(response.data)
     }, [url])
-
 
     function handleSearchTicker(busca) {
         setTextBox(busca)
@@ -33,9 +31,7 @@ export default function SearchTickers() {
             let finalUrl = url.split(seletor.name)[1].split("&")[1]
             setUrl(`${baseUrl}${finalUrl}&${seletor.name}=${seletor.data.value}&`)
         }
-        setTextBox("")
     }
-
 
     return (
         <div className='bodylimiter'>

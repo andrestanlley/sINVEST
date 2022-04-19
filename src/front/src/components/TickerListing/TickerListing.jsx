@@ -2,7 +2,7 @@ import { Ticker } from '../Ticker/Ticker';
 import {TickerListingContainer} from './style'
 
 export default function TickerListing(props) {
-  const limiter = 28
+  const limiter = 56
   return (
     <>
       <TickerListingContainer>
