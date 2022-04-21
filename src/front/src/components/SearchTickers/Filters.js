@@ -28,7 +28,7 @@ export const Filters = {
 
     PL: [{
         value: '',
-        label: 'Patrimonio liquido'
+        label: 'Patrimônio líquido'
     }],
 
     ROE: [{
@@ -38,7 +38,7 @@ export const Filters = {
 
     MARGEMLIQUIDA: [{
         value: '1',
-        label: 'Margem liquida'
+        label: 'Margem líquida'
     }],
 
     MARGEMEBIT: [{
@@ -58,7 +58,7 @@ export const Filters = {
 
     LUCROLIQUIDO: [{
         value: '',
-        label: 'Lucro liquido anual'
+        label: 'Lucro líquido anual'
     }],
 
     FATURAMENTO: [{
@@ -73,12 +73,12 @@ export const Filters = {
 
     VARSEMANAL: [{
         value: '',
-        label: 'Variacao semanal'
+        label: 'Variação semanal'
     }],
 
     VARMENSAL: [{
         value: '',
-        label: 'Variacao mensal'
+        label: 'Variacão mensal'
     }],
 
     VAR52SEM: [{

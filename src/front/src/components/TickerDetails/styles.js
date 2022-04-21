@@ -72,6 +72,48 @@ export const TickerDetails = styled.div`
         font-size: 1.3rem;
     }
 
+    #VALORDEMERCADO > #Titulo > h1{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    #VALORDEMERCADO > #Titulo > h1 > span{
+        margin-top: -10px;
+        margin-left: 2.5px;
+        font-size: 1rem;
+        opacity: .6;
+    }
+
+    #VALORDEMERCADO > #Titulo{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.7rem;
+        align-items: center;
+        justify-content: flex-start;
+    }
+
+    #VALORDEMERCADO > #Titulo > img{
+        margin-right: .5rem;
+        width: 3rem;
+    }
+
+    #VALORDEMERCADO > #Valor {
+        display: flex;
+        flex-direction: column;
+        font-weight: 700;
+        margin-top: 2rem;
+        font-size: 4rem;
+    }
+
+    #VALORDEMERCADO > #Valor > p{
+        font-size: 1rem;
+        //color: var(--cinza-tres);
+        opacity: .7;
+    }
+
+
     #OSCILACOES{
         width: 100%;
     }

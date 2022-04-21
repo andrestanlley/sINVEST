@@ -34,7 +34,7 @@ export const FooterSubAreas = styled.div`
     }
 
     img{
-        width: 17rem;
+        width: 15rem;
     }
 
     a{
@@ -47,15 +47,21 @@ export const FooterSubAreas = styled.div`
         display: flex;
         flex-direction: row;
         justify-content: center;
-        font-size: 3rem;
+        font-size: 1rem;
     }
 
     div#links > a {
+        display: flex;
+        align-items: center;
         padding: .5rem;
+        margin: .3rem;
+        border: 1px solid white;
+        border-radius: 6px;
     }
 
     div#links > a:hover{
         color: var(--azul);
+        background: white;
     }
 
     @media (max-width: 700px){

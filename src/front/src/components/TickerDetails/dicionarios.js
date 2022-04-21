@@ -13,10 +13,10 @@ export const dicionarioCotacoes = [
     "Abertura",
     "Máximo",
     "Mínimo",
-    "Fec",
+    "Fechamento",
     "Média",
     "Variação",
-    "NNeg",
+    "Nº de negociações",
     "Quantidade total",
     "Valor total",
 ]

@@ -13,13 +13,12 @@ export const TickerContainer = styled.div `
 
     :hover{
     opacity: 0.6;
+    
 }
-
     div {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    width: 90%;
 }
     p{
     font-size: 1.8rem;
@@ -38,5 +37,4 @@ export const TickerContainer = styled.div `
     display: block;
     font-size: 1rem;
     color: var(--gray);
-}
-`
+}`

@@ -14,13 +14,15 @@ import {
 import axios from 'axios'
 import Loading from '../Loading/Loading'
 import { dicinarioBalanco, dicionarioCotacoes } from './dicionarios';
+import { RiMoneyDollarCircleFill } from "react-icons/ri";
+import renderOscilacao from '../../functions/renderOscilação';
 
 export default function TickerDetail(props) {
   const [ticker, SetTicker] = useState()
 
   useEffect(() => {
     const getTicker = async () => {
-      const res = await axios.get(`../../api/ticker/${props.acao}`, { headers: { "reactAuth": (Math.random() * 1000) } }); //
+      const res = await axios.get(`../../api/ticker/${props.acao}`, { headers: { "reactAuth": (Math.random() * 1000) } }); 
       SetTicker(res.data)
     }
     getTicker()
@@ -47,16 +49,21 @@ export default function TickerDetail(props) {
                     <span>CNPJ <span>{ticker.InfoEmpresaDadosGerais[0]?.CNPJ}</span></span>
                   </div>
                 )}
-                {ticker.InfoEmpresaDadosGerais[0]?.Site &&(
+                {ticker.InfoEmpresaDadosGerais[0]?.Site && (
                   <a href={ticker.InfoEmpresaDadosGerais[0]?.Site.indexOf("//") > 0 ? ticker.InfoEmpresaDadosGerais[0]?.Site : `http://${ticker.InfoEmpresaDadosGerais[0]?.Site}`} id="SITE" target="_blank"><MdLabel className='icon' />{ticker.InfoEmpresaDadosGerais[0]?.Site}    </a>
                 )}
               </section>
             )}
             {ticker.ValorDeMercado[0] && (
-              <section>
-                <h1>Valor de mercado</h1>
-                <p>Valor de Mercado: {ticker.ValorDeMercado[0].ValorDeMercado}</p>
-                <p>Valor da Firma: {ticker.ValorDeMercado[0].ValorDaFirma}</p>
+              <section id='VALORDEMERCADO'>
+                <div id='Titulo'>
+                  <img src="../../assets/imgs/icon-money.png" alt="Ícone valor" />
+                  <h1>Market Cap<span>Valor de mercado</span></h1>
+                </div>
+                <div id='Valor'>
+                  <span>{(ticker.ValorDeMercado[0].ValorDeMercado / 1000000000).toFixed(2)}B</span>
+                  <p>{ticker.ValorDeMercado[0].ValorDeMercado.toLocaleString("pt-BR", { minimumFractionDigits: 2, style: 'currency', currency: 'BRL' })}</p>
+                </div>
               </section>
             )}
             {ticker.Oscilacoes[0] && (
@@ -82,7 +89,7 @@ export default function TickerDetail(props) {
                       <p id='title'>{dicionarioCotacoes[index]}</p>
                     </div>
                     <div>
-                      <p>{ticker.Cotacoes[0][desc].toLocaleString("pt-BR", { minimumFractionDigits: 2, style: 'currency', currency: 'BRL' })}</p>
+                      <p>{renderOscilacao(ticker, desc, index)}</p>
                     </div>
                   </div>
                 })}

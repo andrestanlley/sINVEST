@@ -12,7 +12,9 @@ export default function TickerListing(props) {
               name: ticker.InfoEmpresaDadosGerais[0] ? ticker.InfoEmpresaDadosGerais[0].NomeEmpresarial : ticker.DescricaoDoAtivo[0].NomeMercado,
               ticker: ticker.DescricaoDoAtivo[0].Codigo,
               variacao: ticker.Oscilacoes[0] ? ticker.Oscilacoes[0].Var : "",
-              setor: ticker.ClassificacaoSetorial[0] ? ticker.ClassificacaoSetorial[0].Setor : "Indisponivel"
+              setor: ticker.ClassificacaoSetorial[0] ? ticker.ClassificacaoSetorial[0].Setor : "Indisponivel",
+              marketcap: ticker.ValorDeMercado[0]?.ValorDeMercado,
+              pl: ticker.ResumoBalancoDFP[0].PatrimonioLiquido
             }} />
           }catch (error){
             console.log(error)
