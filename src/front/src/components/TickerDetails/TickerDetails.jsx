@@ -47,7 +47,7 @@ export default function TickerDetail(props) {
                     <span>CNPJ <span>{ticker.InfoEmpresaDadosGerais[0]?.CNPJ}</span></span>
                   </div>
                 )}
-                {ticker.InfoEmpresaDadosGerais[0].Site &&(
+                {ticker.InfoEmpresaDadosGerais[0]?.Site &&(
                   <a href={ticker.InfoEmpresaDadosGerais[0]?.Site.indexOf("//") > 0 ? ticker.InfoEmpresaDadosGerais[0]?.Site : `http://${ticker.InfoEmpresaDadosGerais[0]?.Site}`} id="SITE" target="_blank"><MdLabel className='icon' />{ticker.InfoEmpresaDadosGerais[0]?.Site}    </a>
                 )}
               </section>
