@@ -47,14 +47,14 @@ export const TickerDetails = styled.div`
         width: 100%;
     }
 
-    #CVM-CNPJ > p{
+    #CVM-CNPJ > span{
         display: flex;
         flex-direction: column;
         padding-right: .7rem;
         padding-bottom: 1.5rem;
     }
 
-    #CVM-CNPJ > p > p{
+    #CVM-CNPJ > span > span{
         font-weight: 700;
     }
 
@@ -74,6 +74,34 @@ export const TickerDetails = styled.div`
 
     #OSCILACOES{
         width: 100%;
+    }
+
+    .tabela{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: .3rem;
+    }
+
+    .tabela > span{
+        font-size: .9rem;
+        color: var(--cinza-tres);
+    }
+
+    .linhaImpar, .linhaPar{
+        padding: .3rem;
+    }
+
+    #title{
+        font-weight: 700;
+    }
+
+    .linhaImpar{
+        background: var(--cinza);
+    }
+
+    .linhaPar{
+        background: var(--branco);
     }
 
     @media (max-width: 1060px){

@@ -13,17 +13,19 @@ import {
 } from 'recharts';
 import axios from 'axios'
 import Loading from '../Loading/Loading'
+import { dicinarioBalanco, dicionarioCotacoes } from './dicionarios';
 
 export default function TickerDetail(props) {
   const [ticker, SetTicker] = useState()
 
   useEffect(() => {
     const getTicker = async () => {
-      const res = await axios.get(`../../api/ticker/${props.acao}`, { headers: { "reactAuth": (Math.random() * 1000)}}); //
+      const res = await axios.get(`../../api/ticker/${props.acao}`, { headers: { "reactAuth": (Math.random() * 1000) } }); //
       SetTicker(res.data)
     }
     getTicker()
   }, [])
+
 
   return (
     <div className='bodylimiter'>
@@ -34,31 +36,27 @@ export default function TickerDetail(props) {
         {ticker &&
           <div>
             {ticker.ClassificacaoSetorial[0] && (
-              <section>
+              <section id='INFO'>
                 <p id='TICKER'>{ticker.DescricaoDoAtivo[0].Codigo}</p>
                 <p id='NOMEEMPRESA'>{ticker.InfoEmpresaDadosGerais[0] ? ticker.InfoEmpresaDadosGerais[0].NomeEmpresarial : ticker.DescricaoDoAtivo[0].NomeMercado}</p>
                 <p id='SETOR'>{ticker.ClassificacaoSetorial[0].Setor} • {ticker.InfoEmpresaDadosGerais[0]?.EspeciControle}</p>
                 <p id='DESCRICAO'>{ticker.InfoEmpresaDadosGerais[0]?.DescricaoAtividade}</p>
-                {ticker.InfoEmpresaDadosGerais[0] &&(
-                <div id='CVM-CNPJ'>
-                  <p>Cod CVM <p>{ticker.InfoEmpresaDadosGerais[0]?.CodCvm}</p></p>
-                  <p>CNPJ <p>{ticker.InfoEmpresaDadosGerais[0]?.CNPJ}</p></p>
-                </div>
+                {ticker.InfoEmpresaDadosGerais[0] && (
+                  <div id='CVM-CNPJ'>
+                    <span>Cod CVM <span>{ticker.InfoEmpresaDadosGerais[0]?.CodCvm}</span></span>
+                    <span>CNPJ <span>{ticker.InfoEmpresaDadosGerais[0]?.CNPJ}</span></span>
+                  </div>
                 )}
+                {ticker.InfoEmpresaDadosGerais[0].Site &&(
                   <a href={ticker.InfoEmpresaDadosGerais[0]?.Site.indexOf("//") > 0 ? ticker.InfoEmpresaDadosGerais[0]?.Site : `http://${ticker.InfoEmpresaDadosGerais[0]?.Site}`} id="SITE" target="_blank"><MdLabel className='icon' />{ticker.InfoEmpresaDadosGerais[0]?.Site}    </a>
+                )}
               </section>
             )}
-            {ticker.ResumoBalancoDFP[0] && (
+            {ticker.ValorDeMercado[0] && (
               <section>
-                <h1>Resumo Balanço DFP</h1>
-                <p>Data do ultimo balanco: {ticker.ResumoBalancoDFP[0].DataUltBalanco}</p>
-                <p>Nº Ações: {ticker.ResumoBalancoDFP[0].NumAcoes}</p>
-                <p>Ativo: {ticker.ResumoBalancoDFP[0].Ativo}</p>
-                <p>Disponibilidade: {ticker.ResumoBalancoDFP[0].Disponibilidades}</p>
-                <p>Ativo circulante: {ticker.ResumoBalancoDFP[0].AtivoCirculante}</p>
-                <p>DividaBruta: {ticker.ResumoBalancoDFP[0].DividaBruta}</p>
-                <p>DividaLiquida: {ticker.ResumoBalancoDFP[0].DividaLiquida}</p>
-                <p>Patrimonio Liquido: {ticker.ResumoBalancoDFP[0].PatrimonioLiquido}</p>
+                <h1>Valor de mercado</h1>
+                <p>Valor de Mercado: {ticker.ValorDeMercado[0].ValorDeMercado}</p>
+                <p>Valor da Firma: {ticker.ValorDeMercado[0].ValorDaFirma}</p>
               </section>
             )}
             {ticker.Oscilacoes[0] && (
@@ -76,25 +74,33 @@ export default function TickerDetail(props) {
               </section>
             )}
             {ticker.Cotacoes[0] && (
-              <section>
-                <h1>Cotações</h1>
-                <p>Data: {ticker.Cotacoes[0].Data}</p>
-                <p>Abe: {ticker.Cotacoes[0].Abe}</p>
-                <p>Max: {ticker.Cotacoes[0].Max}</p>
-                <p>Min: {ticker.Cotacoes[0].Min}</p>
-                <p>Fec: {ticker.Cotacoes[0].Fec}</p>
-                <p>Med: {ticker.Cotacoes[0].Med}</p>
-                <p>Var: {ticker.Cotacoes[0].Var}</p>
-                <p>NNeg: {ticker.Cotacoes[0].NNeg}</p>
-                <p>QTot: {ticker.Cotacoes[0].QTot}</p>
-                <p>VTot: {ticker.Cotacoes[0].VTot}</p>
+              <section id='COTACOES'>
+                <h1 className='tabela'>Cotações <span> {new Date(ticker.Cotacoes[0].Data).toLocaleDateString()}</span></h1>
+                {Object.keys(ticker.Cotacoes[0]).slice(1).map((desc, index) => {
+                  return <div className={index % 2 == 0 ? "linhaImpar" : "linhaPar"} key={index}>
+                    <div>
+                      <p id='title'>{dicionarioCotacoes[index]}</p>
+                    </div>
+                    <div>
+                      <p>{ticker.Cotacoes[0][desc].toLocaleString("pt-BR", { minimumFractionDigits: 2, style: 'currency', currency: 'BRL' })}</p>
+                    </div>
+                  </div>
+                })}
               </section>
             )}
-            {ticker.ValorDeMercado[0] && (
-              <section>
-                <h1>Valor de mercado</h1>
-                <p>Valor de Mercado: {ticker.ValorDeMercado[0].ValorDeMercado}</p>
-                <p>Valor da Firma: {ticker.ValorDeMercado[0].ValorDaFirma}</p>
+            {ticker.ResumoBalancoDFP[0] && (
+              <section id='BALANCO'>
+                <h1 className='tabela'>Resumo Balanço <span> {new Date(ticker.ResumoBalancoDFP[0].DataUltBalanco).toLocaleDateString()}</span></h1>
+                {Object.keys(ticker.ResumoBalancoDFP[0]).slice(1).map((desc, index) => {
+                  return <div className={index % 2 == 0 ? "linhaImpar" : "linhaPar"} key={index}>
+                    <div>
+                      <p id='title'>{dicinarioBalanco[index]}</p>
+                    </div>
+                    <div>
+                      <p>{ticker.ResumoBalancoDFP[0][desc].toLocaleString("pt-BR", { minimumFractionDigits: 2, style: 'currency', currency: 'BRL' })}</p>
+                    </div>
+                  </div>
+                })}
               </section>
             )}
           </div>
