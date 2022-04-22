@@ -23,8 +23,8 @@ https
     },
     app
   )
-  .listen(80, () => {
-    console.log("Servidor rodando na porta 80");
+  .listen(443, () => {
+    console.log("Servidor rodando na porta 443");
     saveTickersInMemory.start()
     setInterval(() => {
         saveTickersInMemory = []
