@@ -1,6 +1,8 @@
 import styled from 'styled-components'
 
-export const LoadingDiv = styled.div`  
+export const LoadingDiv = styled.div`
+  min-height: 60vh;
+
   .lds-ellipsis{
     display: inline-block;
     position: relative;

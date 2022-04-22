@@ -21,7 +21,7 @@ export default function Footer() {
                         <p>Desenvolvido por <a href="https://sejaviews.com.br">Views Digital</a> </p>
                     </div>
                 </FooterSubAreas>
-                <p>	× Não é intenção desse website usar das informações aqui expostas para fins de recomendações ou aconselhamentos financeiros, como também enquanto proposta para aquisição de compra e venda de títulos, ações, fundos imobiliários ou quaisquer  tipo de procedimentos ligados ao mercado financeiro.</p>
+                <p>	* Não é intenção desse website usar das informações aqui expostas para fins de recomendações ou aconselhamentos financeiros, como também enquanto proposta para aquisição de compra e venda de títulos, ações, fundos imobiliários ou quaisquer tipos de procedimentos dessa natureza ligados ao mercado financeiro.</p>
             </FooterBar>
         </div>
     )
