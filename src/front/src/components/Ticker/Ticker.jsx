@@ -19,7 +19,8 @@ export function Ticker({ info }) {
                 <p> {name} </p>
                 {marketcap && pl &&(
                 <div style={{
-                    opacity: 0.6
+                    opacity: 0.6,
+                    fontWeight: 400
                 }}>
                     <h2> MC {marketcap/1000000000 > 1 ? (marketcap/1000000000).toFixed(2) + "B" : (marketcap/1000000).toFixed(2) + "M"} </h2>
                     <h2> PL {pl/1000000000 > 1 ? (pl/1000000000).toFixed(2) + "B" : (pl/1000000).toFixed(2) + "M"} </h2>
