@@ -1,9 +1,9 @@
 const axios = require('axios')
 require('dotenv').config()
 const Lists = require("../constants/Lists")
-const lastView = require('../functions/lastview')
+const lastView = require('../services/lastview')
 const qs = require('qs')
-const indicators = require('../functions/indicators')
+const indicators = require('../services/indicators')
 
 exports.lastView = (req, res) => {
     return res.status(200).send(Lists.lastview)

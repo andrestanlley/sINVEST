@@ -1,6 +1,6 @@
 const tick = require('../controllers/aboutTicker')
 const Lists = require('../constants/Lists')
-const indicators = require('../functions/indicators')
+const indicators = require('./indicators')
 
 
 exports.start = async () => {
