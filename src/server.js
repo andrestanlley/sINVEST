@@ -4,22 +4,22 @@ const api = require('./routes/api')
 const express = require('express')
 const https = require('https')
 const fs = require('fs')
-const rootPath = require('path').dirname(Object.keys(require.cache)[0])
+const path = require('path')
 require('dotenv').config()
 const app = express()
 
 app.use(express.json())
 
 app.use('/api', verifyHeader.auth, api)
-app.use('/', express.static(rootPath + '/front/dist'))
-app.use('/indices', express.static(rootPath + '/front/dist'))
-app.use('/sobre/:ticker', express.static(rootPath + '/front/dist'))
-app.use('/contato', express.static(rootPath + '/front/dist'))
+app.use('/', express.static(path.resolve("src/front/dist")))
+app.use('/indices', express.static(path.resolve("src/front/dist")))
+app.use('/sobre/:ticker', express.static(path.resolve("src/front/dist")))
+app.use('/contato', express.static(path.resolve("src/front/dist")))
 
 https
   .createServer({
-      key: fs.readFileSync(rootPath + "/ssl/private.key"),
-      cert: fs.readFileSync(rootPath + "/ssl/certificate.crt"),
+      key: fs.readFileSync(path.resolve("src/ssl/private.key")),
+      cert: fs.readFileSync(path.resolve("src/ssl/certificate.crt")),
     },
     app
   )
