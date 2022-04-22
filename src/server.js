@@ -1,25 +1,25 @@
 const saveTickersInMemory = require("../src/services/saveTickersInMemory")
 const verifyHeader = require('./Middlewares/verifyHeader')
-const client = require('./routes/client')
 const api = require('./routes/api')
 const express = require('express')
 const https = require('https')
 const fs = require('fs')
-const path = require('path')
+const rootPath = require('path').dirname(Object.keys(require.cache)[0])
 require('dotenv').config()
 const app = express()
 
 app.use(express.json())
 
 app.use('/api', verifyHeader.auth, api)
-app.use('/', client)
-
+app.use('/', express.static(rootPath + '/front/dist'))
+app.use('/indices', express.static(rootPath + '/front/dist'))
+app.use('/sobre/:ticker', express.static(rootPath + '/front/dist'))
+app.use('/contato', express.static(rootPath + '/front/dist'))
 
 https
-  .createServer(
-    {
-      key: fs.readFileSync(path.resolve("src/ssl/private.key")),
-      cert: fs.readFileSync(path.resolve("src/ssl/certificate.crt")),
+  .createServer({
+      key: fs.readFileSync(rootPath + "/ssl/private.key"),
+      cert: fs.readFileSync(rootPath + "/ssl/certificate.crt"),
     },
     app
   )
@@ -27,7 +27,7 @@ https
     console.log("Servidor rodando na porta 443");
     saveTickersInMemory.start()
     setInterval(() => {
-        saveTickersInMemory = []
-        saveTickersInMemory.start()
+      saveTickersInMemory = []
+      saveTickersInMemory.start()
     }, 21600000);
   });
