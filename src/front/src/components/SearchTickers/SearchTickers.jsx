@@ -11,9 +11,9 @@ export default function SearchTickers() {
     const [url, setUrl] = useState("../../api/tickers?")
 
     useEffect(async () => {
+        window.scrollTo(0, 0)
         const response = await axios.get(url, { headers: { "reactAuth": (Math.random() * 1000)}}); 
         setData(response.data)
-        window.scrollTo(0, 0)
     }, [url])
 
     function handleSearchTicker(busca) {

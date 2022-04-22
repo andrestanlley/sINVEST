@@ -14,7 +14,6 @@ import {
 import axios from 'axios'
 import Loading from '../Loading/Loading'
 import { dicinarioBalanco, dicionarioCotacoes } from './dicionarios';
-import { RiMoneyDollarCircleFill } from "react-icons/ri";
 import renderOscilacao from '../../functions/renderOscilação';
 import renderBalanco from '../../functions/renderBalanco';
 
@@ -22,10 +21,10 @@ export default function TickerDetail(props) {
   const [ticker, SetTicker] = useState()
 
   useEffect(() => {
+    window.scrollTo(0, 0)
     const getTicker = async () => {
       const res = await axios.get(`../../api/ticker/${props.acao}`, { headers: { "reactAuth": (Math.random() * 1000) } }); //
       SetTicker(res.data)
-      window.scrollTo(0, 0)
     }
     getTicker()
   }, [])
