@@ -1,25 +1,87 @@
 export const Filters = {
-    VALORDEMERCADO: [
-        { label: 'Valor de mercado' },
-        { value: 5000000000, label: 'Acima de 5B' },
-        { value: 10000000000, label: 'Acima de 10B' },
-        { value: 50000000000, label: 'Acima de 50B' },
-        { value: 100000000000, label: 'Acima de 100B' }
+    VALORDEMERCADO: [{
+            label: 'Valor de mercado'
+        },
+        {
+            value: 5000000000,
+            label: 'Acima de 5B'
+        },
+        {
+            value: 10000000000,
+            label: 'Acima de 10B'
+        },
+        {
+            value: 50000000000,
+            label: 'Acima de 50B'
+        },
+        {
+            value: 100000000000,
+            label: 'Acima de 100B'
+        }
     ],
 
-    SETOR: [
-        {label: 'Setor'},
-        {value: "Saúde", label: 'Saúde'},
-        {value: "Financeiro", label: 'Financeiro'},
-        {value: "Comunicações", label: 'Comunicações'},
-        {value: "Consumo Ciclico", label: 'Consumo Ciclico'},
-        {value: "Consumo Não Ciclico", label: 'Consumo Não Ciclico'},
-        {value: "Bens Industriais", label: 'Bens Industriais'},
-        {value: "Utilidade Pública", label: 'Utilidade Pública'},
-        {value: "Materiais Básicos ", label: 'Materiais Básicos '},
-        {value: "Tecnologia da Informação", label: 'Tecnologia da Informação'},
-        {value: "Petróleo, Gás e Biocombustíveis", label: 'Petróleo, Gás e Biocombustíveis'},
-],
+    SETOR: [{
+            label: 'Setor'
+        },
+        {
+            value: "Saúde",
+            label: 'Saúde'
+        },
+        {
+            value: "Financeiro",
+            label: 'Financeiro'
+        },
+        {
+            value: "Comunicações",
+            label: 'Comunicações'
+        },
+        {
+            value: "Consumo Ciclico",
+            label: 'Consumo Ciclico'
+        },
+        {
+            value: "Consumo Não Ciclico",
+            label: 'Consumo Não Ciclico'
+        },
+        {
+            value: "Bens Industriais",
+            label: 'Bens Industriais'
+        },
+        {
+            value: "Utilidade Pública",
+            label: 'Utilidade Pública'
+        },
+        {
+            value: "Materiais Básicos ",
+            label: 'Materiais Básicos '
+        },
+        {
+            value: "Tecnologia da Informação",
+            label: 'Tecnologia da Informação'
+        },
+        {
+            value: "Petróleo, Gás e Biocombustíveis",
+            label: 'Petróleo, Gás e Biocombustíveis'
+        },
+    ],
+
+    LIQUIDEZIMEDIATA: [{
+            label: 'Liquidez imeadiata'
+        },
+        {
+            value: "M1",
+            label: 'Abaixo de 1'
+        },
+        {
+            value: "I1",
+            label: 'Igual a 1'
+        },
+        {
+            value: "A1",
+            label: 'Maior que 1'
+        }
+    ],
+
 
     PRECODAACAO: [{
         value: '',
@@ -84,23 +146,5 @@ export const Filters = {
     VAR52SEM: [{
         value: '',
         label: 'Variação em 52 semanas'
-    }],
-
-    LIQUIDEZIMEDIATA: [{
-        label: 'Liquidez imeadiata'
-    },
-    {
-        value: "M1",
-        label: 'Abaixo de 1'
-    },
-    {
-        value: "I1",
-        label: 'Igual a 1'
-    },
-    {
-        value: "A1",
-        label: 'Maior que 1'
-    }],
-
-    
+    }]
 }

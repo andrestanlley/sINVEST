@@ -1,3 +1,4 @@
+import Loading from '../Loading/Loading';
 import { Ticker } from '../Ticker/Ticker';
 import {TickerListingContainer} from './style'
 
@@ -6,6 +7,9 @@ export default function TickerListing(props) {
   return (
     <>
       <TickerListingContainer>
+        {props.data.length == 0 &&(
+          <Loading/>
+        )}
         {props.data.slice(0, limiter).map((ticker, index) => {
           try{
             return <Ticker key={index} info={{

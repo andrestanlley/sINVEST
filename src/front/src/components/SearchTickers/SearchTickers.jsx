@@ -4,6 +4,7 @@ import {SearchTickersContainer} from './style'
 import {Filters} from './Filters';
 import Select from 'react-select';
 import axios from 'axios'
+import Loading from '../Loading/Loading';
 
 export default function SearchTickers() {
     const [search, setSearch] = useState()

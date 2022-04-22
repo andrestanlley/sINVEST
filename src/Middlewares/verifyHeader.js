@@ -6,3 +6,11 @@ exports.auth = (req, res, next)=>{
     }
     next()
 }
+
+exports.ssl = (req, res, next)=>{
+    if(req.secure){
+      next()
+    }else{
+      return res.redirect(`https://${req.hostname}${req.url}`); 
+    }
+}
