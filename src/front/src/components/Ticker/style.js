@@ -4,6 +4,7 @@ export const TickerContainer = styled.div `
     margin: 0;
     display: grid;
     background: var(--cinza);
+    min-height: 11rem;
     padding: 2rem 1rem;
     margin: 1rem;
     border-radius: 4px;

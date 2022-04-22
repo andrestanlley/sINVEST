@@ -188,6 +188,7 @@ Add a <Suspense fallback=...> component higher in the tree to provide a loading 
     margin: 0;
     display: grid;
     background: var(--cinza);
+    min-height: 11rem;
     padding: 2rem 1rem;
     margin: 1rem;
     border-radius: 4px;
@@ -221,7 +222,7 @@ Add a <Suspense fallback=...> component higher in the tree to provide a loading 
     display: block;
     font-size: 1rem;
     color: var(--gray);
-}`;function AM(e){return Ya({tag:"svg",attr:{viewBox:"0 0 1024 1024"},child:[{tag:"path",attr:{d:"M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"}}]})(e)}function CM(e){return Ya({tag:"svg",attr:{viewBox:"0 0 1024 1024"},child:[{tag:"path",attr:{d:"M858.9 689L530.5 308.2c-9.4-10.9-27.5-10.9-37 0L165.1 689c-12.2 14.2-1.2 35 18.5 35h656.8c19.7 0 30.7-20.8 18.5-35z"}}]})(e)}function cE({info:e}){const{name:t,ticker:r,variacao:n,setor:i,marketcap:a,pl:o}=e;let u=n>0?"var(--verde)":"red",s=n>0?C(CM,{}):C(AM,{});return C(_i,{to:`/sobre/${r}`,children:ee(EM,{children:[ee("div",{children:[ee("h2",{children:[" ",r," "]}),ee("span",{style:{color:u},children:[" ",s," ",n,"% "]})]}),ee("p",{children:[" ",t," "]}),C("span",{children:i}),ee("div",{children:[ee("h2",{children:[" MC ",a/1e9>0?(a/1e9).toFixed(2)+"B":(a/1e6).toFixed(2)+"M"," "]}),ee("h2",{children:[" PL ",o/1e9>0?(o/1e9).toFixed(2)+"B":(o/1e6).toFixed(2)+"M"," "]})]})]})})}const PM=Er.div`
+}`;function AM(e){return Ya({tag:"svg",attr:{viewBox:"0 0 1024 1024"},child:[{tag:"path",attr:{d:"M840.4 300H183.6c-19.7 0-30.7 20.8-18.5 35l328.4 380.8c9.4 10.9 27.5 10.9 37 0L858.9 335c12.2-14.2 1.2-35-18.5-35z"}}]})(e)}function CM(e){return Ya({tag:"svg",attr:{viewBox:"0 0 1024 1024"},child:[{tag:"path",attr:{d:"M858.9 689L530.5 308.2c-9.4-10.9-27.5-10.9-37 0L165.1 689c-12.2 14.2-1.2 35 18.5 35h656.8c19.7 0 30.7-20.8 18.5-35z"}}]})(e)}function cE({info:e}){const{name:t,ticker:r,variacao:n,setor:i,marketcap:a,pl:o}=e;let u=n>0?"var(--verde)":"red",s=n>0?C(CM,{}):C(AM,{});return C(_i,{to:`/sobre/${r}`,children:ee(EM,{children:[ee("div",{children:[ee("h2",{children:[" ",r," "]}),ee("span",{style:{color:u},children:[" ",s," ",n,"% "]})]}),ee("p",{children:[" ",t," "]}),a&&o&&ee("div",{style:{opacity:.6},children:[ee("h2",{children:[" MC ",a/1e9>1?(a/1e9).toFixed(2)+"B":(a/1e6).toFixed(2)+"M"," "]}),ee("h2",{children:[" PL ",o/1e9>1?(o/1e9).toFixed(2)+"B":(o/1e6).toFixed(2)+"M"," "]})]}),C("span",{children:i})]})})}const PM=Er.div`
     margin-top: 2rem;
     position: relative;
     min-height: 14rem;

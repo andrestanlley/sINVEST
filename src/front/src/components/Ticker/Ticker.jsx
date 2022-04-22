@@ -17,11 +17,15 @@ export function Ticker({ info }) {
                     }}> {symbol} {variacao}% </span>
                 </div>
                 <p> {name} </p>
-                <span>{setor}</span>   
-                <div>
-                    <h2> MC {marketcap/1000000000 > 0 ? (marketcap/1000000000).toFixed(2) + "B" : (marketcap/1000000).toFixed(2) + "M"} </h2>
-                    <h2> PL {pl/1000000000 > 0 ? (pl/1000000000).toFixed(2) + "B" : (pl/1000000).toFixed(2) + "M"} </h2>
+                {marketcap && pl &&(
+                <div style={{
+                    opacity: 0.6
+                }}>
+                    <h2> MC {marketcap/1000000000 > 1 ? (marketcap/1000000000).toFixed(2) + "B" : (marketcap/1000000).toFixed(2) + "M"} </h2>
+                    <h2> PL {pl/1000000000 > 1 ? (pl/1000000000).toFixed(2) + "B" : (pl/1000000).toFixed(2) + "M"} </h2>
                 </div>
+                )}
+                <span>{setor}</span>   
             </TickerContainer>
         </Link>
     )
