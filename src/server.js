@@ -23,7 +23,7 @@ https
     },
     app
   )
-  .listen(80, () => {
+  .listen(8080, () => {
     console.log("Servidor rodando na porta 80");
     saveTickersInMemory.start()
     setInterval(() => {
