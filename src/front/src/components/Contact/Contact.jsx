@@ -1,6 +1,12 @@
+import { useEffect } from "react"
 import { ContactDiv } from "./style"
 
 export default function ContactContainer() {
+
+    useEffect(()=>{
+        window.scrollTo(0, 0)
+    })
+
     return (
         <div className="bodylimiter">
             <ContactDiv>

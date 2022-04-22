@@ -16,13 +16,14 @@ import Loading from '../Loading/Loading'
 import { dicinarioBalanco, dicionarioCotacoes } from './dicionarios';
 import { RiMoneyDollarCircleFill } from "react-icons/ri";
 import renderOscilacao from '../../functions/renderOscilação';
+import renderBalanco from '../../functions/renderBalanco';
 
 export default function TickerDetail(props) {
   const [ticker, SetTicker] = useState()
 
   useEffect(() => {
     const getTicker = async () => {
-      const res = await axios.get(`../../api/ticker/${props.acao}`, { headers: { "reactAuth": (Math.random() * 1000) } }); 
+      const res = await axios.get(`../../api/ticker/${props.acao}`, { headers: { "reactAuth": (Math.random() * 1000) } }); //
       SetTicker(res.data)
       window.scrollTo(0, 0)
     }
@@ -105,7 +106,7 @@ export default function TickerDetail(props) {
                       <p id='title'>{dicinarioBalanco[index]}</p>
                     </div>
                     <div>
-                      <p>{ticker.ResumoBalancoDFP[0][desc].toLocaleString("pt-BR", { minimumFractionDigits: 2, style: 'currency', currency: 'BRL' })}</p>
+                      <p>{renderBalanco(ticker, desc, index)}</p>
                     </div>
                   </div>
                 })}
