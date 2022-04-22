@@ -14,10 +14,10 @@ app.use(express.json())
 app.use('*', verifyHeader.ssl)
 
 app.use('/api', verifyHeader.auth, api)
-app.get('*', express.static(path.resolve("src/front/dist")))
-// app.get('/indices', express.static(path.resolve("src/front/dist")))
-// app.get('/sobre/:ticker', express.static(path.resolve("src/front/dist")))
-// app.get('/contato', express.static(path.resolve("src/front/dist")))
+app.get('/', express.static(path.resolve("src/front/dist")))
+app.get('/indices', express.static(path.resolve("src/front/dist")))
+app.get('/sobre/:ticker', express.static(path.resolve("src/front/dist")))
+app.get('/contato', express.static(path.resolve("src/front/dist")))
 
 const credencials = {
   key: fs.readFileSync(path.resolve("src/ssl/private.key")),
