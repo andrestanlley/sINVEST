@@ -8,7 +8,7 @@
   },
   "scripts": {
     "dev": "nodemon src/server.js",
-    "start": "node src/server.js",
+    "start": "pm2 start src/server.js",
     "preview": "cd src/front && npm run dev",
     "buildar": "cd src/front && npm run build && cd ../../ && npm run dev"
   },
@@ -22,6 +22,7 @@
     "fs": "^0.0.1-security",
     "https": "^1.0.0",
     "path": "^0.12.7",
+    "pm2": "^5.2.0",
     "qs": "^6.10.3"
   },
   "devDependencies": {
