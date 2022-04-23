@@ -11,9 +11,9 @@ export default function Header() {
                 </Logo>
                 <div>
                     <ol>
-                        <Link to="../"><li>início</li></Link>
+                        <Link to="../"><li>Início</li></Link>
                         <Link to="../indices"><li>Ativos</li></Link>
-                        <Link to="../contato"><li>contato</li></Link>
+                        <Link to="../contato"><li>Contato</li></Link>
                     </ol>
                 </div>
             </div>

@@ -184,7 +184,7 @@ Add a <Suspense fallback=...> component higher in the tree to provide a loading 
         width: 10rem;
         padding: 1rem;
     }
-`;function Lf(){return C("div",{className:"bodylimiter",children:C(OM,{children:ee("div",{className:"content",children:[C(EM,{children:C(_i,{to:"../",children:C("img",{src:"../../assets/imgs/Logo_001.png",alt:"Logo Vis\xE3o Macro"})})}),C("div",{children:ee("ol",{children:[C(_i,{to:"../",children:C("li",{children:"in\xEDcio"})}),C(_i,{to:"../indices",children:C("li",{children:"Ativos"})}),C(_i,{to:"../contato",children:C("li",{children:"contato"})})]})})]})})})}const AM=Er.div`
+`;function Lf(){return C("div",{className:"bodylimiter",children:C(OM,{children:ee("div",{className:"content",children:[C(EM,{children:C(_i,{to:"../",children:C("img",{src:"../../assets/imgs/Logo_001.png",alt:"Logo Vis\xE3o Macro"})})}),C("div",{children:ee("ol",{children:[C(_i,{to:"../",children:C("li",{children:"In\xEDcio"})}),C(_i,{to:"../indices",children:C("li",{children:"Ativos"})}),C(_i,{to:"../contato",children:C("li",{children:"Contato"})})]})})]})})})}const AM=Er.div`
     margin: 0;
     display: grid;
     background: var(--cinza);
@@ -363,6 +363,7 @@ Add a <Suspense fallback=...> component higher in the tree to provide a loading 
     }
 `;function UI(){return C("div",{className:"bodylimiter",children:ee(VI,{children:[ee("div",{children:[C("h1",{children:"Quem somos"}),C("span",{children:"Dispomos dos principais ativos do mercado financeiro para voc\xEA realizar a melhor escolha de investimentos. Um site completo, preparado de maneira simplificada e direta para quem pretende investir no mercado financeiro. "}),C("br",{}),C(_i,{to:"/indices",children:C("button",{children:"Ver empresas listadas"})})]}),C("div",{id:"logo",children:C("img",{src:"../../assets/imgs/Logo_001.png",alt:""})})]})})}function HI(){return ee(Df,{children:[C(Lf,{}),C(UI,{}),C(BI,{}),C(Nf,{})]})}const WI=Er.div`
     max-width: var(--limiter-width);
+    min-height: 20rem;
 
     div{
         display: flex;

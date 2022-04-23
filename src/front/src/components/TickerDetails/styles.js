@@ -2,6 +2,7 @@ import styled from 'styled-components'
 
 export const TickerDetails = styled.div`
     max-width: var(--limiter-width);
+    min-height: 20rem;
 
     div{
         display: flex;
