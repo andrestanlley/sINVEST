@@ -2,6 +2,7 @@ const saveTickersInMemory = require("../src/services/saveTickersInMemory")
 const verifyHeader = require('./Middlewares/verifyHeader')
 const api = require('./routes/api')
 const express = require('express')
+const Lists = require('./constants/Lists')
 const http = require('http')
 const https = require('https')
 const fs = require('fs')
@@ -19,21 +20,21 @@ app.use('/indices', express.static(path.resolve("src/front/dist")))
 app.use('/sobre/:ticker', express.static(path.resolve("src/front/dist")))
 app.use('/contato', express.static(path.resolve("src/front/dist")))
 
-const credencials = {
+let credencials = {
   key: fs.readFileSync(path.resolve("src/ssl/private.key")),
   cert: fs.readFileSync(path.resolve("src/ssl/certificate.crt")),
 }
 
-const httpServer = http.createServer(app)
-const httpsServer = https.createServer(credencials, app)
+let httpServer = http.createServer(app)
+let httpsServer = https.createServer(credencials, app)
 
 
 httpServer.listen(80)
 httpsServer.listen(443, () => {
-  console.log("Servidor rodando na porta 443");
+  console.log("Servidor rodando nas portas 80 e 443");
   saveTickersInMemory.start()
   setInterval(() => {
-    saveTickersInMemory = []
+    Lists.tickerInMemory = []
     saveTickersInMemory.start()
   }, 21600000);
 });

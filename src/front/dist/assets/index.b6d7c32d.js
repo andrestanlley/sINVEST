@@ -184,7 +184,7 @@ Add a <Suspense fallback=...> component higher in the tree to provide a loading 
         width: 10rem;
         padding: 1rem;
     }
-`;function Lf(){return C("div",{className:"bodylimiter",children:C(OM,{children:ee("div",{className:"content",children:[C(EM,{children:C(_i,{to:"../",children:C("img",{src:"../../assets/imgs/Logo_001.png",alt:"Logo Vis\xE3o Macro"})})}),C("div",{children:ee("ol",{children:[C(_i,{to:"../",children:C("li",{children:"in\xEDcio"})}),C(_i,{to:"../indices",children:C("li",{children:"\xEDndices"})}),C(_i,{to:"../contato",children:C("li",{children:"contato"})})]})})]})})})}const AM=Er.div`
+`;function Lf(){return C("div",{className:"bodylimiter",children:C(OM,{children:ee("div",{className:"content",children:[C(EM,{children:C(_i,{to:"../",children:C("img",{src:"../../assets/imgs/Logo_001.png",alt:"Logo Vis\xE3o Macro"})})}),C("div",{children:ee("ol",{children:[C(_i,{to:"../",children:C("li",{children:"in\xEDcio"})}),C(_i,{to:"../indices",children:C("li",{children:"Ativos"})}),C(_i,{to:"../contato",children:C("li",{children:"contato"})})]})})]})})})}const AM=Er.div`
     margin: 0;
     display: grid;
     background: var(--cinza);

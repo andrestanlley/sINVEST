@@ -12,7 +12,7 @@ export default function Header() {
                 <div>
                     <ol>
                         <Link to="../"><li>início</li></Link>
-                        <Link to="../indices"><li>índices</li></Link>
+                        <Link to="../indices"><li>Ativos</li></Link>
                         <Link to="../contato"><li>contato</li></Link>
                     </ol>
                 </div>
