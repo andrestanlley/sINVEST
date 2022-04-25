@@ -14,7 +14,11 @@ exports.all = async (req, res) => {
     const response = Lists.tickerInMemory.filter(ticker =>
         filters.VALORDEMERCADO(ticker, VALORDEMERCADO) &&
         filters.LIQUIDEZIMEDIATA(ticker, LIQUIDEZIMEDIATA) &&
-        filters.SETOR(ticker, SETOR))
+        filters.SETOR(ticker, SETOR) &&
+        filters.PRECODAACAO(ticker, PRECODAACAO)
+        
+        
+        )
 
     return res.status(200).send(response)
 }
