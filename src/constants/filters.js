@@ -34,7 +34,7 @@ exports.filters = {
             return ticker
         }
         try {
-            if (ticker.ClassificacaoSetorial[0] ? .Setor == SETOR) {
+            if (ticker.ClassificacaoSetorial[0]?.Setor == SETOR) {
                 return ticker
             }
         } catch {}
