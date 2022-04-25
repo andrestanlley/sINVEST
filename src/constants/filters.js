@@ -1,4 +1,45 @@
 exports.filters = {
+    VARMENSAL: (ticker, VARMENSAL) => {
+        if (!VARMENSAL || VARMENSAL == "undefined")
+            return ticker
+        try {
+            switch (VARMENSAL) {
+                case "I10":
+                    if (ticker.Oscilacoes[1].Var <= -10)
+                        return ticker
+                    break
+                case "EA10E1":
+                    if (ticker.Oscilacoes[1].Var >= -10 && ticker.Oscilacoes[1].Var <= 1)
+                        return ticker
+                    break
+                case "I1":
+                    if (ticker.Oscilacoes[1].Var <= 1)
+                        return ticker
+                    break
+                case "A1":
+                    if (ticker.Oscilacoes[1].Var >= 1)
+                        return ticker
+                    break
+                case "E1E10":
+                    if (ticker.Oscilacoes[1].Var >= 1 && ticker.Oscilacoes[1].Var <= 10)
+                        return ticker
+                    break
+                case "A10":
+                    if (ticker.Oscilacoes[1].Var >= 10)
+                        return ticker
+                    break
+                case "E10E20":
+                    if (ticker.Oscilacoes[1].Var >= 10 && ticker.Oscilacoes[1].Var <= 20)
+                        return ticker
+                    break
+                case "A20":
+                    if (ticker.Oscilacoes[1].Var >= 20)
+                        return ticker
+                    break
+            }
+        } catch {}
+    },
+
     PRECODAACAO: (ticker, PRECODAACAO) => {
         if (!PRECODAACAO || PRECODAACAO == "undefined")
             return ticker
