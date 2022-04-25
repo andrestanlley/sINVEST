@@ -86,65 +86,158 @@ export const Filters = {
     PRECODAACAO: [{
         value: '',
         label: 'Preço da ação'
-    }],
-
-    PL: [{
-        value: '',
-        label: 'Patrimônio líquido'
-    }],
-
-    ROE: [{
-        value: '',
-        label: 'ROE'
-    }],
-
-    MARGEMLIQUIDA: [{
-        value: '1',
-        label: 'Margem líquida'
-    }],
-
-    MARGEMEBIT: [{
-        value: '',
-        label: 'Margem EBIT'
-    }],
-
-    LIQUIDEZCORRENT: [{
-        value: '',
-        label: 'Liquidez corrente'
-    }],
-
-    AVALAVANCAGEM: [{
-        value: '',
-        label: 'Índice de alavancagem'
-    }],
-
-    LUCROLIQUIDO: [{
-        value: '',
-        label: 'Lucro líquido anual'
-    }],
-
-    FATURAMENTO: [{
-        value: '',
-        label: 'Faturamento anual'
-    }],
-
-    EBITANUAL: [{
-        value: '',
-        label: 'EBIT anual'
+    },
+    {
+        value: 'E5E15',
+        label: 'Entre R$5,00 e R$15,00'
+    },
+    {
+        value: 'E15E30',
+        label: 'Entre R$15,00 e R$30,00'
+    },{
+        value: 'E30E50',
+        label: 'Entre R$30,00 e R$50,00'
+    },{
+        value: 'E50E100',
+        label: 'Entre R$ 50,00 e R$100,00'
+    },{
+        value: 'A100',
+        label: 'Acima de R$100,00'
     }],
 
     VARSEMANAL: [{
         value: '',
         label: 'Variação semanal'
+    },{
+        value: 'A10',
+        label: 'Abaixo de -10%'
+    },{
+        value: 'EA10E1',
+        label: 'Entre -10% e 1%'
+    },{
+        value: 'I1',
+        label: 'Abaixo de 1%'
+    },{
+        value: 'A1',
+        label: 'Acima de 1%'
+    },{
+        value: 'E1E10',
+        label: 'Entre 1% e 10%'
+    },{
+        value: 'A10',
+        label: 'Acima de 10%'
+    },{
+        value: 'E10E20',
+        label: 'Entre 10% e 20%'
+    },{
+        value: 'A20',
+        label: 'Acima de 20%'
     }],
 
     VARMENSAL: [{
         value: '',
         label: 'Variacão mensal'
+    },{
+        value: 'A10',
+        label: 'Abaixo de -10%'
+    },{
+        value: 'EA10E1',
+        label: 'Entre -10% e 1%'
+    },{
+        value: 'I1',
+        label: 'Abaixo de 1%'
+    },{
+        value: 'A1',
+        label: 'Acima de 1%'
+    },{
+        value: 'E1E10',
+        label: 'Entre 1% e 10%'
+    },{
+        value: 'A10',
+        label: 'Acima de 10%'
+    },{
+        value: 'E10E20',
+        label: 'Entre 10% e 20%'
+    },{
+        value: 'A20',
+        label: 'Acima de 20%'
     }],
 
     VAR52SEM: [{
         value: '',
         label: 'Variação em 52 semanas'
-    }]
+    },{
+        value: 'A10',
+        label: 'Abaixo de -10%'
+    },{
+        value: 'EA10E1',
+        label: 'Entre -10% e 1%'
+    },{
+        value: 'I1',
+        label: 'Abaixo de 1%'
+    },{
+        value: 'A1',
+        label: 'Acima de 1%'
+    },{
+        value: 'E1E10',
+        label: 'Entre 1% e 10%'
+    },{
+        value: 'A10',
+        label: 'Acima de 10%'
+    },{
+        value: 'E10E20',
+        label: 'Entre 10% e 20%'
+    },{
+        value: 'A20',
+        label: 'Acima de 20%'
+    }],
+
+    PL: [{
+        value: '',
+        label: 'Preço sobre lucro'
+    },
+    {
+        value: 'EB',
+        label: 'Em breve!'
+    }],
+
+    // ROE: [{
+    //     value: '',
+    //     label: 'ROE'
+    // }],
+
+    // MARGEMLIQUIDA: [{
+    //     value: '1',
+    //     label: 'Margem líquida'
+    // }],
+
+    // MARGEMEBIT: [{
+    //     value: '',
+    //     label: 'Margem EBIT'
+    // }],
+
+    // LIQUIDEZCORRENT: [{
+    //     value: '',
+    //     label: 'Liquidez corrente'
+    // }],
+
+    // AVALAVANCAGEM: [{
+    //     value: '',
+    //     label: 'Índice de alavancagem'
+    // }],
+
+    // LUCROLIQUIDO: [{
+    //     value: '',
+    //     label: 'Lucro líquido anual'
+    // }],
+
+    // FATURAMENTO: [{
+    //     value: '',
+    //     label: 'Faturamento anual'
+    // }],
+
+    // EBITANUAL: [{
+    //     value: '',
+    //     label: 'EBIT anual'
+    // }]
 }

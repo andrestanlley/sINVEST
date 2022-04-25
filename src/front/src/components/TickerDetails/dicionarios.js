@@ -1,3 +1,16 @@
+export const dicionarioOscilacoes = [
+    "Diária",
+    "Mensal",
+    "30 Dias",
+    "12 Meses",
+    "2017",
+    "2018",
+    "2019",
+    "2020",
+    "2021",
+    "2022"
+]
+
 export const dicinarioBalanco = [
     "Número de ações",
     "Ativo",
@@ -17,6 +30,6 @@ export const dicionarioCotacoes = [
     "Média",
     "Variação",
     "Nº de negociações",
-    "Quantidade total",
-    "Valor total",
+    "dddddd",
+    "Volume total",
 ]

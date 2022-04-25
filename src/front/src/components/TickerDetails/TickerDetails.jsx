@@ -13,7 +13,7 @@ import {
 } from 'recharts';
 import axios from 'axios'
 import Loading from '../Loading/Loading'
-import { dicinarioBalanco, dicionarioCotacoes } from './dicionarios';
+import { dicinarioBalanco, dicionarioCotacoes, dicionarioOscilacoes } from './dicionarios';
 import renderOscilacao from '../../functions/renderOscilação';
 import renderBalanco from '../../functions/renderBalanco';
 
@@ -79,13 +79,25 @@ export default function TickerDetail(props) {
                     <Bar dataKey="Var" name='Variação (%)' barSize={30} fill="var(--verde)" />
                   </ComposedChart>
                 </ResponsiveContainer>
+                {ticker.Oscilacoes.map((osc, index) => {
+                  return <div className={index % 2 == 0 ? "linhaImpar" : "linhaPar"} key={index}>
+                    <div>
+                      <p id='title'>{dicionarioOscilacoes[index]}</p>
+                    </div>
+                    <div>
+                      <p>{osc.Var} %</p>
+                    </div>
+                  </div>
+                })}
               </section>
             )}
             {ticker.Cotacoes[0] && (
               <section id='COTACOES'>
                 <h1 className='tabela'>Cotações <span> {new Date(ticker.Cotacoes[0].Data).toLocaleDateString()}</span></h1>
                 {Object.keys(ticker.Cotacoes[0]).slice(1).map((desc, index) => {
-                  return <div className={index % 2 == 0 ? "linhaImpar" : "linhaPar"} key={index}>
+                  if(index == 7)
+                    return
+                  return <div className={index % 2 == 0 && index != 8 ? "linhaImpar" : "linhaPar"} key={index}>
                     <div>
                       <p id='title'>{dicionarioCotacoes[index]}</p>
                     </div>
