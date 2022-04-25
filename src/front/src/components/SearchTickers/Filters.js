@@ -109,7 +109,7 @@ export const Filters = {
         value: '',
         label: 'Variação semanal'
     },{
-        value: 'A10',
+        value: 'I10',
         label: 'Abaixo de -10%'
     },{
         value: 'EA10E1',
@@ -138,7 +138,7 @@ export const Filters = {
         value: '',
         label: 'Variacão mensal'
     },{
-        value: 'A10',
+        value: 'I10',
         label: 'Abaixo de -10%'
     },{
         value: 'EA10E1',
@@ -167,7 +167,7 @@ export const Filters = {
         value: '',
         label: 'Variação em 52 semanas'
     },{
-        value: 'A10',
+        value: 'I10',
         label: 'Abaixo de -10%'
     },{
         value: 'EA10E1',

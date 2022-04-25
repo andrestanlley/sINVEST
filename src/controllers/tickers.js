@@ -7,7 +7,8 @@ exports.all = async (req, res) => {
     const {
         VALORDEMERCADO,
         LIQUIDEZIMEDIATA,
-        SETOR
+        SETOR,
+        PRECODAACAO
     } = req.query
 
     const response = Lists.tickerInMemory.filter(ticker =>
