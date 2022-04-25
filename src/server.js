@@ -36,5 +36,5 @@ httpsServer.listen(443, () => {
   setInterval(() => {
     Lists.tickerInMemory = []
     saveTickersInMemory.start()
-  }, 21600000);
+  }, 10800000); // 3 Horas
 });
