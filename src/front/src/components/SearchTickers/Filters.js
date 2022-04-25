@@ -105,35 +105,6 @@ export const Filters = {
         label: 'Acima de R$100,00'
     }],
 
-    VARSEMANAL: [{
-        value: '',
-        label: 'Variação semanal'
-    },{
-        value: 'I10',
-        label: 'Abaixo de -10%'
-    },{
-        value: 'EA10E1',
-        label: 'Entre -10% e 1%'
-    },{
-        value: 'I1',
-        label: 'Abaixo de 1%'
-    },{
-        value: 'A1',
-        label: 'Acima de 1%'
-    },{
-        value: 'E1E10',
-        label: 'Entre 1% e 10%'
-    },{
-        value: 'A10',
-        label: 'Acima de 10%'
-    },{
-        value: 'E10E20',
-        label: 'Entre 10% e 20%'
-    },{
-        value: 'A20',
-        label: 'Acima de 20%'
-    }],
-
     VARMENSAL: [{
         value: '',
         label: 'Variacão mensal'
@@ -163,9 +134,9 @@ export const Filters = {
         label: 'Acima de 20%'
     }],
 
-    VAR52SEM: [{
+    VAR12MES: [{
         value: '',
-        label: 'Variação em 52 semanas'
+        label: 'Variação em 12 meses'
     },{
         value: 'I10',
         label: 'Abaixo de -10%'
@@ -194,7 +165,7 @@ export const Filters = {
 
     PL: [{
         value: '',
-        label: 'Preço sobre lucro'
+        label: 'P/L (Preço sobre lucro)'
     },
     {
         value: 'EB',
@@ -206,10 +177,14 @@ export const Filters = {
     //     label: 'ROE'
     // }],
 
-    // MARGEMLIQUIDA: [{
-    //     value: '1',
-    //     label: 'Margem líquida'
-    // }],
+    MARGEMLIQUIDA: [{
+        value: '1',
+        label: 'Margem líquida'
+    },
+    {
+        value: 'EB',
+        label: 'Em breve!'
+    }],
 
     // MARGEMEBIT: [{
     //     value: '',

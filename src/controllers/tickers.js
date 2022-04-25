@@ -9,7 +9,8 @@ exports.all = async (req, res) => {
         LIQUIDEZIMEDIATA,
         SETOR,
         PRECODAACAO,
-        VARMENSAL
+        VARMENSAL,
+        VAR12MES
     } = req.query
 
     const response = Lists.tickerInMemory.filter(ticker =>
@@ -17,8 +18,8 @@ exports.all = async (req, res) => {
         filters.LIQUIDEZIMEDIATA(ticker, LIQUIDEZIMEDIATA) &&
         filters.SETOR(ticker, SETOR) &&
         filters.PRECODAACAO(ticker, PRECODAACAO) &&
-        filters.VARMENSAL(ticker, VARMENSAL)
-        
+        filters.VARMENSAL(ticker, VARMENSAL) &&
+        filters.VAR12MES(ticker, VAR12MES)
 
         )
 

@@ -1,4 +1,45 @@
 exports.filters = {
+    VAR12MES: (ticker, VAR12MES) => {
+            if (!VAR12MES || VAR12MES == "undefined")
+                return ticker
+            try {
+                switch (VAR12MES) {
+                    case "I10":
+                        if (ticker.Oscilacoes[3].Var <= -10)
+                            return ticker
+                        break
+                    case "EA10E1":
+                        if (ticker.Oscilacoes[3].Var >= -10 && ticker.Oscilacoes[3].Var <= 1)
+                            return ticker
+                        break
+                    case "I1":
+                        if (ticker.Oscilacoes[3].Var <= 1)
+                            return ticker
+                        break
+                    case "A1":
+                        if (ticker.Oscilacoes[3].Var >= 1)
+                            return ticker
+                        break
+                    case "E1E10":
+                        if (ticker.Oscilacoes[3].Var >= 1 && ticker.Oscilacoes[3].Var <= 10)
+                            return ticker
+                        break
+                    case "A10":
+                        if (ticker.Oscilacoes[3].Var >= 10)
+                            return ticker
+                        break
+                    case "E10E20":
+                        if (ticker.Oscilacoes[3].Var >= 10 && ticker.Oscilacoes[3].Var <= 20)
+                            return ticker
+                        break
+                    case "A20":
+                        if (ticker.Oscilacoes[3].Var >= 20)
+                            return ticker
+                        break
+                }
+            } catch {}
+        },
+
     VARMENSAL: (ticker, VARMENSAL) => {
         if (!VARMENSAL || VARMENSAL == "undefined")
             return ticker
