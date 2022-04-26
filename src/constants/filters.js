@@ -1,44 +1,122 @@
 exports.filters = {
+    PL: (ticker, PL) => {
+        if (!PL || PL == "undefined")
+            return ticker
+        try {
+            switch (PL) {
+                case "I0":
+                    if (ticker.indicadores.PL <= 0)
+                        return ticker
+                    break
+                case "I10":
+                    if (ticker.indicadores.PL <= 10)
+                        return ticker
+                    break
+                case "I15":
+                    if (ticker.indicadores.PL <= 15)
+                        return ticker
+                    break
+                case "I20":
+                    if (ticker.indicadores.PL <= 20)
+                        return ticker
+                    break
+                case "I35":
+                    if (ticker.indicadores.PL <= 35)
+                        return ticker
+                    break
+                case "I50":
+                    if (ticker.indicadores.PL <= 50)
+                        return ticker
+                    break
+                case "A0":
+                    if (ticker.indicadores.PL >= 0)
+                        return ticker
+                    break
+                case "A10":
+                    if (ticker.indicadores.PL >= 10)
+                        return ticker
+                    break
+                case "A20":
+                    if (ticker.indicadores.PL >= 20)
+                        return ticker
+                    break
+                case "A35":
+                    if (ticker.indicadores.PL >= 35)
+                        return ticker
+                    break
+                case "A50":
+                    if (ticker.indicadores.PL >= 50)
+                        return ticker
+                    break
+            }
+        } catch {}
+    },
+
+    MARGEMLIQUIDA: (ticker, MARGEMLIQUIDA) => {
+        if (!MARGEMLIQUIDA || MARGEMLIQUIDA == "undefined")
+            return ticker
+        try {
+            switch (MARGEMLIQUIDA) {
+                case "I10":
+                    if (ticker.indicadores.MargemLiquida <= -10)
+                        return ticker
+                    break
+                case "E10E20":
+                    if (ticker.indicadores.MargemLiquida >= 10 && ticker.indicadores.MargemLiquida <= 20)
+                        return ticker
+                    break
+                case "E20E35":
+                    if (ticker.indicadores.MargemLiquida >= 20 && ticker.indicadores.MargemLiquida <= 35)
+                        return ticker
+                    break
+                case "A35":
+                    if (ticker.indicadores.MargemLiquida >= 35)
+                        return ticker
+                    break
+            }
+        } catch {}
+    },
+
     VAR12MES: (ticker, VAR12MES) => {
-            if (!VAR12MES || VAR12MES == "undefined")
-                return ticker
-            try {
-                switch (VAR12MES) {
-                    case "I10":
-                        if (ticker.Oscilacoes[3].Var <= -10)
-                            return ticker
-                        break
-                    case "EA10E1":
-                        if (ticker.Oscilacoes[3].Var >= -10 && ticker.Oscilacoes[3].Var <= 1)
-                            return ticker
-                        break
-                    case "I1":
-                        if (ticker.Oscilacoes[3].Var <= 1)
-                            return ticker
-                        break
-                    case "A1":
-                        if (ticker.Oscilacoes[3].Var >= 1)
-                            return ticker
-                        break
-                    case "E1E10":
-                        if (ticker.Oscilacoes[3].Var >= 1 && ticker.Oscilacoes[3].Var <= 10)
-                            return ticker
-                        break
-                    case "A10":
-                        if (ticker.Oscilacoes[3].Var >= 10)
-                            return ticker
-                        break
-                    case "E10E20":
-                        if (ticker.Oscilacoes[3].Var >= 10 && ticker.Oscilacoes[3].Var <= 20)
-                            return ticker
-                        break
-                    case "A20":
-                        if (ticker.Oscilacoes[3].Var >= 20)
-                            return ticker
-                        break
-                }
-            } catch {}
-        },
+        if (!VAR12MES || VAR12MES == "undefined")
+            return ticker
+        try {
+            switch (VAR12MES) {
+                case "I10":
+                    if (ticker.Oscilacoes[3].Var <= -10)
+                        return ticker
+                    break
+                case "EA10E1":
+                    if (ticker.Oscilacoes[3].Var >= -10 && ticker.Oscilacoes[3].Var <= 1)
+                        return ticker
+                    break
+                case "I1":
+                    if (ticker.Oscilacoes[3].Var <= 1)
+                        return ticker
+                    break
+                case "A1":
+                    if (ticker.Oscilacoes[3].Var >= 1)
+                        return ticker
+                    break
+                case "E1E10":
+                    if (ticker.Oscilacoes[3].Var >= 1 && ticker.Oscilacoes[3].Var <= 10)
+                        return ticker
+                    break
+                case "A10":
+                    if (ticker.Oscilacoes[3].Var >= 10)
+                        return ticker
+                    break
+                case "E10E20":
+                    if (ticker.Oscilacoes[3].Var >= 10 && ticker.Oscilacoes[3].Var <= 20)
+                        return ticker
+                    break
+                case "A20":
+                    if (ticker.Oscilacoes[3].Var >= 20)
+                        return ticker
+                    break
+            }
+        } catch {}
+    },
 
     VARMENSAL: (ticker, VARMENSAL) => {
         if (!VARMENSAL || VARMENSAL == "undefined")
@@ -155,9 +233,6 @@ exports.filters = {
                     if (ticker.indices.LiquidezImediata > 1) {
                         return ticker
                     }
-                    break;
-                default:
-                    throw new Error()
                     break;
             }
         } catch {}

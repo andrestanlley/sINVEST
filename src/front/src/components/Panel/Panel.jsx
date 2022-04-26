@@ -7,7 +7,7 @@ export default function Panel() {
             <PanelConteiner>
                 <div>
                     <h1>Quem somos</h1>
-                    <span>Dispomos dos principais ativos do mercado financeiro para você realizar a melhor escolha de investimentos. Um site completo, preparado de maneira simplificada e direta para quem pretende investir no mercado financeiro. </span><br></br>
+                    <span>Dispomos de todas as empresas listadas na Bolsa de Valores Brasileira para você realizar a melhor escolha de investimentos, através dos principais dados corporativos e indicadores econômicos, colhidos do próprio banco de dados da B3 e Comissão de Valores Mobiliários (CVM). Tudo isso de forma clara e simplificada para sua melhor experiência, possibilitando assim uma análise fundamentalista precisa e eficaz.  </span><br></br>
                     <Link to="/indices"><button>Ver empresas listadas</button></Link>
                 </div>
                 <div id='logo'>

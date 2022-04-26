@@ -18,7 +18,13 @@ export const dicinarioBalanco = [
     "Ativo circulante",
     "Dívida bruta",
     "Dívida líquida",
-    "Patrimônio líquido"
+    "Patrimônio líquido",
+    "Receita liquida DFP",
+    "Ebit DFP",
+    "Lucro liquido DFP",
+    "Receita liquida ITR",
+    "Ebit ITR",
+    "Lucro liquido ITR",
 ]
 
 

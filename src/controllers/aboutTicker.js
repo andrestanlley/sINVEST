@@ -38,7 +38,7 @@ exports.get = async (req, res) => {
     try {
         const result = await this.request("getCotacoesBalancos", ticker)
         console.log(`VISUALIZADO: ${ticker.toUpperCase()}.`)
-        result.data.indices = indicators.add(result.data)
+        result.data.indicadores = indicators.add(result.data)
         lastView.add(result.data)
         return res.status(200).send(result.data)
     } catch (error) {

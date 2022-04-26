@@ -111,7 +111,7 @@ export default function TickerDetail(props) {
             {ticker.ResumoBalancoDFP[0] && (
               <section id='BALANCO'>
                 <h1 className='tabela'>Resumo Balanço <span> {new Date(ticker.ResumoBalancoDFP[0].DataUltBalanco).toLocaleDateString()}</span></h1>
-                {Object.keys(ticker.ResumoBalancoDFP[0]).slice(1).map((desc, index) => {
+                {Object.keys(ticker.ResumoBalancoDFP[0]).slice(2).map((desc, index) => {
                   return <div className={index % 2 == 0 ? "linhaImpar" : "linhaPar"} key={index}>
                     <div>
                       <p id='title'>{dicinarioBalanco[index]}</p>

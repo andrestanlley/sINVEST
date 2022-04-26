@@ -164,12 +164,51 @@ export const Filters = {
     }],
 
     PL: [{
-        value: '',
         label: 'P/L (Preço sobre lucro)'
     },
     {
-        value: 'EB',
-        label: 'Em breve!'
+        value: 'I0',
+        label: 'Abaixo de 0'
+    },
+    {
+        value: 'I10',
+        label: 'Abaixo de 10'
+    },
+    {
+        value: 'I15',
+        label: 'Abaixo de 15'
+    },
+    {
+        value: 'I20',
+        label: 'Abaixo de 20'
+    },
+    {
+        value: 'I35',
+        label: 'Abaixo de 35'
+    },
+    {
+        value: 'I50',
+        label: 'Abaixo de 50'
+    },
+    {
+        value: 'A0',
+        label: 'Acima de 0'
+    },
+    {
+        value: 'A10',
+        label: 'Acima de 10'
+    },
+    {
+        value: 'A20',
+        label: 'Acima de 20'
+    },
+    {
+        value: 'A35',
+        label: 'Acima de 35'
+    },
+    {
+        value: 'A50',
+        label: 'Acima de 50'
     }],
 
     // ROE: [{
@@ -178,12 +217,23 @@ export const Filters = {
     // }],
 
     MARGEMLIQUIDA: [{
-        value: '1',
         label: 'Margem líquida'
     },
     {
-        value: 'EB',
-        label: 'Em breve!'
+        value: 'I10',
+        label: 'Abaixo de 10%'
+    },
+    {
+        value: 'E10E20',
+        label: 'Entre 10% e 20%'
+    },
+    {
+        value: 'E20E35',
+        label: 'Entre 20% e 35%'
+    },
+    {
+        value: 'A35',
+        label: 'Maior que 35%'
     }],
 
     // MARGEMEBIT: [{

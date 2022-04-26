@@ -11,7 +11,7 @@ exports.start = async () => {
             if (result.data.getCotacoesBalancos || !result.data.DescricaoDoAtivo[0]) {
                 throw new Error()
             }
-            result.data.indices = indicators.add(result.data)
+            result.data.indicadores = indicators.add(result.data)
             Lists.tickerInMemory.push(result.data)
             console.log(`Requisição para ${ticker}, ${Lists.tickerInMemory.length} Ações na memoria.`)
         } catch {}
