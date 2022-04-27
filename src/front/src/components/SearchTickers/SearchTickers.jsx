@@ -22,6 +22,8 @@ export default function SearchTickers() {
         setSearch(data.filter((value) => 
         value.DescricaoDoAtivo[0].Codigo.includes(busca.toUpperCase()) 
         || value.DescricaoDoAtivo[0].NomeMercado.includes(busca.toUpperCase())))
+        if(busca == "")
+            setUrl("../../api/tickers?")
     }
 
     function handleSeletorFilter(seletor) {
