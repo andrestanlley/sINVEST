@@ -1,22 +1,15 @@
 import { FooterBar, FooterSubAreas } from "./styles"
 import { FiInstagram, FiMessageCircle, FiMail } from "react-icons/fi";
-import AdSense from 'react-adsense';
 import {Link} from 'react-router-dom'
-import { MdBlock } from "react-icons/md";
 
 export default function Footer() {
     return (
         <div className="bodylimiter">
             <FooterBar>
-            <AdSense.Google
-            client="ca-pub-2228435789089108"
-            style={{display: "block", width: 1080, height: 300 }}
-            />
                 <FooterSubAreas>
                     <div>
                         <h1>Fale conosco</h1>
                         <div id="links">
-                            
                             <a href="mailto:contato@visaomacro.com" target="_blank"><FiMail /> </a>
                             <Link to="../contato"><FiMessageCircle/> </Link>
                             <a href="https://instagram.com/visaomacroinvestimentos" target="_blank"><FiInstagram/></a>

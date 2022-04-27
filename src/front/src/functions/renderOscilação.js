@@ -1,9 +1,5 @@
 export default function renderOscilacao(ticker, desc, index){
     switch (index) {
-        // case 1:
-        //   return "teste"
-        // case 2:
-        //   return "teste 2"
         case 5:
           return ticker.Cotacoes[0][desc]+" %"
         case 6:

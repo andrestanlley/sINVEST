@@ -1,3 +1,4 @@
+import Ads from "../../components/Ads/Ads";
 import Footer from "../../components/Footer/Footer";
 import Header from "../../components/Header/Header";
 import LastView from "../../components/LastView/LastView";
@@ -12,6 +13,7 @@ export default function Home() {
         <Header />
         <Panel/>
         <LastView/>
+        <Ads/>
         <Footer/>
       </>
   )
