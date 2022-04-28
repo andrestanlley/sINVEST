@@ -1,4 +1,108 @@
 exports.filters = {
+    AVALAVANCAGEM: (ticker, AVALAVANCAGEM) => {
+        if (!AVALAVANCAGEM || AVALAVANCAGEM == "undefined")
+            return ticker
+        try {
+            switch (AVALAVANCAGEM) {
+                case "I1":
+                    if (ticker.indicadores.Alavancagem <= 1)
+                        return ticker
+                    break
+                case "E1E5":
+                    if (ticker.indicadores.Alavancagem >= 1 && ticker.indicadores.Alavancagem <= 5)
+                        return ticker
+                    break
+                    case "A5":
+                    if (ticker.indicadores.Alavancagem >= 5)
+                        return ticker
+                    break
+            }
+        } catch {}
+    },
+
+    EBITANUAL: (ticker, EBITANUAL) => {
+        if (!EBITANUAL || EBITANUAL == "undefined")
+            return ticker
+        try {
+            switch (EBITANUAL) {
+                case "AT1B":
+                    if (ticker.ResumoBalancoDFP[0].EbitDFP <= 1000000000)
+                        return ticker
+                    break
+                case "AT100M":
+                    if (ticker.ResumoBalancoDFP[0].EbitDFP <= 100000000)
+                        return ticker
+                    break
+                case "E100ME1B":
+                    if (ticker.ResumoBalancoDFP[0].EbitDFP >= 100000000 && ticker.ResumoBalancoDFP[0].EbitDFP <= 1000000000)
+                        return ticker
+                    break
+                    case "A1B":
+                    if (ticker.ResumoBalancoDFP[0].EbitDFP >= 1000000000)
+                        return ticker
+                    break
+            }
+        } catch {}
+    },
+
+    LUCROLIQUIDO: (ticker, LUCROLIQUIDO) => {
+        if (!LUCROLIQUIDO || LUCROLIQUIDO == "undefined")
+            return ticker
+        try {
+            switch (LUCROLIQUIDO) {
+                case "AT1B":
+                    if (ticker.ResumoBalancoDFP[0].LucroLiquidoDFP <= 1000000000)
+                        return ticker
+                    break
+                case "AT100M":
+                    if (ticker.ResumoBalancoDFP[0].LucroLiquidoDFP <= 100000000)
+                        return ticker
+                    break
+                case "E100ME1B":
+                    if (ticker.ResumoBalancoDFP[0].LucroLiquidoDFP >= 100000000 && ticker.ResumoBalancoDFP[0].LucroLiquidoDFP <= 1000000000)
+                        return ticker
+                    break
+                    case "A1B":
+                    if (ticker.ResumoBalancoDFP[0].LucroLiquidoDFP >= 1000000000)
+                        return ticker
+                    break
+            }
+        } catch {}
+    },
+
+    RECEITALIQUIDA: (ticker, RECEITALIQUIDA) => {
+        if (!RECEITALIQUIDA || RECEITALIQUIDA == "undefined")
+            return ticker
+        try {
+            switch (RECEITALIQUIDA) {
+                case "AT1B":
+                    if (ticker.ResumoBalancoDFP[0].ReceitaLiquidaDFP <= 1000000000)
+                        return ticker
+                    break
+                case "AT5B":
+                    if (ticker.ResumoBalancoDFP[0].ReceitaLiquidaDFP <= 5000000000)
+                        return ticker
+                    break
+                case "AT10B":
+                    if (ticker.ResumoBalancoDFP[0].ReceitaLiquidaDFP <= 10000000000)
+                        return ticker
+                    break
+                case "E10BE30B":
+                    if (ticker.ResumoBalancoDFP[0].ReceitaLiquidaDFP >= 10000000000 && ticker.ResumoBalancoDFP[0].ReceitaLiquidaDFP <= 30000000000)
+                        return ticker
+                    break
+                    case "E30BE60B":
+                    if (ticker.ResumoBalancoDFP[0].ReceitaLiquidaDFP >= 30000000000 && ticker.ResumoBalancoDFP[0].ReceitaLiquidaDFP <= 60000000000)
+                        return ticker
+                    break
+                case "A60B":
+                    if (ticker.ResumoBalancoDFP[0].ReceitaLiquidaDFP >= 60000000000)
+                        return ticker
+                    break
+            }
+        } catch {}
+    },
+
     PL: (ticker, PL) => {
         if (!PL || PL == "undefined")
             return ticker
@@ -220,17 +324,17 @@ exports.filters = {
         try {
             switch (LIQUIDEZIMEDIATA) {
                 case "M1":
-                    if (ticker.indices.LiquidezImediata < 1) {
+                    if (ticker.indicadores.LiquidezImediata < 1) {
                         return ticker
                     }
                     break;
                 case "I1":
-                    if (Math.round(ticker.indices.LiquidezImediata) == 1) {
+                    if (Math.round(ticker.indicadores.LiquidezImediata) == 1) {
                         return ticker
                     }
                     break;
                 case "A1":
-                    if (ticker.indices.LiquidezImediata > 1) {
+                    if (ticker.indicadores.LiquidezImediata > 1) {
                         return ticker
                     }
                     break;

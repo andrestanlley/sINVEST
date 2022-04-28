@@ -8,15 +8,17 @@ const https = require('https')
 const fs = require('fs')
 const path = require('path')
 require('dotenv').config()
+const morgan = require('morgan')
 const app = express()
 
 app.use(express.json())
 
 app.use('*', verifyHeader.ssl)
 
-app.use('/api', verifyHeader.auth, api)
+
+app.use('/api', verifyHeader.auth, morgan('tiny'), api)
 app.use('/', express.static(path.resolve("src/front/dist")))
-app.use('/indices', express.static(path.resolve("src/front/dist")))
+app.use('/ativos', express.static(path.resolve("src/front/dist")))
 app.use('/sobre/:ticker', express.static(path.resolve("src/front/dist")))
 app.use('/contato', express.static(path.resolve("src/front/dist")))
 

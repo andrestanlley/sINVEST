@@ -26,7 +26,7 @@ function RouterDom(){
     <Router>
         <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/indices" element={<Indexes/>} />
+        <Route path="/ativos" element={<Indexes/>} />
         <Route path="/contato" element={<Contact/>} />
         <Route path="/sobre/:ticker" element={<About/>} />
         </Routes>

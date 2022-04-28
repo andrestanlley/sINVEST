@@ -245,28 +245,69 @@ export const Filters = {
     //     label: 'ROE'
     // }],
 
-    // LIQUIDEZCORRENT: [{
+    // LIQUIDEZCORRENTE: [{
     //     value: '',
     //     label: 'Liquidez corrente'
     // }],
 
-    // AVALAVANCAGEM: [{
-    //     value: '',
-    //     label: 'Índice de alavancagem'
-    // }],
+    AVALAVANCAGEM: [{
+        label: 'Índice de alavancagem'
+    },{
+        value: 'I1',
+        label: 'Abaixo de 1'
+    },{
+        value: 'E1E5',
+        label: 'Entre 1 e 5'
+    },{
+        value: 'A5',
+        label: 'Acima de 5'
+    }],
 
-    // LUCROLIQUIDO: [{
-    //     value: '',
-    //     label: 'Lucro líquido anual'
-    // }],
+    LUCROLIQUIDO: [{
+        label: 'Lucro líquido anual'
+    },{
+        value: 'AT100M',
+        label: 'Até 100 m'
+    },{
+        value: 'E100ME1B',
+        label: 'Entre 100 M e 1 B'
+    },{
+        value: 'A1B',
+        label: 'Acima de 1 B'
+    }],
 
-    // FATURAMENTO: [{
-    //     value: '',
-    //     label: 'Faturamento anual'
-    // }],
+    RECEITALIQUIDA: [{
+        label: 'Receita líquida'
+    },{
+        value: 'AT1B',
+        label: 'Até 1 B'
+    },{
+        value: 'AT5B',
+        label: 'Até 5 B'
+    },{
+        value: 'AT10B',
+        label: 'Até 10 B'
+    },{
+        value: 'E10BE30B',
+        label: 'Entre 10 B e 30 B'
+    },{
+        value: 'E30BE60B',
+        label: 'Entre 30 B e 60 B'
+    },{
+        value: 'A60B',
+        label: 'Acima de 60 B'
+    }],
 
-    // EBITANUAL: [{
-    //     value: '',
-    //     label: 'EBIT anual'
-    // }]
+    EBITANUAL: [{
+        label: 'EBIT anual'
+    },{
+        value: 'AT100M',
+        label: 'Até 100 m'
+    },{
+        value: 'E100ME1B',
+        label: 'Entre 100 M e 1 B'
+    },{
+        value: 'A1B',
+        label: 'Acima de 1 B'
+    }]
 }
