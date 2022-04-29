@@ -62,7 +62,7 @@ export default function TickerDetail(props) {
                   <h1>Market Cap<span>Valor de mercado</span></h1>
                 </div>
                 <div id='Valor'>
-                  <span>{(ticker.ValorDeMercado[0].ValorDeMercado / 1000000000).toFixed(2)}B</span>
+                  <span>{(ticker.ValorDeMercado[0].ValorDeMercado/1000000000 > 1 ? ticker.ValorDeMercado[0].ValorDeMercado/1000000000 : ticker.ValorDeMercado[0].ValorDeMercado/1000000).toFixed(2)} {ticker.ValorDeMercado[0].ValorDeMercado/1000000000 > 1 ? " B" : " M"}</span>
                   <p>{ticker.ValorDeMercado[0].ValorDeMercado.toLocaleString("pt-BR", { minimumFractionDigits: 2, style: 'currency', currency: 'BRL' })}</p>
                 </div>
               </section>

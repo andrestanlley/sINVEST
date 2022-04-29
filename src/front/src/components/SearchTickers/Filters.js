@@ -235,21 +235,7 @@ export const Filters = {
         }
     ],
 
-    // MARGEMEBIT: [{
-    //     value: '',
-    //     label: 'Margem EBIT'
-    // }],
-
-    // ROE: [{
-    //     value: '',
-    //     label: 'ROE'
-    // }],
-
-    // LIQUIDEZCORRENTE: [{
-    //     value: '',
-    //     label: 'Liquidez corrente'
-    // }],
-
+    
     AVALAVANCAGEM: [{
         label: 'Índice de alavancagem'
     },{
@@ -262,7 +248,7 @@ export const Filters = {
         value: 'A5',
         label: 'Acima de 5'
     }],
-
+    
     LUCROLIQUIDO: [{
         label: 'Lucro líquido anual'
     },{
@@ -275,7 +261,7 @@ export const Filters = {
         value: 'A1B',
         label: 'Acima de 1 B'
     }],
-
+    
     RECEITALIQUIDA: [{
         label: 'Receita líquida'
     },{
@@ -297,7 +283,7 @@ export const Filters = {
         value: 'A60B',
         label: 'Acima de 60 B'
     }],
-
+    
     EBITANUAL: [{
         label: 'EBIT anual'
     },{
@@ -309,5 +295,69 @@ export const Filters = {
     },{
         value: 'A1B',
         label: 'Acima de 1 B'
-    }]
+    }],
+
+    MARGEMEBIT: [{
+        label: 'Margem EBIT'
+    },{
+        value: 'A5',
+        label: 'Acima de 5%'
+    },{
+        value: 'E5E20',
+        label: 'Entre 5% e 20%'
+    },{
+        value: 'E20E35',
+        label: 'Entre 20% e 35%'
+    },{
+        value: 'E35E50',
+        label: 'Entre 35 e 50%'
+    },{
+        value: 'A50',
+        label: 'Acima de 50%'
+    }],
+
+    ROE: [{
+        label: 'ROE'
+    },{
+        value: 'A5',
+        label: 'Acima de 5%'
+    },{
+        value: 'E5E20',
+        label: 'Entre 5% e 20%'
+    },{
+        value: 'E20E35',
+        label: 'Entre 20% e 35%'
+    },{
+        value: 'E35E50',
+        label: 'Entre 35 e 50%'
+    },{
+        value: 'A50',
+        label: 'Acima de 50%'
+    }],
+
+    LIQUIDEZCORRENTE: [{
+        label: 'Liquidez corrente'
+    },{
+        value: 'I1',
+        label: 'Abaixo de 1'
+    },{
+        value: 'A1',
+        label: 'Acima de 1'
+    }],
+
+    VOLUMEDIAANTERIOR: [{
+        label: 'Volume dia anterior'
+    },{
+        value: 'AT100M',
+        label: 'Até 100M'
+    },{
+        value: 'E100ME500M',
+        label: 'Entre 100M e 500M'
+    },{
+        value: 'E500ME1B',
+        label: '500M a 1B'
+    },{
+        value: 'A1B',
+        label: 'Acima de 1B'
+    },]
 }

@@ -1,4 +1,104 @@
 exports.filters = {
+    VOLUMEDIAANTERIOR: (ticker, VOLUMEDIAANTERIOR) => {
+        if (!VOLUMEDIAANTERIOR || VOLUMEDIAANTERIOR == "undefined")
+            return ticker
+        try {
+            switch (VOLUMEDIAANTERIOR) {
+                case "AT100M":
+                    if (ticker.Cotacoes[0].VTot <= 100000000)
+                        return ticker
+                    break
+                case "E100ME500M":
+                    if (ticker.Cotacoes[0].VTot >= 100000000 && ticker.Cotacoes[0].VTot <= 500000000)
+                        return ticker
+                    break
+                    case "E500ME1B":
+                    if (ticker.Cotacoes[0].VTot >= 500000000 && ticker.Cotacoes[0].VTot <= 1000000000)
+                        return ticker
+                    break
+                    case "A1B":
+                    if (ticker.Cotacoes[0].VTot >= 1000000000)
+                        return ticker
+                    break
+            }
+        } catch {}
+    },
+
+    LIQUIDEZCORRENTE: (ticker, LIQUIDEZCORRENTE) => {
+        if (!LIQUIDEZCORRENTE || LIQUIDEZCORRENTE == "undefined")
+            return ticker
+        try {
+            switch (LIQUIDEZCORRENTE) {
+                case "I1":
+                    if (ticker.indicadores.LiquidezCorrente <= 1)
+                        return ticker
+                    break
+                    case "A1":
+                    if (ticker.indicadores.LiquidezCorrente >= 1)
+                        return ticker
+                    break
+            }
+        } catch {}
+    },
+
+    MARGEMEBIT: (ticker, MARGEMEBIT) => {
+        if (!MARGEMEBIT || MARGEMEBIT == "undefined")
+            return ticker
+        try {
+            switch (MARGEMEBIT) {
+                case "A5":
+                    if (ticker.indicadores.MargemEbit >= 5)
+                        return ticker
+                    break
+                case "E5E20":
+                    if (ticker.indicadores.MargemEbit >= 5 && ticker.indicadores.MargemEbit <= 20)
+                        return ticker
+                    break
+                    case "E20E35":
+                    if (ticker.indicadores.MargemEbit >= 20 && ticker.indicadores.MargemEbit <= 35)
+                        return ticker
+                    break
+                    case "E35E50":
+                    if (ticker.indicadores.MargemEbit >= 35 && ticker.indicadores.MargemEbit <= 50)
+                        return ticker
+                    break
+                    case "A50":
+                    if (ticker.indicadores.MargemEbit >= 50)
+                        return ticker
+                    break
+            }
+        } catch {}
+    },
+
+    ROE: (ticker, ROE) => {
+        if (!ROE || ROE == "undefined")
+            return ticker
+        try {
+            switch (ROE) {
+                case "A5":
+                    if (ticker.indicadores.ROE >= 5)
+                        return ticker
+                    break
+                case "E5E20":
+                    if (ticker.indicadores.ROE >= 5 && ticker.indicadores.ROE <= 20)
+                        return ticker
+                    break
+                    case "E20E35":
+                    if (ticker.indicadores.ROE >= 20 && ticker.indicadores.ROE <= 35)
+                        return ticker
+                    break
+                    case "E35E50":
+                    if (ticker.indicadores.ROE >= 35 && ticker.indicadores.ROE <= 50)
+                        return ticker
+                    break
+                    case "A50":
+                    if (ticker.indicadores.ROE >= 50)
+                        return ticker
+                    break
+            }
+        } catch {}
+    },
+
     AVALAVANCAGEM: (ticker, AVALAVANCAGEM) => {
         if (!AVALAVANCAGEM || AVALAVANCAGEM == "undefined")
             return ticker

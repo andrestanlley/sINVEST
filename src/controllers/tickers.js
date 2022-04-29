@@ -16,7 +16,11 @@ exports.all = async (req, res) => {
         RECEITALIQUIDA,
         AVALAVANCAGEM,
         LUCROLIQUIDO,
-        EBITANUAL
+        EBITANUAL,
+        ROE,
+        MARGEMEBIT,
+        LIQUIDEZCORRENTE,
+        VOLUMEDIAANTERIOR
     } = req.query
 
     const response = Lists.tickerInMemory.filter(ticker =>
@@ -31,10 +35,11 @@ exports.all = async (req, res) => {
         filters.RECEITALIQUIDA(ticker, RECEITALIQUIDA) &&
         filters.AVALAVANCAGEM(ticker, AVALAVANCAGEM) &&
         filters.LUCROLIQUIDO(ticker, LUCROLIQUIDO) &&
-        filters.EBITANUAL(ticker, EBITANUAL) 
-
-
-
+        filters.EBITANUAL(ticker, EBITANUAL) &&
+        filters.ROE(ticker, ROE) &&
+        filters.MARGEMEBIT(ticker, MARGEMEBIT) &&
+        filters.LIQUIDEZCORRENTE(ticker, LIQUIDEZCORRENTE) &&
+        filters.VOLUMEDIAANTERIOR(ticker, VOLUMEDIAANTERIOR)
         )
 
     return res.status(200).send(response)
