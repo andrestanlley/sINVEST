@@ -1,7 +1,7 @@
 import Header from "../../components/Header/Header"
 import SearchTickers from "../../components/SearchTickers/SearchTickers"
 import Footer from "../../components/Footer/Footer";
-import Ads from "../../components/Ads/Ads";
+import Ads from "../../components/Ads/Anuncios";
 
 export default function Indexes() {
     return (

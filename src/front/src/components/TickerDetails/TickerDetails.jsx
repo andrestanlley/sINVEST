@@ -1,21 +1,12 @@
-import React, { useEffect, useState, PureComponent } from 'react'
+import React, { useEffect, useState } from 'react'
 import { TickerDetails } from './styles'
-import { MdLabel } from "react-icons/md";
-import {
-  ComposedChart,
-  Bar,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  Legend,
-  ResponsiveContainer,
-} from 'recharts';
 import axios from 'axios'
 import Loading from '../Loading/Loading'
-import { dicinarioBalanco, dicionarioCotacoes, dicionarioOscilacoes } from './dicionarios';
-import renderOscilacao from '../../functions/renderOscilação';
-import renderBalanco from '../../functions/renderBalanco';
+import ValorDeMercado from './ValorDeMercado';
+import Oscilacoes from './Oscilacoes';
+import Cotacoes from './Cotacoes';
+import ResumoBalanco from './ResumoBalanco';
+import DadosGerais from './DadosGerais';
 
 export default function TickerDetail(props) {
   const [ticker, SetTicker] = useState()
@@ -39,89 +30,26 @@ export default function TickerDetail(props) {
         {ticker &&
           <div>
             {ticker.ClassificacaoSetorial[0] && (
-              <section id='INFO'>
-                <p id='TICKER'>{ticker.DescricaoDoAtivo[0].Codigo}</p>
-                <p id='NOMEEMPRESA'>{ticker.InfoEmpresaDadosGerais[0] ? ticker.InfoEmpresaDadosGerais[0].NomeEmpresarial : ticker.DescricaoDoAtivo[0].NomeMercado}</p>
-                <p id='SETOR'>{ticker.ClassificacaoSetorial[0].Setor} • {ticker.InfoEmpresaDadosGerais[0]?.EspeciControle}</p>
-                <p id='DESCRICAO'>{ticker.InfoEmpresaDadosGerais[0]?.DescricaoAtividade}</p>
-                {ticker.InfoEmpresaDadosGerais[0] && (
-                  <div id='CVM-CNPJ'>
-                    <span>Cod CVM <span>{ticker.InfoEmpresaDadosGerais[0]?.CodCvm}</span></span>
-                    <span>CNPJ <span>{ticker.InfoEmpresaDadosGerais[0]?.CNPJ}</span></span>
-                  </div>
-                )}
-                {ticker.InfoEmpresaDadosGerais[0]?.Site && (
-                  <a href={ticker.InfoEmpresaDadosGerais[0]?.Site.indexOf("//") > 0 ? ticker.InfoEmpresaDadosGerais[0]?.Site : `http://${ticker.InfoEmpresaDadosGerais[0]?.Site}`} id="SITE" target="_blank"><MdLabel className='icon' />{ticker.InfoEmpresaDadosGerais[0]?.Site}    </a>
-                )}
-              </section>
+              <DadosGerais 
+              DescricaoDoAtivo={ticker.DescricaoDoAtivo[0]} 
+              DadosEmpresa={ticker.InfoEmpresaDadosGerais[0]}
+              ClassificacaoSetorial={ticker.ClassificacaoSetorial[0]} />
             )}
             {ticker.ValorDeMercado[0] && (
-              <section id='VALORDEMERCADO'>
-                <div id='Titulo'>
-                  <img src="../../assets/imgs/icon-money.png" alt="Ícone valor" />
-                  <h1>Market Cap<span>Valor de mercado</span></h1>
-                </div>
-                <div id='Valor'>
-                  <span>{(ticker.ValorDeMercado[0].ValorDeMercado/1000000000 > 1 ? ticker.ValorDeMercado[0].ValorDeMercado/1000000000 : ticker.ValorDeMercado[0].ValorDeMercado/1000000).toFixed(2)} {ticker.ValorDeMercado[0].ValorDeMercado/1000000000 > 1 ? " B" : " M"}</span>
-                  <p>{ticker.ValorDeMercado[0].ValorDeMercado.toLocaleString("pt-BR", { minimumFractionDigits: 2, style: 'currency', currency: 'BRL' })}</p>
-                </div>
-              </section>
+              <ValorDeMercado 
+              valor={ticker.ValorDeMercado[0].ValorDeMercado}/>
             )}
             {ticker.Oscilacoes[0] && (
-              <section id='OSCILACOES'>
-                <h1>Oscilações</h1>
-                <ResponsiveContainer width="100%" height={300}>
-                  <ComposedChart data={ticker.Oscilacoes}>
-                    <CartesianGrid stroke="#f5f5f5" />
-                    <XAxis dataKey="Oscilacao" scale="band" /><YAxis />
-                    <Tooltip wrapperStyle={{ width: 100, backgroundColor: '#ccc' }} />
-                    <Legend />
-                    <Bar dataKey="Var" name='Variação (%)' barSize={30} fill="var(--verde)" />
-                  </ComposedChart>
-                </ResponsiveContainer>
-                {ticker.Oscilacoes.map((osc, index) => {
-                  return <div className={index % 2 == 0 ? "linhaImpar" : "linhaPar"} key={index}>
-                    <div>
-                      <p id='title'>{dicionarioOscilacoes[index]}</p>
-                    </div>
-                    <div>
-                      <p>{osc.Var} %</p>
-                    </div>
-                  </div>
-                })}
-              </section>
+              <Oscilacoes 
+              data={ticker.Oscilacoes}/>
             )}
             {ticker.Cotacoes[0] && (
-              <section id='COTACOES'>
-                <h1 className='tabela'>Cotações <span> {new Date(ticker.Cotacoes[0].Data).toLocaleDateString()}</span></h1>
-                {Object.keys(ticker.Cotacoes[0]).slice(1).map((desc, index) => {
-                  if(index == 7)
-                    return
-                  return <div className={index % 2 == 0 && index != 8 ? "linhaImpar" : "linhaPar"} key={index}>
-                    <div>
-                      <p id='title'>{dicionarioCotacoes[index]}</p>
-                    </div>
-                    <div>
-                      <p>{renderOscilacao(ticker, desc, index)}</p>
-                    </div>
-                  </div>
-                })}
-              </section>
+              <Cotacoes 
+              Cotacoes={ticker.Cotacoes[0]}/>
             )}
             {ticker.ResumoBalancoDFP[0] && (
-              <section id='BALANCO'>
-                <h1 className='tabela'>Resumo Balanço <span> {new Date(ticker.ResumoBalancoDFP[0].DataUltBalanco).toLocaleDateString()}</span></h1>
-                {Object.keys(ticker.ResumoBalancoDFP[0]).slice(2).map((desc, index) => {
-                  return <div className={index % 2 == 0 ? "linhaImpar" : "linhaPar"} key={index}>
-                    <div>
-                      <p id='title'>{dicinarioBalanco[index]}</p>
-                    </div>
-                    <div>
-                      <p>{renderBalanco(ticker, desc, index)}</p>
-                    </div>
-                  </div>
-                })}
-              </section>
+              <ResumoBalanco 
+              Balanco={ticker.ResumoBalancoDFP[0]}/>
             )}
           </div>
         }

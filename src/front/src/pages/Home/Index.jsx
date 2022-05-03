@@ -1,4 +1,4 @@
-import Ads from "../../components/Ads/Ads";
+import Ads from "../../components/Ads/Anuncios";
 import Footer from "../../components/Footer/Footer";
 import Header from "../../components/Header/Header";
 import LastView from "../../components/LastView/LastView";

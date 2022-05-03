@@ -19,12 +19,12 @@ export const dicinarioBalanco = [
     "Dívida bruta",
     "Dívida líquida",
     "Patrimônio líquido",
-    "Receita liquida DFP",
-    "Ebit DFP",
-    "Lucro liquido DFP",
-    "Receita liquida ITR",
-    "Ebit ITR",
-    "Lucro liquido ITR",
+    "Receita liquida (Último ano)",
+    "Ebit (Último ano)",
+    "Lucro liquido (Último ano)",
+    "Receita liquida (Trimestral)",
+    "Ebit (Trimestral)",
+    "Lucro liquido (Trimestral)",
 ]
 
 
@@ -36,6 +36,6 @@ export const dicionarioCotacoes = [
     "Média",
     "Variação",
     "Nº de negociações",
-    "dddddd",
+    "",
     "Volume total",
 ]

@@ -7,6 +7,7 @@ const http = require('http')
 const https = require('https')
 const fs = require('fs')
 const path = require('path')
+const cron = require('node-schedule')
 require('dotenv').config()
 const morgan = require('morgan')
 const app = express()
@@ -14,7 +15,6 @@ const app = express()
 app.use(express.json())
 
 app.use('*', verifyHeader.ssl)
-
 
 app.use('/api', verifyHeader.auth, morgan('tiny'), api)
 app.use('/', express.static(path.resolve("src/front/dist")))
@@ -30,13 +30,13 @@ let credencials = {
 let httpServer = http.createServer(app)
 let httpsServer = https.createServer(credencials, app)
 
+cron.scheduleJob('0 0 3 * *', ()=>{
+  Lists.tickerInMemory = []
+  saveTickersInMemory.start()
+})
 
 httpServer.listen(80)
 httpsServer.listen(443, () => {
   console.log("Servidor rodando nas portas 80 e 443");
   saveTickersInMemory.start()
-  setInterval(() => {
-    Lists.tickerInMemory = []
-    saveTickersInMemory.start()
-  }, 10800000); // 3 Horas
 });
