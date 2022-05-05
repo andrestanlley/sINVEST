@@ -3,7 +3,6 @@ import { Helmet } from "react-helmet";
 export default function Ads() {
     return (
         <Helmet>
-            <meta name="propeller" content="fb2f9e80a4a5908fe269efc130041e5f" />
             <meta charset="utf-8" />
             <meta name="language" content="pt-BR" />
             <meta name="description"
