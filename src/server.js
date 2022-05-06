@@ -17,11 +17,10 @@ app.use(express.json())
 app.use('*', verifyHeader.ssl)
 
 app.use('/api', verifyHeader.auth, morgan('tiny'), api)
-app.use('/', express.static(path.resolve("public")))
-//app.use('/', express.static(path.resolve("src/front/dist")))
-app.use('/ativos', express.static(path.resolve("public")))
-app.use('/sobre/:ticker', express.static(path.resolve("public")))
-app.use('/contato', express.static(path.resolve("public")))
+app.use('/', express.static(path.resolve("src/front/dist")))
+app.use('/ativos', express.static(path.resolve("src/front/dist")))
+app.use('/sobre/:ticker', express.static(path.resolve("src/front/dist")))
+app.use('/contato', express.static(path.resolve("src/front/dist")))
 
 let credencials = {
   key: fs.readFileSync(path.resolve("src/ssl/private.key")),
