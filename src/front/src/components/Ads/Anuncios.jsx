@@ -6,7 +6,7 @@ export default function Ads() {
             <AdSense.Google
             client='ca-pub-2228435789089108'
             slot='8257100050'
-            style={{ display: "block", width: "100%" }}
+            style={{ display: "block", width: "100%", height: 200 }}
             format='Display'
         />
         </div>

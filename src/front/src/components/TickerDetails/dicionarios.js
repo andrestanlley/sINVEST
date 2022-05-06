@@ -17,14 +17,14 @@ export const dicinarioBalanco = [
     "Disponibilidades",
     "Ativo circulante",
     "Dívida bruta",
-    "Dívida líquida",
+    "Dívida líq.",
     "Patrimônio líquido",
-    "Receita liquida (Último ano)",
-    "Ebit (Último ano)",
-    "Lucro liquido (Último ano)",
-    "Receita liquida (Trimestral)",
+    "Receita líq. (Anual)",
+    "Ebit (Anual)",
+    "Lucro líq. (Anual)",
+    "Receita líq. (Trimestral)",
     "Ebit (Trimestral)",
-    "Lucro liquido (Trimestral)",
+    "Lucro líq. (Trimestral)",
 ]
 
 
