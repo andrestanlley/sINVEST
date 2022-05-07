@@ -12,6 +12,7 @@ export default function TickerDetail(props) {
   const [ticker, SetTicker] = useState()
 
   useEffect(() => {
+    (adsbygoogle = window.adsbygoogle || []).push({})
     window.scrollTo(0, 0)
     const getTicker = async () => {
       const res = await axios.get(`../../api/ticker/${props.acao}`, { headers: { "reactAuth": (Math.random() * 1000) } }); //
@@ -24,6 +25,15 @@ export default function TickerDetail(props) {
   return (
     <div className='bodylimiter'>
       <TickerDetails>
+      <ins className="adsbygoogle"
+                style={{ display: "block", 
+                width: "100%", 
+                minWidth: 200,
+                maxHeight: 250 }}
+                data-ad-client="ca-pub-2228435789089108"
+                data-ad-slot="8257100050"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
         {!ticker && (
           <Loading />
         )}
