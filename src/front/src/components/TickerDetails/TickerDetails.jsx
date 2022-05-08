@@ -7,6 +7,8 @@ import Oscilacoes from './Oscilacoes';
 import Cotacoes from './Cotacoes';
 import ResumoBalanco from './ResumoBalanco';
 import DadosGerais from './DadosGerais';
+import Meta from '../Metadata/Meta';
+import Indicadores from './Indicadores';
 
 export default function TickerDetail(props) {
   const [ticker, SetTicker] = useState()
@@ -25,41 +27,49 @@ export default function TickerDetail(props) {
   return (
     <div className='bodylimiter'>
       <TickerDetails>
-      <ins className="adsbygoogle"
-                style={{ display: "block", 
-                width: "100%", 
-                minWidth: 200,
-                maxHeight: 250 }}
-                data-ad-client="ca-pub-2228435789089108"
-                data-ad-slot="8257100050"
-                data-ad-format="auto"
-                data-full-width-responsive="true"></ins>
+        <ins className="adsbygoogle"
+          style={{
+            display: "block",
+            width: "100%",
+            minWidth: 200,
+            maxHeight: 250
+          }}
+          data-ad-client="ca-pub-2228435789089108"
+          data-ad-slot="8257100050"
+          data-ad-format="auto"
+          data-full-width-responsive="true"></ins>
         {!ticker && (
           <Loading />
         )}
         {ticker &&
           <div>
+            <Meta
+              title={ticker.DescricaoDoAtivo[0]}
+              desc={ticker.InfoEmpresaDadosGerais[0]} />
             {ticker.ClassificacaoSetorial[0] && (
-              <DadosGerais 
-              DescricaoDoAtivo={ticker.DescricaoDoAtivo[0]} 
-              DadosEmpresa={ticker.InfoEmpresaDadosGerais[0]}
-              ClassificacaoSetorial={ticker.ClassificacaoSetorial[0]} />
+              <DadosGerais
+                DescricaoDoAtivo={ticker.DescricaoDoAtivo[0]}
+                DadosEmpresa={ticker.InfoEmpresaDadosGerais[0]}
+                ClassificacaoSetorial={ticker.ClassificacaoSetorial[0]} />
             )}
             {ticker.ValorDeMercado[0] && (
-              <ValorDeMercado 
-              valor={ticker.ValorDeMercado[0].ValorDeMercado}/>
+              <ValorDeMercado
+                valor={ticker.ValorDeMercado[0].ValorDeMercado} />
             )}
             {ticker.Oscilacoes[0] && (
-              <Oscilacoes 
-              data={ticker.Oscilacoes}/>
+              <Oscilacoes
+                data={ticker.Oscilacoes} />
             )}
             {ticker.Cotacoes[0] && (
-              <Cotacoes 
-              Cotacoes={ticker.Cotacoes[0]}/>
+              <Cotacoes
+                Cotacoes={ticker.Cotacoes[0]} />
             )}
             {ticker.ResumoBalancoDFP[0] && (
-              <ResumoBalanco 
-              Balanco={ticker.ResumoBalancoDFP[0]}/>
+              <ResumoBalanco
+                Balanco={ticker.ResumoBalancoDFP[0]} />
+            )}
+            {ticker.indicadores && (
+              <Indicadores data={ticker.indicadores} />
             )}
           </div>
         }

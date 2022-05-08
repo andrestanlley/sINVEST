@@ -39,3 +39,13 @@ export const dicionarioCotacoes = [
     "",
     "Volume total",
 ]
+
+export const dicionarioIndicadores = [
+    "ROE",
+    "Liquidez corrente",
+    "Liquidez imeadiata",
+    "PL",
+    "Margem líquida",
+    "Margem EBIT",
+    "Alavancagem"
+]

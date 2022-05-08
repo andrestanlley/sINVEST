@@ -109,7 +109,6 @@ export const TickerDetails = styled.div`
 
     #VALORDEMERCADO > #Valor > p{
         font-size: 1rem;
-        //color: var(--cinza-tres);
         opacity: .7;
     }
 
@@ -146,9 +145,53 @@ export const TickerDetails = styled.div`
         background: var(--branco);
     }
 
+    #INDICADORES{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        width: 100%;
+
+        h1{
+            padding: .3rem;
+            background: linear-gradient(to bottom, transparent 80%, var(--azul-dois) 20%);
+            margin-bottom: .8rem;
+        }
+
+        div{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            width: 100%;
+            
+            div{
+                width: max-content;
+                justify-content: space-between;
+                font-size: 1.2rem;
+                text-align: center;
+                display: flex;
+                flex-direction: column;
+                outline: 1px solid var(--cinza);
+
+                p{
+                    font-weight: 700;
+                }
+            }
+        }
+    }
+
     @media (max-width: 1060px){
         section{
             width: 100%;
+        }
+
+        #INDICADORES{
+         div{
+            flex-direction: column;
+            div{
+                width: 100%;
+            }
+            }
         }
     }
 
