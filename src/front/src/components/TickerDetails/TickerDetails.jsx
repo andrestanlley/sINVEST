@@ -30,12 +30,12 @@ export default function TickerDetail(props) {
         <ins className="adsbygoogle"
           style={{
             display: "inline-block",
-            width: 728,
+            width: "100%",
+            minWidth: 200,
             height: 90,
           }}
           data-ad-client="ca-pub-2228435789089108"
-          data-ad-slot="8257100050"
-          data-full-width-responsive="true"></ins>
+          data-ad-slot="8257100050"/>
         {!ticker && (
           <Loading />
         )}
