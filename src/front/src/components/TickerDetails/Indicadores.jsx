@@ -1,3 +1,4 @@
+import renderIndicadores from "../../functions/renderIndicadores"
 import { dicionarioIndicadores } from "./dicionarios"
 
 export default function Indicadores(props){
@@ -12,7 +13,7 @@ export default function Indicadores(props){
                   return <div key={index}>
                     <div>
                       <p className='indicador-titulo linhaImpar'>{dicionarioIndicadores[index]}</p>
-                      <span className='indicador-valor linhaPar'>{indicadores[desc]}</span>
+                      <span className='indicador-valor linhaPar'>{indicadores[desc] + renderIndicadores(index)}</span>
                     </div>
                   </div>
                 })}
