@@ -8,7 +8,7 @@ export default function Indexes() {
         <div>
             <Meta
               title="Listados na B3"
-              desc="Conheça e filtre os principais ativos listados na bolsa de valores da b3 no brasil, invista com fácilidade." />
+              desc="Conheça e filtre os principais ativos listados na bolsa de valores da b3 no brasil, invista com facilidade." />
             <Header />
             <SearchTickers/>
             <Footer/>
