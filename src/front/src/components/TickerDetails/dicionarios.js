@@ -24,13 +24,13 @@ export const dicinarioBalanco = {
     EbitDFP: "Ebit (Anual)",
     EbitITR: "Ebit (Trimestral)",
     ResultIntFinancDFP: "Res. Financeiro (Anual)",
-    ResultIntFinancITR: "Res. Financeiro (Trimestral)",
-    ReceitaPrestServicosDFP: "Rec. Prest. Servicos (Anual)",
-    ReceitaPrestServicosITR: "Rec. Prest. Servicos (Trimestral)",
+    ResultIntFinancITR: "Res. Financeiro (Tri)",
+    ReceitaPrestServicosDFP: "Rec. Prest. Serv. (Anual)",
+    ReceitaPrestServicosITR: "Rec. Prest. Serv. (Tri)",
     LucroLiquidoDFP: "Lucro líq. (Anual)",
     LucroLiquidoITR: "Lucro líq. (Trimestral)",
-    ResBrutoIntermFinancDFP: "Res. Bruto Financeiro (Anual)",
-    ResBrutoIntermFinancITR: "Res. Bruto Financeiro (Trimestral)",
+    ResBrutoIntermFinancDFP: "Res. Bruto Fin. (Anual)",
+    ResBrutoIntermFinancITR: "Res. Bruto Fin. (Tri)",
 }
 
 export const dicionarioCotacoes = [
