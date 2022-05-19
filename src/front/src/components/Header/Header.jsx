@@ -13,6 +13,7 @@ export default function Header() {
                     <ol>
                         <Link to="../"><li>Início</li></Link>
                         <Link to="../ativos"><li>Ativos</li></Link>
+                        {/* <Link to="../blog"><li>Blog</li></Link> */}
                         <Link to="../contato"><li>Contato</li></Link>
                     </ol>
                 </div>

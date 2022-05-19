@@ -18,6 +18,8 @@ app.use('*', verifyHeader.ssl)
 
 app.use('/api', verifyHeader.auth, morgan('tiny'), api)
 app.use('/', express.static(path.resolve("src/front/dist")))
+app.use('/blog', express.static(path.resolve("src/front/dist")))
+app.use('/blog/:article/:post', express.static(path.resolve("src/front/dist")))
 app.use('/ativos', express.static(path.resolve("src/front/dist")))
 app.use('/sobre/:ticker', express.static(path.resolve("src/front/dist")))
 app.use('/contato', express.static(path.resolve("src/front/dist")))

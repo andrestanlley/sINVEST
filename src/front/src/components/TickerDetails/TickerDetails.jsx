@@ -22,7 +22,7 @@ export default function TickerDetail(props) {
     getTicker()
   }, [])
 
-
+//http://visaomacro.com:5000/wp-json/wp/v2/tags?tag=PETR4
   return (
     <div className='bodylimiter'>
       <TickerDetails>

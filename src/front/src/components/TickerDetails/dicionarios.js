@@ -11,22 +11,27 @@ export const dicionarioOscilacoes = [
     "2022"
 ]
 
-export const dicinarioBalanco = [
-    "Número de ações",
-    "Ativo",
-    "Disponibilidades",
-    "Ativo circulante",
-    "Dívida bruta",
-    "Dívida líq.",
-    "Patrimônio líquido",
-    "Receita líq. (Anual)",
-    "Ebit (Anual)",
-    "Lucro líq. (Anual)",
-    "Receita líq. (Trimestral)",
-    "Ebit (Trimestral)",
-    "Lucro líq. (Trimestral)",
-]
-
+export const dicinarioBalanco = {
+    NumAcoes: "Número de ações",
+    Ativo: "Ativo",
+    Disponibilidades: "Disponibilidades",
+    AtivoCirculante: "Ativo circulante",
+    DividaBruta: "Dívida bruta",
+    DividaLiquida: "Dívida líq.",
+    PatrimonioLiquido: "Patrimônio líquido",
+    ReceitaLiquidaDFP: "Receita líq. (Anual)",
+    ReceitaLiquidaITR: "Receita líq. (Trimestral)",
+    EbitDFP: "Ebit (Anual)",
+    EbitITR: "Ebit (Trimestral)",
+    ResultIntFinancDFP: "Res. Financeiro (Anual)",
+    ResultIntFinancITR: "Res. Financeiro (Trimestral)",
+    ReceitaPrestServicosDFP: "Rec. Prest. Servicos (Anual)",
+    ReceitaPrestServicosITR: "Rec. Prest. Servicos (Trimestral)",
+    LucroLiquidoDFP: "Lucro líq. (Anual)",
+    LucroLiquidoITR: "Lucro líq. (Trimestral)",
+    ResBrutoIntermFinancDFP: "Res. Bruto Financeiro (Anual)",
+    ResBrutoIntermFinancITR: "Res. Bruto Financeiro (Trimestral)",
+}
 
 export const dicionarioCotacoes = [
     "Abertura",

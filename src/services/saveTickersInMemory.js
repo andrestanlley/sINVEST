@@ -1,6 +1,7 @@
 const tick = require('../controllers/aboutTicker')
 const Lists = require('../constants/Lists')
 const indicators = require('./indicators')
+const { getBalanceData } = require('./getBalanceData')
 
 
 exports.start = async () => {
@@ -12,7 +13,8 @@ exports.start = async () => {
                 throw new Error()
             }
             result.data.indicadores = indicators.add(result.data)
-            Lists.tickerInMemory.push(result.data)
+            const SanitizedTicker = getBalanceData(result.data)
+            Lists.tickerInMemory.push(SanitizedTicker)
             console.log(`Requisição para ${ticker}, ${Lists.tickerInMemory.length} Ações na memoria.`)
         } catch {}
     }

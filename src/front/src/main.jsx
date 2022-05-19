@@ -12,6 +12,8 @@ import Indexes from './pages/Indexes/Index';
 import Contact from './pages/Contact/Index';
 
 import ReactGA from 'react-ga'
+import BlogPage from './pages/Blog/Index';
+import VerArtigo from './pages/VerArtigo/Index';
 const TRACKING_ID = "G-8BBVJ2Z0RF"
 ReactGA.initialize(TRACKING_ID);
 
@@ -27,6 +29,8 @@ function RouterDom(){
         <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/ativos" element={<Indexes/>} />
+        <Route path="/blog" element={<BlogPage/>} />
+        <Route path="/blog/:artigo/:idArtigo" element={<VerArtigo/>} />
         <Route path="/contato" element={<Contact/>} />
         <Route path="/sobre/:ticker" element={<About/>} />
         </Routes>

@@ -3,7 +3,6 @@ require('dotenv').config()
 const Lists = require("../constants/Lists")
 const lastView = require('../services/lastview')
 const qs = require('qs')
-const indicators = require('../services/indicators')
 
 exports.lastView = (req, res) => {
     return res.status(200).send(Lists.lastview)
@@ -36,10 +35,16 @@ exports.get = async (req, res) => {
         ticker
     } = req.params
     try {
-        const result = await this.request("getCotacoesBalancos", ticker)
-        result.data.indicadores = indicators.add(result.data)
-        lastView.add(result.data)
-        return res.status(200).send(result.data)
+        var tickerResponse;
+        Lists.tickerInMemory.forEach((acao) => {
+            if (acao.DescricaoDoAtivo[0].Codigo == ticker)
+                tickerResponse = acao
+        })
+        if(tickerResponse){
+            lastView.add(tickerResponse)
+            return res.status(200).send(tickerResponse)
+        }
+        return res.status(404).send({message: "Ação não encontrada."})
     } catch (error) {
         res.status(500).send(error.message)
     }

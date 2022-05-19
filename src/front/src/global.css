@@ -55,6 +55,6 @@ body::-webkit-scrollbar {
     border-radius: 1rem;       /* roundness of the scroll thumb */
   }
 
-div{
+div, article{
     border-radius: 0.25rem;
 }
