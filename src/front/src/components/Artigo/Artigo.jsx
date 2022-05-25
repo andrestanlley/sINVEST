@@ -32,7 +32,7 @@ export default function Artigo() {
                     <div>
                         <h1>{article.title.rendered}</h1>
                         <span>{new Date(article.date).toLocaleDateString()} </span>
-                        <p dangerouslySetInnerHTML={{ __html: article.content.rendered }} />
+                        <div dangerouslySetInnerHTML={{ __html: article.content.rendered }}></div>
                     </div>
                 </article>
                 )}
