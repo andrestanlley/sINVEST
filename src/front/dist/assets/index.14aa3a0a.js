@@ -922,32 +922,32 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
     width: 100%;
     max-width: var(--limiter-width);
     background: var(--branco);
-    padding: 1.5rem;
+    padding: 2rem;
     min-height: 33rem;
+
+    h1,h2,h3,h4,h5{
+        margin: 1rem 0;
+        text-transform: uppercase;
+    }
 
     h1{
         font-size: 3rem;
-        margin: 1rem 0;
     }
 
     h2{
         font-size: 2.8rem;
-        margin: 1rem 0;
     }
 
     h3{
         font-size: 2.5rem;
-        margin: 1rem 0;
     }
 
     h4{
         font-size: 2rem;
-        margin: 1rem 0;
     }
 
     h5{
         font-size: 1.5rem;
-        margin: 1rem 0;
     }
 
     img{
@@ -957,6 +957,13 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
 
     span{
         color: var(--cinza-tres);
+    }
+
+    p{
+        line-height: normal;
+        margin-top: 1rem;
+        line-height: 150%;
+        font-size: 1.1rem;
     }
 
     
