@@ -34,6 +34,7 @@ let httpsServer = https.createServer(credencials, app)
 httpServer.listen(80)
 httpsServer.listen(443, () => {
   console.log("Servidor rodando nas portas 80 e 443");
+  saveTickersInMemory.start()
   setTimeout(() => {
     Lists.tickerInMemory = []
     saveTickersInMemory.start()
