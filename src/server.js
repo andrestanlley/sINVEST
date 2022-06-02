@@ -32,7 +32,7 @@ let credencials = {
 let httpServer = http.createServer(app)
 let httpsServer = https.createServer(credencials, app)
 
-cron.scheduleJob('0 0 3 * *', ()=>{
+cron.scheduleJob('30 * * * * *', ()=>{
   Lists.tickerInMemory = []
   saveTickersInMemory.start()
 })
