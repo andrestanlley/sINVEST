@@ -14,7 +14,15 @@ exports.start = async () => {
             }
             result.data.indicadores = indicators.add(result.data)
             const SanitizedTicker = getBalanceData(result.data)
-            Lists.tickerInMemory.push(SanitizedTicker)
+            let indexInMemory = Lists.tickerInMemory.forEach((acao, index) => {
+                if (acao.DescricaoDoAtivo[0].Codigo == SanitizedTicker.DescricaoDoAtivo[0].Codigo)
+                    return index
+            })
+            if(indexInMemory){
+                Lists.tickerInMemory[indexInMemory] = SanitizedTicker
+            }else{
+                Lists.tickerInMemory.push(SanitizedTicker)
+            }
             console.log(`Requisição para ${ticker}, ${Lists.tickerInMemory.length} Ações na memoria.`)
         } catch {}
     }
