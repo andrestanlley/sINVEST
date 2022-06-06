@@ -7,7 +7,6 @@ const http = require('http')
 const https = require('https')
 const fs = require('fs')
 const path = require('path')
-const cron = require('node-schedule')
 require('dotenv').config()
 const morgan = require('morgan')
 const app = express()
@@ -30,8 +29,6 @@ let credencials = {
 
 let httpServer = http.createServer(app)
 let httpsServer = https.createServer(credencials, app)
-
-cron.scheduleJob('30 * * * *', saveTickersInMemory.start)
 
 httpServer.listen(80)
 httpsServer.listen(443, () => {

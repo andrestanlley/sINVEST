@@ -4,8 +4,11 @@ const indicators = require('./indicators')
 const { getBalanceData } = require('./getBalanceData')
 
 
+
+
 exports.start = async () => {
     console.log("Iniciando requisições!")
+    Lists.tickerInMemory = [];
     for await (let ticker of Lists.acoes) {
         try {
             let result = await tick.request("getCotacoesBalancos", ticker)
@@ -14,15 +17,7 @@ exports.start = async () => {
             }
             result.data.indicadores = indicators.add(result.data)
             const SanitizedTicker = getBalanceData(result.data)
-            let indexInMemory = Lists.tickerInMemory.forEach((acao, index) => {
-                if (acao.DescricaoDoAtivo[0].Codigo == SanitizedTicker.DescricaoDoAtivo[0].Codigo)
-                    return index
-            })
-            if(indexInMemory){
-                Lists.tickerInMemory[indexInMemory] = SanitizedTicker
-            }else{
-                Lists.tickerInMemory.push(SanitizedTicker)
-            }
+            Lists.tickerInMemory.push(SanitizedTicker)
             console.log(`Requisição para ${ticker}, ${Lists.tickerInMemory.length} Ações na memoria.`)
         } catch {}
     }
