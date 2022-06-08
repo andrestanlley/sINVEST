@@ -20,6 +20,9 @@ export const Articles = styled.div`
         margin-bottom: 1.5rem;
         cursor: pointer;
         
+        h1: {
+            text-transform: uppercase;
+        }
   
         img{
             border-radius: 4px;
@@ -28,6 +31,7 @@ export const Articles = styled.div`
             object-fit: cover;
             margin: 1rem;
         }
+
 
 
         span{

@@ -9,6 +9,15 @@ export const Article = styled.section`
     padding: 2rem;
     min-height: 33rem;
 
+    #whatsapp-share > a {
+        color: var(--verde);
+        font-size: 1.5rem;
+    }
+
+    #whatsapp-share > a:hover{
+        opacity: 0.8;
+    }
+
     h1,h2,h3,h4,h5{
         margin: 1rem 0;
         text-transform: uppercase;

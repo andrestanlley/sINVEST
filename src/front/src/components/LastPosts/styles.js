@@ -9,7 +9,10 @@ export const Articles = styled.div`
     min-height: 35rem;
     margin-top: 2rem;
     position: relative;
-    min-height: 14rem;
+
+    h1{
+        text-transform: uppercase;
+    }
 
     button{
         margin-top: .3rem;

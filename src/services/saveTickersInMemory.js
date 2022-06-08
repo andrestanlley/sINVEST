@@ -3,9 +3,6 @@ const Lists = require('../constants/Lists')
 const indicators = require('./indicators')
 const { getBalanceData } = require('./getBalanceData')
 
-
-
-
 exports.start = async () => {
     console.log("Iniciando requisições!")
     Lists.tickerInMemory = [];

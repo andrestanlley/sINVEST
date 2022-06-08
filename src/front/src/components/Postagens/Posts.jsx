@@ -9,9 +9,8 @@ export default function Posts() {
 
     useEffect(async () => {
         window.scrollTo(0,0)
-        const result = await axios.get("../api/posts", { headers: { "reactAuth": (Math.random() * 1000)}})
+        const result = await axios.get("https://unsteadfast-currenc.000webhostapp.com/wp-json/wp/v2/posts?_embed")
         setPosts(result.data)
-        console.log(result.data)
     }, [])
 
     return (
