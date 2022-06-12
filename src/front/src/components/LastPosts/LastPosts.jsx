@@ -17,7 +17,7 @@ export default function LastPosts() {
             <Articles>
                 <LastPostsTitle>Últimas publicações</LastPostsTitle>
                 {posts.map(post => {
-                    return <Link to={`/blog/${post.slug}/${post.id}`}>
+                    return <Link to={`/blog/${post.id}?post=${post.slug}`}>
                         <article key={post.id}>
                             <div className='poster'>
                                 <img src={post._embedded["wp:featuredmedia"] ? post._embedded["wp:featuredmedia"][0].source_url : "/assets/imgs/Logo_001.png"} alt={post.title.rendered} />

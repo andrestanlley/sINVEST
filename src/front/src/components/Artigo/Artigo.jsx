@@ -8,13 +8,12 @@ import { BsWhatsapp } from "react-icons/bs";
 
 export default function Artigo() {
   const [article, setArticle] = useState();
-  const { artigo, idArtigo } = useParams();
+  const { idArtigo } = useParams();
 
   useEffect(async () => {
     window.scrollTo(0, 0);
     const result = await axios.get(`https://p.www.visaomacro.com/wp-json/wp/v2/posts/${idArtigo}?_embed`);
     setArticle(result.data);
-    console.log(result.data);
   }, []);
 
   return (

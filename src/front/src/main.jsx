@@ -30,7 +30,7 @@ function RouterDom(){
         <Route path="/" element={<Home />} />
         <Route path="/ativos" element={<Indexes/>} />
         <Route path="/blog" element={<BlogPage/>} />
-        <Route path="/blog/:artigo/:idArtigo" element={<VerArtigo/>} />
+        <Route path="/blog/:idArtigo" element={<VerArtigo/>} />
         <Route path="/contato" element={<Contact/>} />
         <Route path="/sobre/:ticker" element={<About/>} />
         </Routes>
