@@ -24,6 +24,7 @@ export const Article = styled.section`
     }
 
     h1{
+        width: 100%;
         font-size: 3rem;
     }
 
@@ -59,5 +60,10 @@ export const Article = styled.section`
         font-size: 1.1rem;
     }
 
+    @media (max-width: 900px) {
+        h1{
+            font-size: 2rem;
+        }
+    }
     
 `
