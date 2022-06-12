@@ -12,7 +12,7 @@ export default function Artigo() {
 
   useEffect(async () => {
     window.scrollTo(0, 0);
-    const result = await axios.get(`https://unsteadfast-currenc.000webhostapp.com/wp-json/wp/v2/posts/${idArtigo}?_embed`);
+    const result = await axios.get(`https://p.www.visaomacro.com/wp-json/wp/v2/posts/${idArtigo}?_embed`);
     setArticle(result.data);
     console.log(result.data);
   }, []);

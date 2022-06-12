@@ -8,7 +8,7 @@ export default function LastPosts() {
 
     useEffect(async () => {
         window.scrollTo(0, 0)
-        const result = await axios.get("https://unsteadfast-currenc.000webhostapp.com/wp-json/wp/v2/posts?_embed")
+        const result = await axios.get("https://p.www.visaomacro.com/wp-json/wp/v2/posts?_embed")
         setPosts(result.data.slice(0, 2))
     }, [])
 
