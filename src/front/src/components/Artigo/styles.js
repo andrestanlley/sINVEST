@@ -9,9 +9,17 @@ export const Article = styled.section`
     padding: 2rem;
     min-height: 33rem;
 
-    #whatsapp-share > a {
-        color: var(--verde);
-        font-size: 1.5rem;
+    #whatsapp-share {
+        margin-top: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+        a{
+            padding-left: .5rem;
+            color: var(--verde);
+            font-size: 1.5rem;
+        }
     }
 
     #whatsapp-share > a:hover{
@@ -59,6 +67,12 @@ export const Article = styled.section`
         line-height: 150%;
         font-size: 1.1rem;
     }
+
+    li{
+        margin: 10px 30px;
+        font-size: 1.1rem;
+    }
+
 
     @media (max-width: 900px) {
         h1{

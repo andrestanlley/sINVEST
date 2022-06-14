@@ -29,9 +29,7 @@ export default function Artigo() {
             <div>
               <h1>{article.title.rendered}</h1>
               <span>Publicado por {article._embedded.author[0].name} em {new Date(article.date).toLocaleDateString()} </span>
-              <div
-                dangerouslySetInnerHTML={{ __html: article.content.rendered }}
-              ></div>
+              <div dangerouslySetInnerHTML={{ __html: article.content.rendered }}/>
             </div>
           </article>
         )}

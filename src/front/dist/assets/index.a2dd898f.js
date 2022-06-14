@@ -306,7 +306,6 @@ Add a <Suspense fallback=...> component higher in the tree to provide a loading 
     width: 100%;
     max-width: var(--limiter-width);
     text-decoration: none;
-    min-height: 35rem;
     margin-top: 2rem;
     position: relative;
 
@@ -410,7 +409,7 @@ Add a <Suspense fallback=...> component higher in the tree to provide a loading 
     width: max-content;
     padding: .5rem;
     color: var(--branco);
-`;function KD(){const[e,t]=P.exports.useState([]);return P.exports.useEffect(async()=>{window.scrollTo(0,0);const r=await mo.get("https://p.www.visaomacro.com/wp-json/wp/v2/posts?_embed");t(r.data.slice(0,2))},[]),A("div",{className:"bodylimiter",children:q(qD,{children:[A(YD,{children:"\xDAltimas publica\xE7\xF5es"}),e.map(r=>A(Br,{to:`/blog/${r.id}?post=${r.slug}`,children:q("article",{children:[A("div",{className:"poster",children:A("img",{src:r._embedded["wp:featuredmedia"]?r._embedded["wp:featuredmedia"][0].source_url:"/assets/imgs/Logo_001.png",alt:r.title.rendered})}),q("div",{className:"post-data",children:[A("h1",{children:r.title.rendered}),q("span",{children:[new Date(r.date).toLocaleDateString()," \u2022 ",r._embedded.author[0].name]}),A("p",{dangerouslySetInnerHTML:{__html:r.excerpt.rendered}}),A("button",{children:"Leia Mais \xBB"})]})]},r.id)})),A(Br,{to:"./blog",id:"ver-blog",children:A("button",{children:"Ver todas"})})]})})}function XD(){return q(cd,{children:[A(Ay,{title:"Invista com facilidade.",desc:"Dispomos de todas as empresas listadas na Bolsa de Valores Brasileira para voc\xEA realizar a melhor escolha de investimentos, atrav\xE9s dos principais dados corporativos e indicadores econ\xF4micos, colhidos do pr\xF3prio banco de dados da B3 e Comiss\xE3o de Valores Mobili\xE1rios (CVM). Tudo isso de forma clara e simplificada para sua melhor experi\xEAncia, possibilitando assim uma an\xE1lise fundamentalista precisa e eficaz."}),A(vo,{}),A(GD,{}),A(KD,{}),A(aD,{}),A(ho,{})]})}const QD=zt.div`
+`;function KD(){const[e,t]=P.exports.useState([]);return P.exports.useEffect(async()=>{window.scrollTo(0,0);const r=await mo.get("https://p.www.visaomacro.com/wp-json/wp/v2/posts?_embed");t(r.data.slice(0,2))},[]),A("div",{className:"bodylimiter",children:q(qD,{children:[A(YD,{children:"\xDAltimas publica\xE7\xF5es"}),e&&e.map(r=>A(Br,{to:`/blog/${r.id}?post=${r.slug}`,children:q("article",{children:[A("div",{className:"poster",children:A("img",{src:r._embedded["wp:featuredmedia"]?r._embedded["wp:featuredmedia"][0].source_url:"/assets/imgs/Logo_001.png",alt:r.title.rendered})}),q("div",{className:"post-data",children:[A("h1",{children:r.title.rendered}),q("span",{children:[new Date(r.date).toLocaleDateString()," \u2022 ",r._embedded.author[0].name]}),A("p",{dangerouslySetInnerHTML:{__html:r.excerpt.rendered}}),A("button",{children:"Leia Mais \xBB"})]})]},r.id)})),A(Br,{to:"./blog",id:"ver-blog",children:A("button",{children:"Ver todas"})})]})})}function XD(){return q(cd,{children:[A(Ay,{title:"Invista com facilidade.",desc:"Dispomos de todas as empresas listadas na Bolsa de Valores Brasileira para voc\xEA realizar a melhor escolha de investimentos, atrav\xE9s dos principais dados corporativos e indicadores econ\xF4micos, colhidos do pr\xF3prio banco de dados da B3 e Comiss\xE3o de Valores Mobili\xE1rios (CVM). Tudo isso de forma clara e simplificada para sua melhor experi\xEAncia, possibilitando assim uma an\xE1lise fundamentalista precisa e eficaz."}),A(vo,{}),A(GD,{}),A(KD,{}),A(aD,{}),A(ho,{})]})}const QD=zt.div`
     max-width: var(--limiter-width);
     min-height: 20rem;
 
@@ -932,9 +931,17 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
     padding: 2rem;
     min-height: 33rem;
 
-    #whatsapp-share > a {
-        color: var(--verde);
-        font-size: 1.5rem;
+    #whatsapp-share {
+        margin-top: 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+        a{
+            padding-left: .5rem;
+            color: var(--verde);
+            font-size: 1.5rem;
+        }
     }
 
     #whatsapp-share > a:hover{
@@ -982,6 +989,12 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
         line-height: 150%;
         font-size: 1.1rem;
     }
+
+    li{
+        margin: 10px 30px;
+        font-size: 1.1rem;
+    }
+
 
     @media (max-width: 900px) {
         h1{

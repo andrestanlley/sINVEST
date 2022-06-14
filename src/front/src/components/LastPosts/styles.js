@@ -6,7 +6,6 @@ export const Articles = styled.div`
     width: 100%;
     max-width: var(--limiter-width);
     text-decoration: none;
-    min-height: 35rem;
     margin-top: 2rem;
     position: relative;
 
