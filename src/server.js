@@ -24,7 +24,7 @@ app.use('/', express.static(path.resolve("src/front/dist")))
 
 let credencials = {
   key: fs.readFileSync(path.resolve("src/ssl/keys/key")),
-  cert: fs.readFileSync(path.resolve("src/ssl/keys/0001_key-certbot.pem")),
+  cert: fs.readFileSync(path.resolve("src/ssl/keys/0002_key-certbot.pem")),
 }
 
 let httpServer = http.createServer(app)
