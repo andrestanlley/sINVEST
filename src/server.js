@@ -23,8 +23,8 @@ app.use('/contato', express.static(path.resolve("src/front/dist")))
 app.use('/', express.static(path.resolve("src/front/dist")))
 
 let credencials = {
-  key: fs.readFileSync(path.resolve("src/ssl/keys/privkey.pem")),
-  cert: fs.readFileSync(path.resolve("src/ssl/keys/fullchain.pem")),
+  key: fs.readFileSync(path.resolve("/etc/letsencrypt/live/visaomacro.com/privkey.pem")),
+  cert: fs.readFileSync(path.resolve("/etc/letsencrypt/live/visaomacro.com/fullchain.pem")),
 }
 
 let httpServer = http.createServer(app)
