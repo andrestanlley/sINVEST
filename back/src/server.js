@@ -17,6 +17,7 @@ app.use('*', verifyHeader.ssl)
 
 app.use('/api', verifyHeader.auth, morgan('tiny'), api)
 app.use('/blog', blog)
+// Corrigir o caminho para o frontend.
 app.use('/ativos', express.static(path.resolve("src/front/dist")))
 app.use('/sobre/:ticker', express.static(path.resolve("src/front/dist")))
 app.use('/contato', express.static(path.resolve("src/front/dist")))
