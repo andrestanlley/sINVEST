@@ -1,5 +1,4 @@
-back/.env
 .vscode
-back/node_modules
-front/node_modules
-front/dist
+node_modules
+dist
+.env
