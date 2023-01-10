@@ -29,7 +29,7 @@ export default function LastView() {
                             setor: ticker.setor
                         }} />
                     })}
-                    {lastView.length < 1 &&(
+                    {!lastView.length &&(
                         <h5>Atualizando informações.</h5>
                     )}
                 </TickerListingContainer>
