@@ -1,18 +1,22 @@
 import axios from 'axios';
 
-const apikey = import.meta.env.VITE_APIKEY;
-
 const api = axios.create({
-  baseURL: 'https://api.polygon.io/v3/reference/',
-  params: { apikey, sort: 'last_updated_utc' },
+  baseURL: 'https://brapi.dev/api/quote',
+  params: { sortBy: 'market_cap_basic', sortOrder: 'desc' },
 });
 
 const getTickers = async () => {
-  return await api.get('tickers');
+  return await api.get('list');
 };
 
 const getTickerDetail = async (ticker) => {
-  return await api.get(`tickers/${ticker}`);
+  return await api.get(ticker, {
+    params: {
+      range: '1d',
+      interval: '1d',
+      fundamental: 'true',
+    },
+  });
 };
 
 export { getTickers, getTickerDetail };

@@ -1,26 +1,21 @@
-import { MdLabel } from 'react-icons/md';
+import ValorDeMercado from './ValorDeMercado';
 
 export default function DadosGerais(ticker) {
   return (
     <section id="INFO">
-      <p id="data">{ticker?.ticker}</p>
-      <p id="NOMEEMPRESA">{ticker?.name}</p>
-      <p id="SETOR">{ticker?.sic_description}</p>
-      <p id="DESCRICAO">{ticker?.description}</p>
+      <p id="data">{ticker?.symbol}</p>
+      <p id="NOMEEMPRESA">{ticker?.longName}</p>
+      <p id="SETOR">{ticker?.Industry}</p>
+      <p id="DESCRICAO">{ticker?.Description}</p>
       <div id="CVM-CNPJ">
         <span>
-          Exchange <span>{ticker?.primary_exchange}</span>
+          Exchange <span>{ticker?.Exchange}</span>
         </span>
         <span>
-          CIK <span>{ticker?.cik}</span>
+          CIK <span>{ticker?.CIK}</span>
         </span>
+        <ValorDeMercado value={Number(ticker?.marketCap)} />
       </div>
-      {ticker?.homepage_url && (
-        <a href={ticker?.homepage_url} id="SITE" target="_blank">
-          <MdLabel className="icon" />
-          {ticker?.homepage_url}{' '}
-        </a>
-      )}
     </section>
   );
 }

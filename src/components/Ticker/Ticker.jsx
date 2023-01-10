@@ -1,33 +1,43 @@
-import { TickerContainer } from './style'
+import { TickerContainer } from './style';
 import { Link } from 'react-router-dom';
-import { AiFillCaretUp, AiFillCaretDown } from "react-icons/ai";
+import { AiFillCaretUp, AiFillCaretDown } from 'react-icons/ai';
+import moneyInText from '../../functions/moneyInText';
 
 export function Ticker({ info }) {
-    const { name, ticker, variacao, setor, marketcap, pl } = info;
+  const { image, name, ticker, variacao, setor, marketcap, volume } = info;
 
-    let color = variacao > 0 ? "var(--verde)" : "red"
-    let symbol = variacao > 0 ? <AiFillCaretUp/> : <AiFillCaretDown/>
-    return (
-        <Link to={`/sobre/${ticker}`}>
-            <TickerContainer>
-                <div>
-                    <h2> {ticker} </h2>
-                    <span style={{
-                        color: color
-                    }}> {symbol} {variacao}% </span>
-                </div>
-                <p> {name} </p>
-                {marketcap && pl &&(
-                <div style={{
-                    opacity: 0.6,
-                    fontWeight: 400
-                }}>
-                    <h2> MC {marketcap/1000000000 > 1 ? (marketcap/1000000000).toFixed(2) + "B" : (marketcap/1000000).toFixed(2) + "M"} </h2>
-                    <h2> PL {pl/1000000000 > 1 ? (pl/1000000000).toFixed(2) + "B" : (pl/1000000).toFixed(2) + "M"} </h2>
-                </div>
-                )}
-                <span>{setor}</span>   
-            </TickerContainer>
-        </Link>
-    )
+  let color = variacao > 0 ? 'var(--verde)' : 'red';
+  let symbol = variacao > 0 ? <AiFillCaretUp /> : <AiFillCaretDown />;
+  return (
+    <Link to={`/sobre/${ticker}`}>
+      <TickerContainer>
+        <div>
+          <div>
+            <img src={image} className="logocompany" />
+            <h2> {ticker} </h2>
+          </div>
+          <span
+            style={{
+              color: color,
+            }}
+          >
+            {symbol} {variacao.toFixed(2)}%
+          </span>
+        </div>
+        <p> {name}</p>
+        {marketcap && volume && (
+          <div
+            style={{
+              opacity: 0.6,
+              fontWeight: 400,
+            }}
+          >
+            <h2>MC {moneyInText(marketcap)}</h2>
+            <h2>VL {(volume / 1000).toFixed(0)} K</h2>
+          </div>
+        )}
+        <span>{setor}</span>
+      </TickerContainer>
+    </Link>
+  );
 }

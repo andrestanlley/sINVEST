@@ -3,7 +3,7 @@ import { Ticker } from '../Ticker/Ticker';
 import { TickerListingContainer } from './style';
 
 export default function TickerListing({ data }) {
-  const limiter = 56;
+  const limiter = 56
   return (
     <>
       <TickerListingContainer>
@@ -14,18 +14,17 @@ export default function TickerListing({ data }) {
               <Ticker
                 key={index}
                 info={{
+                  image: ticker.logo,
                   name: ticker.name,
-                  ticker: ticker.ticker,
-                  variacao: ticker.type,
-                  setor: ticker.market,
-                  marketcap: 100000,
-                  pl: 100000,
+                  ticker: ticker.stock,
+                  variacao: ticker.change,
+                  setor: ticker.sector,
+                  marketcap: ticker.market_cap,
+                  volume: ticker.volume,
                 }}
               />
             );
-          } catch (error) {
-            console.log(error);
-          }
+          } catch (error) {}
         })}
       </TickerListingContainer>
     </>

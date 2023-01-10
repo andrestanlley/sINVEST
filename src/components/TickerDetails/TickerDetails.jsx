@@ -15,10 +15,8 @@ export default function TickerDetail({ Ticker }) {
   useEffect(async () => {
     window.scrollTo(0, 0);
     const response = await getTickerDetail(Ticker);
-    SetTicker(response.data.results);
+    SetTicker(response.data.results[0]);
   }, []);
-
-  console.log(ticker);
 
   return (
     <div className="bodylimiter">
@@ -26,10 +24,7 @@ export default function TickerDetail({ Ticker }) {
         {!ticker && <Loading />}
         {ticker && (
           <div>
-            {ticker?.sic_description && <DadosGerais {...ticker} />}
-            {ticker?.market_cap && (
-              <ValorDeMercado valor={ticker?.market_cap} />
-            )}
+            {ticker?.symbol && <DadosGerais {...ticker} />}
             {/*
             {ticker.Oscilacoes[0] && <Oscilacoes data={ticker.Oscilacoes} />}
             {ticker.Cotacoes[0] && <Cotacoes Cotacoes={ticker.Cotacoes[0]} />}
