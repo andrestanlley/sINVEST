@@ -1,198 +1,101 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const TickerDetails = styled.div`
-    max-width: var(--limiter-width);
-    min-height: 20rem;
+  max-width: var(--limiter-width);
+  min-height: 35rem;
 
-    div{
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
-    }
+  div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
 
-    section{
-        width: 32.5rem;
-        margin-bottom: 2rem;
-        box-shadow: 0px 2px 5px var(--cinza-tres);
-        padding: 1.5rem;
-        border-radius: 0.25rem;
-        background: var(--branco);
-    }
+  section {
+    display: flex;
+    margin-bottom: 2rem;
+    box-shadow: 0px 2px 5px var(--cinza-tres);
+    padding: 1.5rem;
+    border-radius: 0.25rem;
+    background: var(--branco);
+    justify-content: space-between;
+    flex-direction: column;
+    min-width: 70rem;
 
-    #TICKER{
-        font-size: 1rem;
-        font-weight: 700;
-        background: var(--preto);
-        width: max-content;
-        color: var(--branco);
-        padding: .2rem .5rem;
-    }
-
-    #NOMEEMPRESA{
-        font-weight: 700;
-        font-size: 1.5rem;
-    }
-
-    #SETOR{
-        font-size: .8rem;
-    }
-
-    #DESCRICAO{
-        padding: 1.5rem 0;
-        text-align: justify;
-        font-size: .9rem;
-    }
-
-    #CVM-CNPJ{
-        width: 100%;
-    }
-
-    #CVM-CNPJ > span{
+    div {
         display: flex;
         flex-direction: column;
-        padding-right: .7rem;
-        padding-bottom: 1.5rem;
     }
+  }
 
-    #CVM-CNPJ > span > span{
-        font-weight: 700;
+  #HEADER-STOCK {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 2rem;
+  }
+
+  #TICKER {
+    font-size: 1rem;
+    font-weight: 700;
+    background: var(--preto);
+    width: max-content;
+    color: var(--branco);
+    padding: 0.2rem 0.5rem;
+  }
+
+  #NOMEEMPRESA {
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+    font-size: 2.5rem;
+
+    img {
+        width: 2rem;
+        margin-right: .3rem;
+        border-radius: 50%;
     }
+  }
 
-    #SITE{
-        display: flex;
-        align-items: center;
-        color: var(--azul-marinho);
-        padding: .3rem;
-        border-radius: 16px;
-        width: max-content;
+  #VALORDEMERCADO{
+    display: flex;
+    flex-direction: column;
+  }
+
+  #SETOR {
+    font-size: 0.8rem;
+  }
+
+  .tabela {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.3rem;
+  }
+
+  .tabela > span {
+    font-size: 0.9rem;
+    color: var(--cinza-tres);
+  }
+
+  .linhaImpar,
+  .linhaPar {
+    padding: 0.3rem;
+  }
+
+  #title {
+    font-weight: 700;
+  }
+
+  .linhaImpar {
+    background: var(--cinza);
+  }
+
+  .linhaPar {
+    background: var(--branco);
+  }
+
+  @media (max-width: 1060px) {
+    section {
+      width: 100%;
     }
-
-    .icon{
-        padding-right: .3rem;
-        font-size: 1.3rem;
-    }
-
-    #VALORDEMERCADO > #Titulo > h1{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
-
-    #VALORDEMERCADO > #Titulo > h1 > span{
-        margin-top: -10px;
-        margin-left: 2.5px;
-        font-size: 1rem;
-        opacity: .6;
-    }
-
-    #VALORDEMERCADO > #Titulo{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1.7rem;
-        align-items: center;
-        justify-content: flex-start;
-    }
-
-    #VALORDEMERCADO > #Titulo > img{
-        margin-right: .5rem;
-        width: 3rem;
-    }
-
-    #VALORDEMERCADO > #Valor {
-        display: flex;
-        flex-direction: column;
-        font-weight: 700;
-        margin-top: 2rem;
-        font-size: 4rem;
-    }
-
-    #VALORDEMERCADO > #Valor > p{
-        font-size: 1rem;
-        opacity: .7;
-    }
-
-
-    #OSCILACOES{
-        width: 100%;
-    }
-
-    .tabela{
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: .3rem;
-    }
-
-    .tabela > span{
-        font-size: .9rem;
-        color: var(--cinza-tres);
-    }
-
-    .linhaImpar, .linhaPar{
-        padding: .3rem;
-    }
-
-    #title{
-        font-weight: 700;
-    }
-
-    .linhaImpar{
-        background: var(--cinza);
-    }
-
-    .linhaPar{
-        background: var(--branco);
-    }
-
-    #INDICADORES{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        flex-direction: column;
-        width: 100%;
-
-        h1{
-            padding: .3rem;
-            background: linear-gradient(to bottom, transparent 80%, var(--azul-dois) 20%);
-            margin-bottom: .8rem;
-        }
-
-        div{
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-            width: 100%;
-            
-            div{
-                width: max-content;
-                justify-content: space-between;
-                font-size: 1.2rem;
-                text-align: center;
-                display: flex;
-                flex-direction: column;
-                outline: 1px solid var(--cinza);
-
-                p{
-                    font-weight: 700;
-                }
-            }
-        }
-    }
-
-    @media (max-width: 1060px){
-        section{
-            width: 100%;
-        }
-
-        #INDICADORES{
-         div{
-            flex-direction: column;
-            div{
-                width: 100%;
-            }
-            }
-        }
-    }
-
-`
+  }
+`;

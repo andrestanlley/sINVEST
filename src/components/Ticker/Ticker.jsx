@@ -3,40 +3,30 @@ import { Link } from 'react-router-dom';
 import { AiFillCaretUp, AiFillCaretDown } from 'react-icons/ai';
 import moneyInText from '../../functions/moneyInText';
 
-export function Ticker({ info }) {
-  const { image, name, ticker, variacao, setor, marketcap, volume } = info;
-
-  let color = variacao > 0 ? 'var(--verde)' : 'red';
-  let symbol = variacao > 0 ? <AiFillCaretUp /> : <AiFillCaretDown />;
+export function Ticker({ logo, name, stock, change, sector, market_cap }) {
+  let color = change > 0 ? 'var(--verde)' : 'red';
+  let symbol = change > 0 ? <AiFillCaretUp /> : <AiFillCaretDown />;
   return (
-    <Link to={`/sobre/${ticker}`}>
+    <Link to={`/sobre/${stock}`}>
       <TickerContainer>
         <div>
           <div>
-            <img src={image} className="logocompany" />
-            <h2> {ticker} </h2>
+            <img src={logo} className="logocompany" />
+            <h2> {stock} </h2>
           </div>
           <span
             style={{
-              color: color,
+              color,
             }}
           >
-            {symbol} {variacao.toFixed(2)}%
+            {symbol} {change.toFixed(2)}%
           </span>
         </div>
         <p> {name}</p>
-        {marketcap && volume && (
-          <div
-            style={{
-              opacity: 0.6,
-              fontWeight: 400,
-            }}
-          >
-            <h2>MC {moneyInText(marketcap)}</h2>
-            <h2>VL {(volume / 1000).toFixed(0)} K</h2>
-          </div>
-        )}
-        <span>{setor}</span>
+        <div>
+          <span>{sector}</span>
+          <span>MC {moneyInText(market_cap)}</span>
+        </div>
       </TickerContainer>
     </Link>
   );

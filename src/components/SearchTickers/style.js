@@ -5,6 +5,7 @@ export const SearchTickersContainer = styled.div`
     padding: 1rem;
     max-width: var(--limiter-width);
     min-height: 60vh;
+    min-width: 70rem;
 
 #searchTickers{
     display: flex;

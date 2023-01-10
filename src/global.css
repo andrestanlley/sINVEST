@@ -1,40 +1,45 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
-*{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    transition: 0.1s;
-    text-decoration: none;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  transition: 0.1s;
+  text-decoration: none;
 }
 
-:root{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    --azul: #13b8ec;
-    --azul-dois: #1492cd;
-    --azul-marinho: #17438c;
-    --preto: #323232;
-    --branco: #ffffff;
-    --cinza: #f1f1f1;
-    --cinza-dois: #f3f0eb;
-    --cinza-tres: #c1bdbd;
-    --verde: #00b179;
-    --limiter-width: 1080px;
-    --gradient-azul: linear-gradient(to right, var(--azul), var(--azul-marinho));
-  }
-  
-  body{
-    width: 100%;
-    min-height: 100vh;
-    background: var(--cinza-dois);
-    color: var(--preto);
-    font-family: Roboto, sans-serif;
-    scrollbar-width: .7rem;
+:root {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  --verde: #84cc16;
+  --verde-dois: #1492cd;
+  --vermelho: #e61919;
+  --verde-marinho: #65a30d;
+  --preto: #323232;
+  --branco: #ffffff;
+  --cinza: #f1f1f1;
+  --cinza-dois: #f3f0eb;
+  --cinza-tres: #c1bdbd;
+  --verde: #00b179;
+  --limiter-width: 1080px;
+  --gradient-azul: linear-gradient(
+    to right,
+    var(--verde),
+    var(--verde-marinho)
+  );
 }
 
-.bodylimiter{
+body {
+  width: 100%;
+  min-height: 100vh;
+  background: var(--cinza-dois);
+  color: var(--preto);
+  font-family: Roboto, sans-serif;
+  scrollbar-width: 0.7rem;
+}
+
+.bodylimiter {
   width: 100%;
   min-height: 6rem;
   display: flex;
@@ -43,18 +48,19 @@
 }
 
 body::-webkit-scrollbar {
-    width: .3rem;      
-  }
-  
-  body::-webkit-scrollbar-track {
-    background: none;     
-  }
-  
-  body::-webkit-scrollbar-thumb {
-    background-color: var(--azul);    /* color of the scroll thumb */
-    border-radius: 1rem;       /* roundness of the scroll thumb */
-  }
+  width: 0.3rem;
+}
 
-div, article{
-    border-radius: 0.25rem;
+body::-webkit-scrollbar-track {
+  background: none;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: var(--verde); /* color of the scroll thumb */
+  border-radius: 1rem; /* roundness of the scroll thumb */
+}
+
+div,
+article {
+  border-radius: 0.25rem;
 }

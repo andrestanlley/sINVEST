@@ -12,7 +12,7 @@ const getTickers = async () => {
 const getTickerDetail = async (ticker) => {
   return await api.get(ticker, {
     params: {
-      range: '1d',
+      range: '3mo',
       interval: '1d',
       fundamental: 'true',
     },

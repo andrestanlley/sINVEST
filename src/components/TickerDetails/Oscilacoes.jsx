@@ -1,39 +1,45 @@
-import { dicionarioOscilacoes } from "./dicionarios"
 import {
-    ComposedChart,
-    Bar,
-    XAxis,
-    YAxis,
-    CartesianGrid,
-    Tooltip,
-    Legend,
-    ResponsiveContainer,
-  } from 'recharts';
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  Legend,
+  ResponsiveContainer,
+} from 'recharts';
 
-export default function Oscilacoes(props){
-    const Oscilacoes = props.data
-    return (
-        <section id='OSCILACOES'>
-                <h1>Oscilações</h1>
-                <ResponsiveContainer width="100%" height={300}>
-                  <ComposedChart data={Oscilacoes}>
-                    <CartesianGrid stroke="#f5f5f5" />
-                    <XAxis dataKey="Oscilacao" scale="band" /><YAxis />
-                    <Tooltip wrapperStyle={{ width: 100, backgroundColor: '#ccc' }} />
-                    <Legend />
-                    <Bar dataKey="Var" name='Variação (%)' barSize={30} fill="var(--verde)" />
-                  </ComposedChart>
-                </ResponsiveContainer>
-                {Oscilacoes.map((osc, index) => {
-                  return <div className={index % 2 == 0 ? "linhaImpar" : "linhaPar"} key={index}>
-                    <div>
-                      <p id='title'>{dicionarioOscilacoes[index]}</p>
-                    </div>
-                    <div>
-                      <p>{osc.Var} %</p>
-                    </div>
-                  </div>
-                })}
-              </section>
-    )
+export default function Oscilacoes({ data }) {
+  const oscilacoes = data
+    .sort((a, b) => b.date - a.date)
+    .map((oscilacao) => {
+      return {
+        variacao: {
+          open: oscilacao.open.toFixed(4),
+          close: oscilacao.close.toFixed(4),
+        },
+        date: new Date(oscilacao.date * 1000).toLocaleDateString('pt-BR'),
+      };
+    });
+
+  return (
+      <>
+      <ResponsiveContainer width="100%" height={300}>
+        <LineChart data={oscilacoes}>
+          <CartesianGrid stroke="#f5f5f5" />
+          <XAxis dataKey="date" scale="band" order={data} />
+          <YAxis />
+          <Tooltip wrapperStyle={{ width: 100, backgroundColor: '#ccc' }} />
+          <Legend align="center" />
+          <Line dataKey="variacao.open" name="Abertura" dot={false} />
+          <Line
+            dataKey="variacao.close"
+            name="Fechamento"
+            stroke="var(--verde)"
+            dot={false}
+          />
+        </LineChart>
+      </ResponsiveContainer>
+      </>
+  );
 }

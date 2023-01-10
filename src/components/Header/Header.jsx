@@ -10,7 +10,7 @@ export default function Header() {
             <Link to="../">
               <img
                 src="../../assets/imgs/Logo_001.png"
-                alt="Logo Visão Macro"
+                alt="Logo sInvestiments"
               />
             </Link>
           </Logo>
