@@ -14,15 +14,13 @@ export default function TickerDetail({ Ticker }) {
     SetTicker(response.data.results[0]);
   }, []);
 
-  console.log(ticker);
-
   return (
     <div className="bodylimiter">
       <TickerDetails>
         {!ticker && <Loading />}
         {ticker && (
           <section>
-            <div id='HEADER-STOCK'>
+            <div id="HEADER-STOCK">
               <div>
                 <p id="TICKER">{ticker?.symbol}</p>
                 <p id="NOMEEMPRESA">
@@ -31,7 +29,10 @@ export default function TickerDetail({ Ticker }) {
                 <p id="DESCRICAO">{ticker?.Description}</p>
               </div>
               <div>
-                <ValorDeMercado value={Number(ticker?.marketCap)} />
+                <ValorDeMercado
+                  value={Number(ticker?.marketCap)}
+                  currency={ticker.currency}
+                />
               </div>
             </div>
             <Oscilacoes data={ticker.historicalDataPrice} />
