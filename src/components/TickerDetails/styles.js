@@ -19,7 +19,7 @@ export const TickerDetails = styled.div`
     background: var(--branco);
     justify-content: space-between;
     flex-direction: column;
-    min-width: 70rem;
+    min-width: 80%;
 
     div {
         display: flex;
