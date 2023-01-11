@@ -18,7 +18,10 @@
     "react-icons": "^4.3.1",
     "react-router-dom": "^6.3.0",
     "recharts": "^2.1.9",
-    "styled-components": "^5.3.5"
+    "styled-components": "^5.3.5",
+    "d3-color": "^3.1.0",
+    "prop-types":"^15.6.0",
+    "react-is":"^16.8.0"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^1.0.7",

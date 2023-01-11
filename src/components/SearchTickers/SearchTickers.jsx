@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { SearchTickersContainer } from './style';
 import lupa from '../../assets/images/lupa.png'
 import { Filters } from './Filters';
-import Select from 'react-select';
+// import Select from 'react-select';
 import Loading from '../Loading/Loading';
 import { getTickers } from '../../services/api';
 
