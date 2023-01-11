@@ -10,7 +10,7 @@ export default function Footer() {
           <div>
             <h1>Fale conosco</h1>
             <div id="links">
-              <a href="mailto:contato@sinvestiments.com" target="_blank">
+              <a href="mailto:contato@sINVEST.com" target="_blank">
                 <FiMail />{' '}
               </a>
               <a href="https://instagram.com/andrestanlley" target="_blank">
@@ -21,11 +21,13 @@ export default function Footer() {
           <div>
             <img
               src="../../assets/imgs/logo_branco.png"
-              alt="Logo sInvestiments"
+              alt="Logo sINVEST"
             ></img>
             <p>
               Desenvolvido por{' '}
-              <a href="https://andrestanlley.com" target='_blank'>André Stanlley</a>
+              <a href="https://andrestanlley.com" target="_blank">
+                André Stanlley
+              </a>
             </p>
           </div>
         </FooterSubAreas>

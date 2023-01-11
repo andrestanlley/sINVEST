@@ -8,10 +8,7 @@ export default function Header() {
         <div className="content">
           <Logo>
             <Link to="../">
-              <img
-                src="../../assets/imgs/Logo_001.png"
-                alt="Logo sInvestiments"
-              />
+              <img src="../../assets/imgs/Logo_001.png" alt="Logo sINVEST" />
             </Link>
           </Logo>
           <div>
