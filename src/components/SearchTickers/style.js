@@ -1,60 +1,59 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 export const SearchTickersContainer = styled.div`
-    background: var(--branco);
-    padding: 1rem;
-    max-width: var(--limiter-width);
-    min-height: 60vh;
-    min-width: 70rem;
+  background: var(--branco);
+  padding: 1rem;
+  max-width: var(--limiter-width);
+  min-height: 60vh;
+  min-width: 80%;
 
-#searchTickers{
+  #searchTickers {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: .5rem;
+    padding: 0.5rem;
     margin: 0 1rem;
     background: var(--cinza);
-}
+  }
 
-#searchTickers > img{
+  #searchTickers > img {
     width: 20px;
-    margin-right: .5rem;
-}
+    margin-right: 0.5rem;
+  }
 
-#searchTickers > input{
+  #searchTickers > input {
     font-size: 1.6rem;
     width: 100%;
     height: 3rem;
     border: none;
     background: var(--cinza);
     border-radius: 6px;
-}
+  }
 
-form{
+  form {
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-    margin: .7rem 1rem;
-    font-size: .8rem;
-}
+    margin: 0.7rem 1rem;
+    font-size: 0.8rem;
+  }
 
-form > div{
+  form > div {
     width: 13rem;
-    margin: .3rem;
-}
+    margin: 0.3rem;
+  }
 
-input:focus{
+  input:focus {
     outline: none;
-}
+  }
 
-@media (max-width: 700px) {
-    form{
-        justify-content: center;
+  @media (max-width: 700px) {
+    form {
+      justify-content: center;
     }
-    form > div{
-        width: 100%;
+    form > div {
+      width: 100%;
     }
-}
-
-`
+  }
+`;
