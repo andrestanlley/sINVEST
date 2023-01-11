@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './global.css';
 import Home from './pages/Home/Index';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Ticker from '../src/pages/Ticker';
+import Ticker from './pages/Ticker';
 import Indexes from './pages/Indexes/Index';
 
 function RouterDom() {
