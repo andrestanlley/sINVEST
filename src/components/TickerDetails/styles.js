@@ -19,7 +19,7 @@ export const TickerDetails = styled.div`
     background: var(--branco);
     justify-content: space-between;
     flex-direction: column;
-    min-width: 80%;
+    min-width: 70rem;
 
     div {
         display: flex;
@@ -94,8 +94,9 @@ export const TickerDetails = styled.div`
   }
 
   @media (max-width: 1060px) {
+    width: 100%;
     section {
-      width: 100%;
+      min-width: 100%;
     }
   }
 `;
