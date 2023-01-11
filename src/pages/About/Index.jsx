@@ -6,7 +6,6 @@ import Footer from '../../components/Footer/Footer'
 export default function About() {
     const { ticker } = useParams()
 
-
     return (
         <div>
             <Header />
